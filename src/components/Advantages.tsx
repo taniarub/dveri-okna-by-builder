@@ -1,4 +1,3 @@
-
 import { ArrowRight } from "lucide-react";
 
 const Advantages = () => {
@@ -45,18 +44,14 @@ const Advantages = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {advantages.map((advantage, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow">
-              <div className="flex flex-col h-full">
+            <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow flex flex-col items-center text-center">
+              <div className="flex flex-col h-full items-center">
                 <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-brand-lightblue">
                   <IconComponent name={advantage.icon} />
                 </div>
 
                 <h3 className="text-xl font-medium mb-3">{advantage.title}</h3>
                 <p className="text-gray-600 flex-grow mb-4">{advantage.description}</p>
-                
-                <a href="#" className="inline-flex items-center text-brand-yellow hover:text-yellow-600 transition-colors">
-                  Узнать больше <ArrowRight size={16} className="ml-1" />
-                </a>
               </div>
             </div>
           ))}

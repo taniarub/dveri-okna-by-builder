@@ -1,7 +1,7 @@
 
 import AboutUs from "@/components/AboutUs";
 import Advantages from "@/components/Advantages";
-import Calculator from "@/components/Calculator";
+import CalculatorBanner from "@/components/CalculatorBanner";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
@@ -17,7 +17,7 @@ const Index = () => {
       <AboutUs />
       <Advantages />
       <Portfolio />
-      <Calculator />
+      <CalculatorBanner />
       <Reviews />
       <ContactForm />
       <Footer />

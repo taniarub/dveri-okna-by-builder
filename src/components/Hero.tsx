@@ -6,7 +6,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0 bg-cover bg-center z-0" 
         style={{ 
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/lovable-uploads/f28af35a-c888-47da-8173-0aed8586ff4f.png')`,
           backgroundPosition: 'center'
         }}
       />
@@ -14,7 +14,7 @@ const Hero = () => {
       <div className="container relative z-10 px-4 py-16 md:py-24">
         <div className="max-w-3xl text-white">
           <h1 className="text-4xl md:text-5xl font-bold mb-6">
-            Качество и комфорт для вашего дома
+            Двери и окна ПВХ с бесплатной доставкой по РБ
           </h1>
           <p className="text-xl mb-8">
             Профессиональная установка окон с гарантией качества, 

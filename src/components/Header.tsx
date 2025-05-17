@@ -9,7 +9,7 @@ const Header = () => {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
-          <a href="#" className="text-brand-blue text-2xl font-bold">
+          <a href="/" className="text-brand-blue text-2xl font-bold">
             Dverivokna
           </a>
           
@@ -51,12 +51,18 @@ const Header = () => {
             <a href="#advantages" className="text-gray-600 hover:text-brand-blue transition-colors">
               Наши преимущества
             </a>
-            <a href="#calculator" className="text-gray-600 hover:text-brand-blue transition-colors">
-              Рассчитать стоимость
+            <a href="#projects" className="text-gray-600 hover:text-brand-blue transition-colors">
+              Наши работы
             </a>
             <a href="#reviews" className="text-gray-600 hover:text-brand-blue transition-colors">
               Отзывы
             </a>
+            <Link 
+              to="/calculator" 
+              className="text-gray-600 hover:text-brand-blue transition-colors"
+            >
+              Калькулятор
+            </Link>
             <a 
               href="#contact" 
               className="bg-brand-red text-white rounded-md px-6 py-2 hover:bg-red-700 transition-colors"
@@ -84,11 +90,11 @@ const Header = () => {
               Наши преимущества
             </a>
             <a 
-              href="#calculator" 
+              href="#projects" 
               className="block text-gray-600 hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
-              Рассчитать стоимость
+              Наши работы
             </a>
             <a 
               href="#reviews" 
@@ -97,6 +103,13 @@ const Header = () => {
             >
               Отзывы
             </a>
+            <Link
+              to="/calculator"
+              className="block text-gray-600 hover:text-brand-blue transition-colors py-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Калькулятор
+            </Link>
             <a 
               href="#contact" 
               className="block bg-brand-red text-white rounded-md px-4 py-2 hover:bg-red-700 transition-colors w-full text-center"
@@ -106,13 +119,6 @@ const Header = () => {
             </a>
           </div>
         )}
-      </div>
-
-      {/* Promo Banner */}
-      <div className="bg-brand-yellow py-2">
-        <div className="container mx-auto text-center text-brand-darkblue font-medium">
-          Двери и окна ПВХ с бесплатной доставкой по РБ
-        </div>
       </div>
     </header>
   );

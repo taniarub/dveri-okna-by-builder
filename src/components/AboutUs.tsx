@@ -16,7 +16,7 @@ const AboutUs = () => {
                 <div>
                   <h3 className="text-2xl font-medium mb-2">Наша миссия</h3>
                   <p className="text-gray-700">
-                    Создавать комфорт в каждом доме, используя современные технологии и качественные материалы.
+                    Делать дома уютнее с помощью передовых технологий и надёжных решений.
                   </p>
                 </div>
               </div>
@@ -26,7 +26,7 @@ const AboutUs = () => {
                 <div>
                   <h3 className="text-2xl font-medium mb-2">Наш подход</h3>
                   <p className="text-gray-700">
-                    Мы работаем с индивидуальным подходом к каждому клиенту, обеспечивая высокое качество услуг от консультации до установки и послепродажного обслуживания.
+                    Мы подбираем решения под ваши задачи — от первой консультации до установки и сервиса после продажи.
                   </p>
                 </div>
               </div>
@@ -36,7 +36,7 @@ const AboutUs = () => {
                 <div>
                   <h3 className="text-2xl font-medium mb-2">Наш опыт</h3>
                   <p className="text-gray-700">
-                    За годы работы мы установили более 10000 окон, делая дома наших клиентов теплее, тише и комфортнее. Нам доверяют более 5000 довольных клиентов.
+                    Более 10 000 установленных окон по всей стране — наш главный показатель качества и доверия.
                   </p>
                 </div>
               </div>
@@ -46,7 +46,7 @@ const AboutUs = () => {
           <div className="md:w-1/2">
             <div className="relative rounded-lg overflow-hidden">
               <img 
-                src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=800&q=80" 
+                src="/lovable-uploads/52af0b17-78ff-4908-a4ae-edf872e25bf3.png" 
                 alt="Наша команда" 
                 className="w-full h-auto rounded-lg" 
               />
@@ -54,6 +54,26 @@ const AboutUs = () => {
                 "Качество не действие, это привычка."
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      {/* Stats section from image 4 */}
+      <div className="container mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col items-center">
+            <h3 className="text-5xl font-bold text-brand-yellow mb-2">15+</h3>
+            <p className="text-gray-700">Лет опыта</p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col items-center">
+            <h3 className="text-5xl font-bold text-brand-yellow mb-2">5000+</h3>
+            <p className="text-gray-700">Довольных клиентов</p>
+          </div>
+          
+          <div className="bg-white p-8 rounded-lg shadow-sm flex flex-col items-center">
+            <h3 className="text-5xl font-bold text-brand-yellow mb-2">10000+</h3>
+            <p className="text-gray-700">Установленных окон</p>
           </div>
         </div>
       </div>

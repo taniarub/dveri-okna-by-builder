@@ -1,18 +1,22 @@
 
+import { useState } from "react";
+
 const Portfolio = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  
   const projects = [
     {
-      image: "/lovable-uploads/dc24e8be-6c4e-47d2-b52a-09011c5b5bba.png",
+      image: "/lovable-uploads/82a5ae65-9029-4af9-a2d7-5697675b441f.png",
       title: "Нестандартная форма",
       subtitle: "Индивидуальный дизайн",
     },
     {
-      image: "https://images.unsplash.com/photo-1524230572899-a752b3835840?auto=format&fit=crop&w=800&q=80",
+      image: "/lovable-uploads/52af0b17-78ff-4908-a4ae-edf872e25bf3.png",
       title: "Современные окна",
       subtitle: "Установка в новостройке",
     },
     {
-      image: "https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=800&q=80",
+      image: "/lovable-uploads/5712a393-8821-43de-86f4-b129f6ba180b.png",
       title: "Панорамные окна",
       subtitle: "Частный дом",
     },
@@ -21,14 +25,15 @@ const Portfolio = () => {
   return (
     <section id="projects" className="py-16 bg-white">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-4">Примеры наших работ</h2>
-        <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-          Познакомьтесь с проектами, которые мы успешно реализовали.
-        </p>
+        <h2 className="text-4xl font-bold text-center mb-12">Примеры наших работ</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="overflow-hidden rounded-lg shadow-md group">
+            <div 
+              key={index} 
+              className="overflow-hidden rounded-lg shadow-md group cursor-pointer"
+              onClick={() => setSelectedImage(project.image)}
+            >
               <div className="relative h-80">
                 <img
                   src={project.image}
@@ -44,6 +49,29 @@ const Portfolio = () => {
           ))}
         </div>
       </div>
+      
+      {/* Image Modal */}
+      {selectedImage && (
+        <div 
+          className="fixed inset-0 bg-black bg-opacity-80 z-50 flex items-center justify-center p-4"
+          onClick={() => setSelectedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh] w-full">
+            <button 
+              className="absolute top-4 right-4 bg-white rounded-full p-2 text-black"
+              onClick={() => setSelectedImage(null)}
+            >
+              ✕
+            </button>
+            <img 
+              src={selectedImage} 
+              alt="Увеличенное изображение" 
+              className="w-full h-auto max-h-[90vh] object-contain"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 };
