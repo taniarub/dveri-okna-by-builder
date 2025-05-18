@@ -69,7 +69,9 @@ export default {
 					lightblue: '#EBF1F8',
 					darkblue: '#1A2533',
 					gray: '#F5F5F5',
-					yellow: '#FFC107'
+					yellow: '#f5a623', // Updated to match reference images
+					orange: '#f5a623', // Added from reference images
+					beige: '#f9f7f4', // Added from reference images
 				}
 			},
 			borderRadius: {
@@ -85,11 +87,22 @@ export default {
 				'accordion-up': {
 					from: { height: 'var(--radix-accordion-content-height)' },
 					to: { height: '0' }
+				},
+				'fade-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateY(20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateY(0)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'fade-in': 'fade-in 0.8s ease-out forwards'
 			}
 		}
 	},

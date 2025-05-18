@@ -28,20 +28,20 @@ const CalculatorBanner = () => {
   }, []);
 
   return (
-    <section className="py-16 bg-[#f9f9f7]">
+    <section className="py-20 bg-brand-beige">
       <div className="container">
         <div 
           ref={bannerRef}
           className="flex flex-col items-center text-center max-w-3xl mx-auto opacity-0 transition-opacity duration-1000"
         >
-          <Calculator className="w-16 h-16 mb-6 text-brand-red" />
+          <Calculator className="w-16 h-16 mb-6 text-brand-orange" />
           <h2 className="text-4xl font-bold mb-6">Калькулятор стоимости</h2>
           <p className="text-xl mb-8">
             Рассчитайте предварительную стоимость окон с учетом ваших требований.
           </p>
           <Link 
             to="/calculator" 
-            className="bg-brand-red hover:bg-red-700 text-white font-medium px-8 py-3 rounded-md transition-colors"
+            className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-10 py-4 rounded-md transition-colors text-lg"
           >
             Рассчитать стоимость
           </Link>
