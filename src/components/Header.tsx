@@ -10,7 +10,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
           <a href="/" className="text-brand-blue text-2xl font-bold">
-            Dverivokna
+            Двери и окна ПВХ
           </a>
           
           {/* Mobile menu button */}

@@ -1,6 +1,30 @@
-import { ArrowRight } from "lucide-react";
+
+import { useEffect, useRef } from "react";
 
 const Advantages = () => {
+  const advantagesRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+      const element = advantagesRef.current;
+
+      if (element) {
+        const position = element.offsetTop;
+        if (scrollY > position - window.innerHeight * 0.75) {
+          element.classList.add('animate-fade-in');
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Check on initial load
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
+
   const advantages = [
     {
       icon: "truck",
@@ -35,24 +59,26 @@ const Advantages = () => {
   ];
 
   return (
-    <section id="advantages" className="py-16 bg-gray-50">
+    <section id="advantages" className="py-16 bg-[#f8f4ef]">
       <div className="container">
         <h2 className="text-4xl font-bold text-center mb-4">Наши преимущества</h2>
         <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">
-          Почему клиенты выбирают нас для установки окон и дверей.
+          Почему клиенты выбирают нас для установки окон и дверей?
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div ref={advantagesRef} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 opacity-0 transition-opacity duration-1000">
           {advantages.map((advantage, index) => (
-            <div key={index} className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow flex flex-col items-center text-center">
-              <div className="flex flex-col h-full items-center">
-                <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-brand-lightblue">
-                  <IconComponent name={advantage.icon} />
-                </div>
-
-                <h3 className="text-xl font-medium mb-3">{advantage.title}</h3>
-                <p className="text-gray-600 flex-grow mb-4">{advantage.description}</p>
+            <div 
+              key={index} 
+              className="bg-white rounded-lg shadow-sm p-6 hover:shadow-md transition-shadow flex flex-col items-center text-center"
+              style={{ animationDelay: `${index * 0.1}s` }}
+            >
+              <div className="flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-brand-lightblue">
+                <IconComponent name={advantage.icon} />
               </div>
+
+              <h3 className="text-xl font-medium mb-3">{advantage.title}</h3>
+              <p className="text-gray-600">{advantage.description}</p>
             </div>
           ))}
         </div>

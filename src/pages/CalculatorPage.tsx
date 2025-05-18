@@ -23,9 +23,9 @@ const CalculatorPage = () => {
       case "three-leaf":
         return 3;
       case "balcony-door-two-window":
-        return 3; // 2 windows + 1 door
+        return 2; // Changed from 3 to 2 (removed window 3)
       case "balcony-door":
-        return 2; // 1 window + 1 door
+        return 1; // Changed from 2 to 1 (removed window 2)
       case "other-type":
       default:
         return 0;
@@ -113,10 +113,33 @@ const CalculatorPage = () => {
     setContactInfo({ name: "", phone: "", consent: false });
   };
 
+  // Adjusted labels for window panes based on the position
+  const getFrameLabel = (index: number, windowType: string) => {
+    if (windowType === "one-leaf") return "Створка";
+    
+    if (windowType === "two-leaf") {
+      return index === 0 ? "Левая створка" : "Правая створка";
+    }
+    
+    if (windowType === "three-leaf") {
+      return index === 0 ? "Левая створка" : index === 1 ? "Центральная створка" : "Правая створка";
+    }
+    
+    if (windowType === "balcony-door-two-window") {
+      return index === 0 ? "Левая створка" : "Правая створка";
+    }
+    
+    if (windowType === "balcony-door") {
+      return "Створка";
+    }
+    
+    return `Створка ${index + 1}`;
+  };
+
   return (
-    <div>
+    <div className="min-h-screen flex flex-col bg-[#f9f9f7]">
       <Header />
-      <div className="py-16 bg-gray-50">
+      <div className="py-16 flex-grow animate-fade-in">
         <div className="container">
           <div className="flex items-center justify-between mb-10">
             <h1 className="text-4xl font-bold">Калькулятор стоимости</h1>
@@ -126,130 +149,191 @@ const CalculatorPage = () => {
           </div>
 
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <h2 className="text-2xl font-medium mb-8">1. Выберите тип окна</h2>
-            <WindowTypeSelector onChange={handleWindowTypeChange} value={windowType} />
-            
-            <h2 className="text-2xl font-medium mt-12 mb-8">2. Выберите тип оконной створки</h2>
-            <WindowFrameSelector 
-              onChange={handleFrameTypeChange}
-              windowCount={getWindowCount(windowType)}
-              windowType={windowType}
-            />
+            <ol className="list-decimal list-inside mb-12 space-y-8">
+              <li className="pb-8 border-b">
+                <h2 className="text-2xl font-medium mb-6">Выберите тип окна</h2>
+                <WindowTypeSelector onChange={handleWindowTypeChange} value={windowType} />
+              </li>
+              
+              <li className="pb-8 border-b">
+                <h2 className="text-2xl font-medium mb-6">Выберите тип оконной створки</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                  {Array.from({ length: getWindowCount(windowType) }).map((_, index) => (
+                    <div key={index} className="mb-6">
+                      <h3 className="font-medium mb-3">{getFrameLabel(index, windowType)}</h3>
+                      <div className="flex gap-4">
+                        <label className={`cursor-pointer flex flex-col items-center p-4 border rounded-md transition-colors ${frameTypes[index] === 'fixed' ? 'bg-brand-lightblue border-brand-blue' : 'hover:bg-gray-50'}`}>
+                          <input
+                            type="radio"
+                            name={`frame-${index}`}
+                            value="fixed"
+                            checked={frameTypes[index] === 'fixed'}
+                            onChange={() => {
+                              const newFrames = [...frameTypes];
+                              newFrames[index] = 'fixed';
+                              handleFrameTypeChange(newFrames);
+                            }}
+                            className="sr-only"
+                          />
+                          <span>Глухое</span>
+                        </label>
+                        <label className={`cursor-pointer flex flex-col items-center p-4 border rounded-md transition-colors ${frameTypes[index] === 'swing' ? 'bg-brand-lightblue border-brand-blue' : 'hover:bg-gray-50'}`}>
+                          <input
+                            type="radio"
+                            name={`frame-${index}`}
+                            value="swing"
+                            checked={frameTypes[index] === 'swing'}
+                            onChange={() => {
+                              const newFrames = [...frameTypes];
+                              newFrames[index] = 'swing';
+                              handleFrameTypeChange(newFrames);
+                            }}
+                            className="sr-only"
+                          />
+                          <span>Поворотное</span>
+                        </label>
+                        <label className={`cursor-pointer flex flex-col items-center p-4 border rounded-md transition-colors ${frameTypes[index] === 'tilt-turn' ? 'bg-brand-lightblue border-brand-blue' : 'hover:bg-gray-50'}`}>
+                          <input
+                            type="radio"
+                            name={`frame-${index}`}
+                            value="tilt-turn"
+                            checked={frameTypes[index] === 'tilt-turn'}
+                            onChange={() => {
+                              const newFrames = [...frameTypes];
+                              newFrames[index] = 'tilt-turn';
+                              handleFrameTypeChange(newFrames);
+                            }}
+                            className="sr-only"
+                          />
+                          <span>Поворотно-откидное</span>
+                        </label>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </li>
 
-            <h2 className="text-2xl font-medium mt-12 mb-8">3. Укажите размеры</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div>
-                <label className="block mb-2">Ширина, мм</label>
-                <input
-                  type="number"
-                  name="width"
-                  value={dimensions.width}
-                  onChange={handleDimensionsChange}
-                  className="w-full p-3 border rounded-md"
-                  placeholder="Введите ширину"
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Высота, мм</label>
-                <input
-                  type="number"
-                  name="height"
-                  value={dimensions.height}
-                  onChange={handleDimensionsChange}
-                  className="w-full p-3 border rounded-md"
-                  placeholder="Введите высоту"
-                />
-              </div>
-            </div>
+              <li className="pb-8 border-b">
+                <h2 className="text-2xl font-medium mb-6">Укажите размеры</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block mb-2">Ширина, мм</label>
+                    <input
+                      type="number"
+                      name="width"
+                      value={dimensions.width}
+                      onChange={handleDimensionsChange}
+                      className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                      placeholder="Введите ширину"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Высота, мм</label>
+                    <input
+                      type="number"
+                      name="height"
+                      value={dimensions.height}
+                      onChange={handleDimensionsChange}
+                      className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                      placeholder="Введите высоту"
+                    />
+                  </div>
+                </div>
+              </li>
             
-            <h2 className="text-2xl font-medium mt-12 mb-8">4. Дополнительные опции</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4 mb-12">
-              <div className="flex items-center">
-                <input
-                  id="option-mosquito"
-                  type="checkbox"
-                  className="w-5 h-5"
-                  checked={options.includes("mosquito")}
-                  onChange={() => toggleOption("mosquito")}
-                  disabled={options.includes("none")}
-                />
-                <label htmlFor="option-mosquito" className="ml-2">Москитная сетка</label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  id="option-drain"
-                  type="checkbox"
-                  className="w-5 h-5"
-                  checked={options.includes("drain")}
-                  onChange={() => toggleOption("drain")}
-                  disabled={options.includes("none")}
-                />
-                <label htmlFor="option-drain" className="ml-2">Отлив</label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  id="option-sill"
-                  type="checkbox"
-                  className="w-5 h-5"
-                  checked={options.includes("sill")}
-                  onChange={() => toggleOption("sill")}
-                  disabled={options.includes("none")}
-                />
-                <label htmlFor="option-sill" className="ml-2">Подоконник</label>
-              </div>
-              <div className="flex items-center">
-                <input
-                  id="option-none"
-                  type="checkbox"
-                  className="w-5 h-5"
-                  checked={options.includes("none")}
-                  onChange={() => toggleOption("none")}
-                />
-                <label htmlFor="option-none" className="ml-2">Ничего из перечисленного</label>
-              </div>
-            </div>
+              <li className="pb-8 border-b">
+                <h2 className="text-2xl font-medium mb-6">Дополнительные опции</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
+                  <div className="flex items-center">
+                    <input
+                      id="option-mosquito"
+                      type="checkbox"
+                      className="w-5 h-5"
+                      checked={options.includes("mosquito")}
+                      onChange={() => toggleOption("mosquito")}
+                      disabled={options.includes("none")}
+                    />
+                    <label htmlFor="option-mosquito" className="ml-2">Москитная сетка</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      id="option-drain"
+                      type="checkbox"
+                      className="w-5 h-5"
+                      checked={options.includes("drain")}
+                      onChange={() => toggleOption("drain")}
+                      disabled={options.includes("none")}
+                    />
+                    <label htmlFor="option-drain" className="ml-2">Отлив</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      id="option-sill"
+                      type="checkbox"
+                      className="w-5 h-5"
+                      checked={options.includes("sill")}
+                      onChange={() => toggleOption("sill")}
+                      disabled={options.includes("none")}
+                    />
+                    <label htmlFor="option-sill" className="ml-2">Подоконник</label>
+                  </div>
+                  <div className="flex items-center">
+                    <input
+                      id="option-none"
+                      type="checkbox"
+                      className="w-5 h-5"
+                      checked={options.includes("none")}
+                      onChange={() => toggleOption("none")}
+                    />
+                    <label htmlFor="option-none" className="ml-2">Ничего из перечисленного</label>
+                  </div>
+                </div>
+              </li>
 
-            <h2 className="text-2xl font-medium mt-12 mb-8">5. Контактные данные</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-              <div>
-                <label className="block mb-2">Ваше имя*</label>
-                <input
-                  type="text"
-                  name="name"
-                  value={contactInfo.name}
-                  onChange={handleContactInfoChange}
-                  className="w-full p-3 border rounded-md"
-                  placeholder="Введите имя"
-                />
-              </div>
-              <div>
-                <label className="block mb-2">Телефон*</label>
-                <input
-                  type="tel"
-                  name="phone"
-                  value={contactInfo.phone}
-                  onChange={handleContactInfoChange}
-                  className="w-full p-3 border rounded-md"
-                  placeholder="+375 XX XXX XX XX"
-                />
-              </div>
-            </div>
-            
-            <div className="mb-8">
-              <div className="flex items-center">
-                <input
-                  id="consent"
-                  name="consent"
-                  type="checkbox"
-                  className="w-5 h-5"
-                  checked={contactInfo.consent}
-                  onChange={handleContactInfoChange}
-                />
-                <label htmlFor="consent" className="ml-2">
-                  Вы соглашаетесь на <a href="#" className="text-brand-blue underline">обработку персональных данных</a>
-                </label>
-              </div>
-            </div>
+              <li>
+                <h2 className="text-2xl font-medium mb-6">Контактные данные</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label className="block mb-2">Ваше имя*</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={contactInfo.name}
+                      onChange={handleContactInfoChange}
+                      className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                      placeholder="Введите имя"
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Телефон*</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={contactInfo.phone}
+                      onChange={handleContactInfoChange}
+                      className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                      placeholder="+375 XX XXX XX XX"
+                    />
+                  </div>
+                </div>
+                
+                <div className="mb-8">
+                  <div className="flex items-center">
+                    <input
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      className="w-5 h-5"
+                      checked={contactInfo.consent}
+                      onChange={handleContactInfoChange}
+                    />
+                    <label htmlFor="consent" className="ml-2">
+                      Вы соглашаетесь на <a href="#" className="text-brand-blue underline">обработку персональных данных</a>
+                    </label>
+                  </div>
+                </div>
+              </li>
+            </ol>
 
             <div className="flex justify-center">
               <button
