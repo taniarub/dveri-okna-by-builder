@@ -34,7 +34,6 @@ const CalculatorBanner = () => {
           ref={bannerRef}
           className="flex flex-col items-center text-center max-w-3xl mx-auto opacity-0 transition-opacity duration-1000"
         >
-          <Calculator className="w-16 h-16 mb-6 text-brand-orange" />
           <h2 className="text-4xl font-bold mb-6">Калькулятор стоимости</h2>
           <p className="text-xl mb-8">
             Рассчитайте предварительную стоимость окон с учетом ваших требований.

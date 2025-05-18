@@ -52,18 +52,43 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
     return null;
   }
 
-  const isBalconyDoor = windowType === "balcony-door" || windowType === "balcony-door-two-window";
+  const isBalconyDoorWithWindows = windowType === "balcony-door-two-window";
+  const isBalconyDoorOnly = windowType === "balcony-door";
 
   return (
     <div>
       <h4 className="text-lg font-medium mb-4">Выберите тип оконной створки</h4>
       
+      {/* Regular window frames */}
       {Array(windowCount).fill(null).map((_, index) => {
-        const types = isBalconyDoor && index === 0 ? balconyTypes : frameTypes;
+        // For balcony doors with windows, we're showing window options for the first frame (index 0)
+        // and balcony door options for the second frame (index 1)
+        // For balcony door only, we're showing balcony door options for the only frame
+        const isBalconyDoorFrame = 
+          (isBalconyDoorWithWindows && index === 1) || 
+          (isBalconyDoorOnly && index === 0);
+
+        const types = isBalconyDoorFrame ? balconyTypes : frameTypes;
+        
+        // Adjust the label based on window type
+        let frameLabel;
+        if (windowType === "one-leaf") {
+          frameLabel = "Створка";
+        } else if (windowType === "two-leaf") {
+          frameLabel = index === 0 ? "Левая створка" : "Правая створка";
+        } else if (windowType === "three-leaf") {
+          frameLabel = index === 0 ? "Левая створка" : index === 1 ? "Центральная створка" : "Правая створка";
+        } else if (isBalconyDoorWithWindows) {
+          frameLabel = index === 0 ? "Левая створка" : "Балконная дверь";
+        } else if (isBalconyDoorOnly) {
+          frameLabel = "Балконная дверь";
+        } else {
+          frameLabel = `Створка ${index + 1}`;
+        }
         
         return (
           <div key={index} className="mb-6">
-            <p className="font-medium mb-3">{`Окно ${index + 1}:`}</p>
+            <p className="font-medium mb-3">{frameLabel}</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {types.map((type) => (
                 <div 
@@ -89,39 +114,6 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
           </div>
         );
       })}
-
-      {isBalconyDoor && (
-        <div className="mb-6">
-          <p className="font-medium mb-3">Балконная дверь:</p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {balconyTypes.map((type) => (
-              <div 
-                key={`door-${type.id}`}
-                onClick={() => {
-                  const newFrames = [...frames];
-                  newFrames[windowCount - 1] = type.id; // Assuming the door is the last one
-                  setFrames(newFrames);
-                  onChange(newFrames);
-                }}
-                className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
-                  frames[windowCount - 1] === type.id 
-                    ? 'border-brand-red border-2' 
-                    : 'border-gray-200 hover:border-gray-300'
-                }`}
-              >
-                <div className="h-40 flex items-center justify-center mb-2">
-                  <img 
-                    src={type.image} 
-                    alt={type.name} 
-                    className="max-h-full max-w-full object-contain"
-                  />
-                </div>
-                <p className="text-sm">{type.name}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
     </div>
   );
 };

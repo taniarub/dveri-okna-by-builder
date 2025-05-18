@@ -1,5 +1,6 @@
 
 import { useEffect, useRef } from "react";
+import { Check } from "lucide-react";
 
 const AboutUs = () => {
   const aboutRef = useRef<HTMLDivElement>(null);
@@ -41,15 +42,14 @@ const AboutUs = () => {
           <p className="text-2xl md:text-3xl mb-8 max-w-3xl mx-auto">
             Мы - команда профессионалов с более чем 15-летним опытом в установке и обслуживании окон.
           </p>
-          <h2 className="text-4xl font-bold">Почему стоит выбрать нас?</h2>
         </div>
 
         <div ref={aboutRef} className="flex flex-col md:flex-row gap-12 items-center opacity-0 transition-opacity duration-1000">
           <div className="md:w-1/2">
             <div className="space-y-8">
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-1 h-full bg-brand-yellow"></div>
-                <div>
+              <div className="flex items-start gap-4">
+                <Check className="flex-shrink-0 w-6 h-6 text-brand-orange mt-1" />
+                <div className="flex-1">
                   <h3 className="text-2xl font-medium mb-2">Наша миссия</h3>
                   <p className="text-gray-700">
                     Делать дома уютнее с помощью передовых технологий и надёжных решений.
@@ -57,9 +57,9 @@ const AboutUs = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-1 h-full bg-brand-yellow"></div>
-                <div>
+              <div className="flex items-start gap-4">
+                <Check className="flex-shrink-0 w-6 h-6 text-brand-orange mt-1" />
+                <div className="flex-1">
                   <h3 className="text-2xl font-medium mb-2">Наш подход</h3>
                   <p className="text-gray-700">
                     Мы подбираем решения под ваши задачи — от первой консультации до установки и сервиса после продажи.
@@ -67,9 +67,9 @@ const AboutUs = () => {
                 </div>
               </div>
               
-              <div className="flex items-start gap-6">
-                <div className="flex-shrink-0 w-1 h-full bg-brand-yellow"></div>
-                <div>
+              <div className="flex items-start gap-4">
+                <Check className="flex-shrink-0 w-6 h-6 text-brand-orange mt-1" />
+                <div className="flex-1">
                   <h3 className="text-2xl font-medium mb-2">Наш опыт</h3>
                   <p className="text-gray-700">
                     Более 10 000 установленных окон по всей стране — наш главный показатель качества и доверия.
@@ -79,7 +79,7 @@ const AboutUs = () => {
             </div>
           </div>
 
-          <div className="md:w-1/2">
+          <div className="md:w-2/5">
             <div className="relative rounded-lg overflow-hidden">
               <img 
                 src="/lovable-uploads/e230526e-d80b-4868-aab3-847cc0b062f7.png" 

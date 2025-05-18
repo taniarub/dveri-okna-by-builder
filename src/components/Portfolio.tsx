@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from "react";
 
 const Portfolio = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
-  const [currentIndex, setCurrentIndex] = useState(0);
   const portfolioRef = useRef<HTMLDivElement>(null);
   
   const projects = [
@@ -23,9 +22,14 @@ const Portfolio = () => {
       subtitle: "Установка в многоэтажке",
     },
     {
-      image: "/lovable-uploads/a5017dfb-a425-44a7-8aad-6008e89d3494.png",
-      title: "Застекленный балкон",
-      subtitle: "Многоэтажный дом",
+      image: "/lovable-uploads/463ce09e-b4bb-4d53-90f9-1f918497508a.png",
+      title: "Современное окно",
+      subtitle: "Вид из квартиры",
+    },
+    {
+      image: "/lovable-uploads/3e21605d-0e39-47b3-a757-b32b03116b30.png",
+      title: "Большое окно",
+      subtitle: "Вид на город",
     },
   ];
 
@@ -50,88 +54,31 @@ const Portfolio = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
-    }, 5000);
-    
-    return () => clearInterval(interval);
-  }, [projects.length]);
-
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex + 1) % projects.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + projects.length) % projects.length);
-  };
-
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-  };
-
   return (
     <section id="projects" className="py-16 bg-white">
       <div className="container">
         <h2 className="text-4xl font-bold text-center mb-12">Примеры наших работ</h2>
 
-        <div ref={portfolioRef} className="relative max-w-5xl mx-auto opacity-0 transition-opacity duration-1000">
-          {/* Carousel */}
-          <div className="overflow-hidden">
-            <div 
-              className="flex transition-transform duration-500 ease-in-out h-96"
-              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
-            >
-              {projects.map((project, index) => (
-                <div 
-                  key={index} 
-                  className="w-full flex-shrink-0"
-                >
-                  <div 
-                    className="relative h-80 mx-4 cursor-pointer overflow-hidden rounded-lg shadow-md group"
-                    onClick={() => setSelectedImage(project.image)}
-                  >
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-6 text-white">
-                      <h3 className="text-2xl font-bold">{project.title}</h3>
-                      <p className="text-sm">{project.subtitle}</p>
-                    </div>
+        <div ref={portfolioRef} className="opacity-0 transition-opacity duration-1000">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {projects.map((project, index) => (
+              <div 
+                key={index}
+                className="cursor-pointer overflow-hidden rounded-lg shadow-md group"
+                onClick={() => setSelectedImage(project.image)}
+              >
+                <div className="relative h-64">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 text-white">
+                    <h3 className="text-lg font-bold">{project.title}</h3>
+                    <p className="text-sm">{project.subtitle}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-
-          {/* Navigation buttons */}
-          <button 
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md z-10 -ml-4"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button 
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md z-10 -mr-4"
-          >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-
-          {/* Indicators */}
-          <div className="flex justify-center mt-4 gap-2">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goToSlide(index)}
-                className={`w-3 h-3 rounded-full ${index === currentIndex ? 'bg-brand-red' : 'bg-gray-300'}`}
-              ></button>
+              </div>
             ))}
           </div>
         </div>
