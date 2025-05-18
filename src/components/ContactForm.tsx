@@ -1,17 +1,24 @@
 
 import { useState, useRef, useEffect } from "react";
-import { Form } from "@/components/ui/form";
+import { useForm } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { toast } from "@/components/ui/use-toast";
 import { Mail, Phone, Clock } from "lucide-react";
+import { Form, FormField, FormItem, FormControl } from "@/components/ui/form";
+import { Textarea } from "@/components/ui/textarea";
 
 const ContactForm = () => {
-  const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [comment, setComment] = useState("");
   const [loading, setLoading] = useState(false);
   const contactRef = useRef<HTMLDivElement>(null);
+  
+  const form = useForm({
+    defaultValues: {
+      name: "",
+      phone: "",
+      comment: "",
+    }
+  });
   
   useEffect(() => {
     const handleScroll = () => {
@@ -34,10 +41,8 @@ const ContactForm = () => {
     };
   }, []);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!name.trim()) {
+  const handleSubmit = form.handleSubmit(async (data) => {
+    if (!data.name.trim()) {
       toast({
         title: "Ошибка",
         description: "Пожалуйста, укажите ваше имя",
@@ -46,7 +51,7 @@ const ContactForm = () => {
       return;
     }
 
-    if (!phone.trim()) {
+    if (!data.phone.trim()) {
       toast({
         title: "Ошибка",
         description: "Пожалуйста, укажите ваш телефон",
@@ -63,12 +68,10 @@ const ContactForm = () => {
         title: "Заявка отправлена!",
         description: "Мы свяжемся с вами в ближайшее время",
       });
-      setName("");
-      setPhone("");
-      setComment("");
+      form.reset();
       setLoading(false);
     }, 1000);
-  };
+  });
 
   return (
     <section id="contact" className="py-16 bg-brand-beige">
@@ -77,36 +80,57 @@ const ContactForm = () => {
 
         <div ref={contactRef} className="flex flex-col md:flex-row gap-10 opacity-0 transition-opacity duration-1000">
           <div className="md:w-1/2 order-2 md:order-1">
-            <Form>
+            <Form {...form}>
               <form onSubmit={handleSubmit} className="space-y-8 max-w-md">
                 <div>
                   <h3 className="text-2xl font-bold mb-6">Есть сомнения? Оставьте ваши контакты, и мы свяжемся с вами</h3>
                   <div className="space-y-4">
-                    <div>
-                      <Input
-                        placeholder="Ваше имя"
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
-                        className="p-6"
-                      />
-                    </div>
-                    <div>
-                      <Input
-                        placeholder="Ваш телефон"
-                        value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
-                        className="p-6"
-                      />
-                    </div>
-                    <div>
-                      <textarea
-                        placeholder="Комментарий (необязательно)"
-                        value={comment}
-                        onChange={(e) => setComment(e.target.value)}
-                        className="w-full p-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-orange"
-                        rows={4}
-                      />
-                    </div>
+                    <FormField
+                      control={form.control}
+                      name="name"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              placeholder="Ваше имя"
+                              className="p-6"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="phone"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Input
+                              placeholder="Ваш телефон"
+                              className="p-6"
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
+                    <FormField
+                      control={form.control}
+                      name="comment"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormControl>
+                            <Textarea
+                              placeholder="Комментарий (необязательно)"
+                              className="w-full p-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-orange"
+                              rows={4}
+                              {...field}
+                            />
+                          </FormControl>
+                        </FormItem>
+                      )}
+                    />
                   </div>
                 </div>
 
