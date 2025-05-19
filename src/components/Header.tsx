@@ -9,7 +9,7 @@ const Header = () => {
     <header className="bg-white shadow-sm sticky top-0 z-50">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
-          <a href="/" className="text-brand-blue text-2xl font-bold">
+          <a href="/" className="text-black text-2xl font-bold">
             Двери и окна ПВХ
           </a>
           
@@ -45,16 +45,16 @@ const Header = () => {
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="#about" className="text-gray-600 hover:text-brand-blue transition-colors">
+            <a href="/#about" className="text-gray-600 hover:text-brand-blue transition-colors">
               О нас
             </a>
-            <a href="#advantages" className="text-gray-600 hover:text-brand-blue transition-colors">
+            <a href="/#advantages" className="text-gray-600 hover:text-brand-blue transition-colors">
               Наши преимущества
             </a>
-            <a href="#projects" className="text-gray-600 hover:text-brand-blue transition-colors">
+            <a href="/#projects" className="text-gray-600 hover:text-brand-blue transition-colors">
               Наши работы
             </a>
-            <a href="#reviews" className="text-gray-600 hover:text-brand-blue transition-colors">
+            <a href="/#reviews" className="text-gray-600 hover:text-brand-blue transition-colors">
               Отзывы
             </a>
             <Link 
@@ -64,8 +64,8 @@ const Header = () => {
               Калькулятор
             </Link>
             <a 
-              href="#contact" 
-              className="bg-brand-red text-white rounded-md px-6 py-2 hover:bg-red-700 transition-colors"
+              href="/#contact" 
+              className="bg-brand-orange text-white rounded-md px-6 py-2 hover:bg-[#e69816] transition-colors"
             >
               Контакты
             </a>
@@ -76,28 +76,28 @@ const Header = () => {
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-2 space-y-3">
             <a 
-              href="#about" 
+              href="/#about" 
               className="block text-gray-600 hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               О нас
             </a>
             <a 
-              href="#advantages" 
+              href="/#advantages" 
               className="block text-gray-600 hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Наши преимущества
             </a>
             <a 
-              href="#projects" 
+              href="/#projects" 
               className="block text-gray-600 hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
               Наши работы
             </a>
             <a 
-              href="#reviews" 
+              href="/#reviews" 
               className="block text-gray-600 hover:text-brand-blue transition-colors py-2"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -111,8 +111,8 @@ const Header = () => {
               Калькулятор
             </Link>
             <a 
-              href="#contact" 
-              className="block bg-brand-red text-white rounded-md px-4 py-2 hover:bg-red-700 transition-colors w-full text-center"
+              href="/#contact" 
+              className="block bg-brand-orange text-white rounded-md px-4 py-2 hover:bg-[#e69816] transition-colors w-full text-center"
               onClick={() => setIsMenuOpen(false)}
             >
               Контакты
