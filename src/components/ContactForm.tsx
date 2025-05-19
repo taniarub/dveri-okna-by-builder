@@ -20,13 +20,6 @@ const ContactForm = () => {
           <div className="bg-white p-8 rounded-lg shadow-sm">
             <div className="space-y-6">
               <div>
-                <h4 className="font-bold text-lg mb-4">Адрес</h4>
-                <p className="text-gray-600">
-                  г. Лельчицы, ул. Советская, 43а
-                </p>
-              </div>
-              
-              <div>
                 <h4 className="font-bold text-lg mb-4">Телефоны</h4>
                 <p className="text-gray-600">
                   <a href="tel:+375293423221" className="block hover:text-brand-blue transition-colors">+375 (29) 342-32-21</a>
@@ -70,7 +63,7 @@ const ContactForm = () => {
                   className="hover:opacity-80 transition-opacity"
                 >
                   <img 
-                    src="/lovable-uploads/3e21605d-0e39-47b3-a757-b32b03116b30.png" 
+                    src="/lovable-uploads/653de03b-05d0-4cd5-b6bf-515fa14a31d6.png" 
                     alt="WhatsApp" 
                     className="w-10 h-10" 
                   />
@@ -82,7 +75,7 @@ const ContactForm = () => {
                   className="hover:opacity-80 transition-opacity"
                 >
                   <img 
-                    src="/lovable-uploads/364ad069-717d-4b4a-988c-3d649a919c66.png" 
+                    src="/lovable-uploads/76c10cc3-6dab-4728-9d5f-264aa6a1e4b8.png" 
                     alt="Instagram" 
                     className="w-10 h-10" 
                   />

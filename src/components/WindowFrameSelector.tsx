@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 interface WindowFrameSelectorProps {
@@ -69,43 +68,17 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
     <div>
       <h4 className="text-lg font-medium mb-4">Выберите тип оконной створки</h4>
       
-      {/* Regular window frames */}
-      {Array(windowCount).fill(null).map((_, index) => {
-        // For balcony doors with windows, we're showing window options for the first frame (index 0)
-        // and balcony door options for the second frame (index 1)
-        // For balcony door only, we're showing balcony door options for the only frame
-        const isBalconyDoorFrame = 
-          (isBalconyDoorWithWindows && index === 1) || 
-          (isBalconyDoorOnly && index === 0);
-
-        const types = isBalconyDoorFrame ? balconyTypes : frameTypes;
-        
-        // Adjust the label based on window type
-        let frameLabel;
-        if (windowType === "one-leaf") {
-          frameLabel = "Окно";
-        } else if (windowType === "two-leaf") {
-          frameLabel = index === 0 ? "Левое окно" : "Правое окно";
-        } else if (windowType === "three-leaf") {
-          frameLabel = index === 0 ? "Левое окно" : index === 1 ? "Центральное окно" : "Правое окно";
-        } else if (isBalconyDoorWithWindows) {
-          frameLabel = index === 0 ? "Левое окно" : "Балконная дверь";
-        } else if (isBalconyDoorOnly) {
-          frameLabel = "Балконная дверь";
-        } else {
-          frameLabel = `Окно ${index + 1}`;
-        }
-        
-        return (
-          <div key={index} className="mb-6">
-            <p className="font-medium mb-3">{frameLabel}</p>
+      {isBalconyDoorWithWindows && (
+        <>
+          <div className="mb-6">
+            <p className="font-medium mb-3">Левое окно</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {types.map((type) => (
+              {frameTypes.map((type) => (
                 <div 
-                  key={`${index}-${type.id}`}
-                  onClick={() => updateFrame(index, type.id)}
+                  key={`0-${type.id}`}
+                  onClick={() => updateFrame(0, type.id)}
                   className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
-                    frames[index] === type.id 
+                    frames[0] === type.id 
                       ? 'border-brand-red border-2' 
                       : 'border-gray-200 hover:border-gray-300'
                   }`}
@@ -122,8 +95,159 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
               ))}
             </div>
           </div>
-        );
-      })}
+          
+          <div className="mb-6">
+            <p className="font-medium mb-3">Правое окно</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {frameTypes.map((type) => (
+                <div 
+                  key={`1-${type.id}`}
+                  onClick={() => updateFrame(1, type.id)}
+                  className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
+                    frames[1] === type.id 
+                      ? 'border-brand-red border-2' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="h-40 flex items-center justify-center mb-2">
+                    <img 
+                      src={type.image} 
+                      alt={type.name} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <p className="text-sm">{type.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mb-6">
+            <p className="font-medium mb-3">Балконная дверь</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {balconyTypes.map((type) => (
+                <div 
+                  key={`2-${type.id}`}
+                  onClick={() => updateFrame(2, type.id)}
+                  className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
+                    frames[2] === type.id 
+                      ? 'border-brand-red border-2' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="h-40 flex items-center justify-center mb-2">
+                    <img 
+                      src={type.image} 
+                      alt={type.name} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <p className="text-sm">{type.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+      
+      {isBalconyDoorOnly && (
+        <>
+          <div className="mb-6">
+            <p className="font-medium mb-3">Окно</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {frameTypes.map((type) => (
+                <div 
+                  key={`0-${type.id}`}
+                  onClick={() => updateFrame(0, type.id)}
+                  className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
+                    frames[0] === type.id 
+                      ? 'border-brand-red border-2' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="h-40 flex items-center justify-center mb-2">
+                    <img 
+                      src={type.image} 
+                      alt={type.name} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <p className="text-sm">{type.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          <div className="mb-6">
+            <p className="font-medium mb-3">Балконная дверь</p>
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {balconyTypes.map((type) => (
+                <div 
+                  key={`1-${type.id}`}
+                  onClick={() => updateFrame(1, type.id)}
+                  className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
+                    frames[1] === type.id 
+                      ? 'border-brand-red border-2' 
+                      : 'border-gray-200 hover:border-gray-300'
+                  }`}
+                >
+                  <div className="h-40 flex items-center justify-center mb-2">
+                    <img 
+                      src={type.image} 
+                      alt={type.name} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                  <p className="text-sm">{type.name}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </>
+      )}
+      
+      {!isBalconyDoorWithWindows && !isBalconyDoorOnly && (
+        Array(windowCount).fill(null).map((_, index) => {
+          let frameLabel;
+          if (windowType === "one-leaf") {
+            frameLabel = "Окно";
+          } else if (windowType === "two-leaf") {
+            frameLabel = index === 0 ? "Левое окно" : "Правое окно";
+          } else if (windowType === "three-leaf") {
+            frameLabel = index === 0 ? "Левое окно" : index === 1 ? "Центральное окно" : "Правое окно";
+          } else {
+            frameLabel = `Окно ${index + 1}`;
+          }
+          
+          return (
+            <div key={index} className="mb-6">
+              <p className="font-medium mb-3">{frameLabel}</p>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                {frameTypes.map((type) => (
+                  <div 
+                    key={`${index}-${type.id}`}
+                    onClick={() => updateFrame(index, type.id)}
+                    className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
+                      frames[index] === type.id 
+                        ? 'border-brand-red border-2' 
+                        : 'border-gray-200 hover:border-gray-300'
+                    }`}
+                  >
+                    <div className="h-40 flex items-center justify-center mb-2">
+                      <img 
+                        src={type.image} 
+                        alt={type.name} 
+                        className="max-h-full max-w-full object-contain"
+                      />
+                    </div>
+                    <p className="text-sm">{type.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          );
+        })
+      )}
     </div>
   );
 };
