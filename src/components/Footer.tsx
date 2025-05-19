@@ -7,7 +7,7 @@ const Footer = () => {
           <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold mb-4">Dverivokna</h3>
             <p className="max-w-xs text-gray-300">
-              Качественные окна и профессиональная установка
+              Качественные окна и двери ПВХ по доступным ценам с бесплатной доставкой по РБ
             </p>
           </div>
           

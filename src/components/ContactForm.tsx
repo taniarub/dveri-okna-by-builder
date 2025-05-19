@@ -7,12 +7,24 @@ import { toast } from "@/components/ui/use-toast";
 import { Mail, Phone, Clock } from "lucide-react";
 import { Form, FormField, FormItem, FormControl } from "@/components/ui/form";
 import { Textarea } from "@/components/ui/textarea";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+// Define the form schema
+const formSchema = z.object({
+  name: z.string().min(1, { message: "Пожалуйста, укажите ваше имя" }),
+  phone: z.string().min(1, { message: "Пожалуйста, укажите ваш телефон" }),
+  comment: z.string().optional(),
+});
+
+type FormValues = z.infer<typeof formSchema>;
 
 const ContactForm = () => {
   const [loading, setLoading] = useState(false);
   const contactRef = useRef<HTMLDivElement>(null);
   
-  const form = useForm({
+  const form = useForm<FormValues>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       phone: "",
@@ -41,25 +53,7 @@ const ContactForm = () => {
     };
   }, []);
 
-  const handleSubmit = form.handleSubmit(async (data) => {
-    if (!data.name.trim()) {
-      toast({
-        title: "Ошибка",
-        description: "Пожалуйста, укажите ваше имя",
-        variant: "destructive",
-      });
-      return;
-    }
-
-    if (!data.phone.trim()) {
-      toast({
-        title: "Ошибка",
-        description: "Пожалуйста, укажите ваш телефон",
-        variant: "destructive",
-      });
-      return;
-    }
-
+  const onSubmit = async (data: FormValues) => {
     setLoading(true);
 
     // Simulate form submission
@@ -71,67 +65,64 @@ const ContactForm = () => {
       form.reset();
       setLoading(false);
     }, 1000);
-  });
+  };
 
   return (
     <section id="contact" className="py-16 bg-brand-beige">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-12">Наши контакты</h2>
+        <h2 className="text-4xl font-bold text-center mb-4">Наши контакты</h2>
 
         <div ref={contactRef} className="flex flex-col md:flex-row gap-10 opacity-0 transition-opacity duration-1000">
           <div className="md:w-1/2 order-2 md:order-1">
             <Form {...form}>
-              <form onSubmit={handleSubmit} className="space-y-8 max-w-md">
-                <div>
-                  <h3 className="text-2xl font-bold mb-6">Есть сомнения? Оставьте ваши контакты, и мы свяжемся с вами</h3>
-                  <div className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="name"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              placeholder="Ваше имя"
-                              className="p-6"
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="phone"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Input
-                              placeholder="Ваш телефон"
-                              className="p-6"
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="comment"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormControl>
-                            <Textarea
-                              placeholder="Комментарий (необязательно)"
-                              className="w-full p-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-orange"
-                              rows={4}
-                              {...field}
-                            />
-                          </FormControl>
-                        </FormItem>
-                      )}
-                    />
-                  </div>
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8 bg-white p-8 rounded-lg shadow-sm h-full">
+                <div className="space-y-4">
+                  <FormField
+                    control={form.control}
+                    name="name"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            placeholder="Ваше имя"
+                            className="p-6"
+                            {...field}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="phone"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Input
+                            placeholder="Ваш телефон"
+                            className="p-6"
+                            {...field}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
+                  <FormField
+                    control={form.control}
+                    name="comment"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormControl>
+                          <Textarea
+                            placeholder="Комментарий (необязательно)"
+                            className="w-full p-6 border rounded-md focus:outline-none focus:ring-2 focus:ring-brand-orange"
+                            rows={4}
+                            {...field}
+                          />
+                        </FormControl>
+                      </FormItem>
+                    )}
+                  />
                 </div>
 
                 <Button 
@@ -141,6 +132,18 @@ const ContactForm = () => {
                 >
                   {loading ? "Отправка..." : "Отправить заявку"}
                 </Button>
+                
+                <div className="flex justify-center space-x-8 mt-6">
+                  <a href="viber://chat?number=%2B375292589210" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
+                    <img src="/lovable-uploads/9bef9529-dd70-4328-a26b-db7e1ae7ace8.png" alt="Viber" className="w-10 h-10" />
+                  </a>
+                  <a href="https://wa.me/375293423221" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
+                    <img src="/lovable-uploads/3e82806f-0238-40b2-bf69-97d6b1bb1719.png" alt="WhatsApp" className="w-10 h-10" />
+                  </a>
+                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
+                    <img src="/lovable-uploads/eeb6edc3-b79b-416a-96af-cccd88170ddf.png" alt="Instagram" className="w-10 h-10" />
+                  </a>
+                </div>
               </form>
             </Form>
           </div>
@@ -162,7 +165,7 @@ const ContactForm = () => {
                     <Mail className="text-brand-orange mr-4 w-6 h-6 flex-shrink-0" />
                     <div>
                       <h4 className="text-lg font-semibold mb-2">Email</h4>
-                      <p>info@okna-pvh.by</p>
+                      <p>vitaliy9977@mail.ru</p>
                     </div>
                   </div>
                   

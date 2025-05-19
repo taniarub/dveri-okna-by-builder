@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
 import Reviews from "@/components/Reviews";
+import PromotionPopup from "@/components/PromotionPopup";
 
 const Index = () => {
   return (
@@ -21,6 +22,7 @@ const Index = () => {
       <Reviews />
       <ContactForm />
       <Footer />
+      <PromotionPopup />
     </div>
   );
 };
