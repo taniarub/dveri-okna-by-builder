@@ -36,7 +36,7 @@ const WindowTypeSelector = ({ onChange, value }: WindowTypeSelectorProps) => {
     {
       id: "other-type",
       name: "Другой тип окна",
-      image: "/lovable-uploads/535e31e1-1369-45c8-9d68-3b3a1f624c82.png"
+      image: "/lovable-uploads/bb8c6a8e-cfb8-43c8-aeb6-d62cdd4668ac.png"
     }
   ];
 

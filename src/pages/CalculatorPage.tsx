@@ -153,26 +153,28 @@ const CalculatorPage = () => {
 
   // Adjusted labels for window panes based on the position
   const getFrameLabel = (index: number, windowType: string, frameIndex: number) => {
-    if (windowType === "one-leaf") return "Створка";
+    if (windowType === "one-leaf") return "Окно";
     
     if (windowType === "two-leaf") {
-      return frameIndex === 0 ? "Левая створка" : "Правая створка";
+      return frameIndex === 0 ? "Левое окно" : "Правое окно";
     }
     
     if (windowType === "three-leaf") {
-      return frameIndex === 0 ? "Левая створка" : frameIndex === 1 ? "Центральная створка" : "Правая створка";
+      return frameIndex === 0 ? "Левое окно" : frameIndex === 1 ? "Центральное окно" : "Правое окно";
     }
     
     if (windowType === "balcony-door-two-window") {
-      if (frameIndex === 0) return "Левая створка";
+      if (frameIndex === 0) return "Левое окно";
+      if (frameIndex === 1) return "Правое окно";
       return "Балконная дверь";
     }
     
     if (windowType === "balcony-door") {
+      if (frameIndex === 0) return "Окно";
       return "Балконная дверь";
     }
     
-    return `Створка ${frameIndex + 1}`;
+    return `Окно ${frameIndex + 1}`;
   };
 
   return (
@@ -212,8 +214,8 @@ const CalculatorPage = () => {
                         {Array.from({ length: getWindowCount(window.windowType) }).map((_, frameIndex) => {
                           // Adjust what frame options we show
                           const isBalconyDoor = 
-                            (window.windowType === "balcony-door" && frameIndex === 0) || 
-                            (window.windowType === "balcony-door-two-window" && frameIndex === 1);
+                            (window.windowType === "balcony-door" && frameIndex === 1) || 
+                            (window.windowType === "balcony-door-two-window" && frameIndex === 2);
                           
                           const frameOptions = isBalconyDoor ? 
                             [
@@ -365,7 +367,7 @@ const CalculatorPage = () => {
             <div className="mb-8 flex justify-center">
               <button
                 onClick={addWindow}
-                className="px-8 py-3 bg-brand-blue text-white rounded-md hover:bg-blue-700 transition-colors"
+                className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
               >
                 Добавить окно
               </button>
@@ -418,7 +420,7 @@ const CalculatorPage = () => {
             <div className="flex justify-center">
               <button
                 onClick={handleSubmit}
-                className="px-8 py-3 bg-brand-red text-white rounded-md hover:bg-red-700 transition-colors"
+                className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
               >
                 Отправить заявку
               </button>

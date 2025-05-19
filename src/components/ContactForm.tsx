@@ -70,7 +70,7 @@ const ContactForm = () => {
   return (
     <section id="contact" className="py-16 bg-brand-beige">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-4">Наши контакты</h2>
+        <h2 className="text-4xl font-bold text-center mb-12">Наши контакты</h2>
 
         <div ref={contactRef} className="flex flex-col md:flex-row gap-10 opacity-0 transition-opacity duration-1000">
           <div className="md:w-1/2 order-2 md:order-1">
@@ -135,13 +135,13 @@ const ContactForm = () => {
                 
                 <div className="flex justify-center space-x-8 mt-6">
                   <a href="viber://chat?number=%2B375292589210" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
-                    <img src="/lovable-uploads/9bef9529-dd70-4328-a26b-db7e1ae7ace8.png" alt="Viber" className="w-10 h-10" />
+                    <img src="/lovable-uploads/4a995aa8-106d-4604-98a9-5889aa1c9c63.png" alt="Viber" className="w-10 h-10" />
                   </a>
                   <a href="https://wa.me/375293423221" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
-                    <img src="/lovable-uploads/3e82806f-0238-40b2-bf69-97d6b1bb1719.png" alt="WhatsApp" className="w-10 h-10" />
+                    <img src="/lovable-uploads/529a3ad8-4862-4191-92f2-56af5aa6977e.png" alt="WhatsApp" className="w-10 h-10" />
                   </a>
-                  <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
-                    <img src="/lovable-uploads/eeb6edc3-b79b-416a-96af-cccd88170ddf.png" alt="Instagram" className="w-10 h-10" />
+                  <a href="https://www.instagram.com/dveri_okna_krovlya_lelchicy/" target="_blank" rel="noopener noreferrer" className="text-brand-orange hover:text-[#e69816] transition-transform hover:scale-110">
+                    <img src="/lovable-uploads/009e8e15-1cf1-4274-8a87-a0b9436e07f4.png" alt="Instagram" className="w-10 h-10" />
                   </a>
                 </div>
               </form>
@@ -177,27 +177,6 @@ const ContactForm = () => {
                       <p className="mb-1">Сб: 10:00 - 15:00</p>
                       <p>Вс: выходной</p>
                     </div>
-                  </div>
-                </div>
-                
-                <div>
-                  <h4 className="text-lg font-semibold mb-2">Социальные сети</h4>
-                  <div className="flex space-x-4">
-                    <a href="#" className="text-brand-orange hover:text-[#e69816] transition-colors">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.995 0h-16c-2.211 0-4 1.789-4 4v16c0 2.211 1.789 4 4 4h16c2.211 0 4-1.789 4-4v-16c0-2.211-1.789-4-4-4zm-8 7c2.757 0 5 2.243 5 5s-2.243 5-5 5-5-2.243-5-5 2.243-5 5-5zm7-3c0 .553-.447 1-1 1s-1-.447-1-1 .447-1 1-1 1 .447 1 1zm3 9c0 3.313-2.687 6-6 6h-8c-3.313 0-6-2.687-6-6v-8h2.343c-.168.75-.343 1.523-.343 2.326 0 4.416 3.584 8 8 8s8-3.584 8-8c0-.803-.175-1.576-.343-2.326h2.343v8z"/>
-                      </svg>
-                    </a>
-                    <a href="#" className="text-brand-orange hover:text-[#e69816] transition-colors">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22.676 0H1.324C.593 0 0 .593 0 1.324v21.352C0 23.408.593 24 1.324 24h11.494v-9.294h-3.129v-3.621h3.129V8.41c0-3.099 1.894-4.785 4.659-4.785 1.325 0 2.464.097 2.796.141v3.241h-1.921c-1.5 0-1.792.721-1.792 1.771v2.311h3.584l-.465 3.63H16.56V24h6.115c.733 0 1.325-.592 1.325-1.324V1.324C24 .593 23.408 0 22.676 0"/>
-                      </svg>
-                    </a>
-                    <a href="#" className="text-brand-orange hover:text-[#e69816] transition-colors">
-                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M21.75 5.96a8.015 8.015 0 01-2.305.63 4.03 4.03 0 001.772-2.23c-.78.465-1.647.8-2.568.985a4.026 4.026 0 00-6.858 3.673A11.468 11.468 0 013.144 4.911a4.032 4.032 0 001.253 5.372 4.017 4.017 0 01-1.828-.504v.05a4.026 4.026 0 003.237 3.947 4.028 4.028 0 01-1.825.07 4.028 4.028 0 003.76 2.794A8.07 8.07 0 012.25 18.13a11.426 11.426 0 006.177 1.809c7.413 0 11.469-6.138 11.469-11.468 0-.176-.004-.349-.012-.523a8.17 8.17 0 002.01-2.086l-.144.099z"/>
-                      </svg>
-                    </a>
                   </div>
                 </div>
               </div>

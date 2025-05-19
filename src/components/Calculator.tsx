@@ -329,14 +329,14 @@ const Calculator = () => {
               {step > 1 && (
                 <button
                   onClick={prevStep}
-                  className="px-6 py-3 border border-brand-blue text-brand-blue rounded-md hover:bg-brand-blue hover:text-white transition-colors"
+                  className="px-6 py-3 border border-brand-orange text-brand-orange rounded-md hover:bg-brand-orange hover:text-white transition-colors"
                 >
                   Назад
                 </button>
               )}
               <button
                 onClick={nextStep}
-                className="px-6 py-3 bg-brand-red text-white rounded-md hover:bg-red-700 transition-colors ml-auto"
+                className="px-6 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors ml-auto"
               >
                 {step === 4 ? "Отправить заявку" : "Далее"}
               </button>

@@ -13,17 +13,17 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const frameTypes = [
     {
       id: "fixed",
-      name: "Глухая",
+      name: "Глухое",
       image: "/lovable-uploads/06109cee-21de-482d-90df-9f3de9229638.png"
     },
     {
       id: "swing",
-      name: "Поворотная",
+      name: "Поворотное",
       image: "/lovable-uploads/b673b462-5fe7-4343-861f-b3ca0be38b11.png"
     },
     {
       id: "tilt-turn",
-      name: "Поворотно-откидная",
+      name: "Поворотно-откидное",
       image: "/lovable-uploads/76e3f1b1-210e-43e8-ab6b-2aa06595280d.png"
     }
   ];
@@ -73,17 +73,17 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
         // Adjust the label based on window type
         let frameLabel;
         if (windowType === "one-leaf") {
-          frameLabel = "Створка";
+          frameLabel = "Окно";
         } else if (windowType === "two-leaf") {
-          frameLabel = index === 0 ? "Левая створка" : "Правая створка";
+          frameLabel = index === 0 ? "Левое окно" : "Правое окно";
         } else if (windowType === "three-leaf") {
-          frameLabel = index === 0 ? "Левая створка" : index === 1 ? "Центральная створка" : "Правая створка";
+          frameLabel = index === 0 ? "Левое окно" : index === 1 ? "Центральное окно" : "Правое окно";
         } else if (isBalconyDoorWithWindows) {
-          frameLabel = index === 0 ? "Левая створка" : "Балконная дверь";
+          frameLabel = index === 0 ? "Левое окно" : "Балконная дверь";
         } else if (isBalconyDoorOnly) {
           frameLabel = "Балконная дверь";
         } else {
-          frameLabel = `Створка ${index + 1}`;
+          frameLabel = `Окно ${index + 1}`;
         }
         
         return (

@@ -50,13 +50,6 @@ const PromotionPopup = () => {
           <p className="text-gray-600 text-center mb-6">
             Успейте заказать окна ПВХ по выгодной цене до конца месяца
           </p>
-          
-          <button
-            onClick={closePopup}
-            className="w-full bg-brand-orange hover:bg-[#e69816] text-white font-medium py-3 px-6 rounded-md transition-colors"
-          >
-            Узнать больше
-          </button>
         </div>
       </div>
     </div>
