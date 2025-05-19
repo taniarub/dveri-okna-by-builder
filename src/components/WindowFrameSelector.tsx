@@ -28,15 +28,15 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
     }
   ];
   
-  const balconyTypes = [
+  const balconyDoorTypes = [
     {
       id: "balcony-swing",
-      name: "Балконная дверь (поворотная)",
+      name: "Поворотная",
       image: "/lovable-uploads/b673b462-5fe7-4343-861f-b3ca0be38b11.png"
     },
     {
       id: "balcony-tilt-turn",
-      name: "Балконная дверь (поворотно-откидная)",
+      name: "Поворотно-откидная",
       image: "/lovable-uploads/76e3f1b1-210e-43e8-ab6b-2aa06595280d.png"
     }
   ];
@@ -116,7 +116,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
           <div className="mb-6">
             <p className="font-medium mb-3">Балконная дверь</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {balconyTypes.map((type) => (
+              {balconyDoorTypes.map((type) => (
                 <div 
                   key={`2-${type.id}`}
                   onClick={() => updateFrame(2, type.id)}
@@ -172,7 +172,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
           <div className="mb-6">
             <p className="font-medium mb-3">Балконная дверь</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {balconyTypes.map((type) => (
+              {balconyDoorTypes.map((type) => (
                 <div 
                   key={`1-${type.id}`}
                   onClick={() => updateFrame(1, type.id)}
