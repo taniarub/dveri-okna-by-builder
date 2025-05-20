@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Truck, Calendar, Shield, Ruler, Wind, CreditCard } from 'lucide-react';
+import { Truck, Calendar, Shield, Ruler, LayoutGrid, CreditCard } from 'lucide-react';
 
 const Advantages = () => {
   return (
@@ -14,7 +14,7 @@ const Advantages = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <Truck className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
@@ -26,7 +26,7 @@ const Advantages = () => {
           
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <Calendar className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
@@ -38,7 +38,7 @@ const Advantages = () => {
           
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <Shield className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
@@ -52,7 +52,7 @@ const Advantages = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <Ruler className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
@@ -64,8 +64,8 @@ const Advantages = () => {
           
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
-                <Wind className="w-10 h-10 text-brand-orange" />
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
+                <LayoutGrid className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
             <h3 className="text-xl font-bold mb-4">Сложные конструкции</h3>
@@ -76,7 +76,7 @@ const Advantages = () => {
           
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
-              <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
+              <div className="w-20 h-20 rounded-full bg-white flex items-center justify-center">
                 <CreditCard className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
