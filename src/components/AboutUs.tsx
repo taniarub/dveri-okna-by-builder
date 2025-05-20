@@ -40,12 +40,6 @@ const AboutUs = () => {
             </p>
           </div>
         </div>
-        
-        <div className="mt-16 text-center">
-          <a href="#calculator" className="btn-primary">
-            Рассчитать стоимость
-          </a>
-        </div>
       </div>
     </section>
   );
