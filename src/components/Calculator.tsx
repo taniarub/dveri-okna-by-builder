@@ -318,7 +318,7 @@ const Calculator = () => {
                       onChange={handleContactInfoChange}
                     />
                     <label htmlFor="consent" className="ml-2">
-                      Вы соглашаетесь на <a href="#" className="text-brand-blue underline">обработку персональных данных</a>
+                      Нажимая кнопку, вы соглашаетесь на <a href="#" className="text-brand-blue underline">обработку персональных данных</a>
                     </label>
                   </div>
                 </div>

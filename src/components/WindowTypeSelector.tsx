@@ -54,7 +54,7 @@ const WindowTypeSelector = ({ onChange, value }: WindowTypeSelectorProps) => {
             onClick={() => handleSelect(type.id)}
             className={`p-4 border rounded-lg cursor-pointer text-center transition-colors ${
               value === type.id 
-                ? 'border-brand-red border-2' 
+                ? 'border-brand-orange border-2' 
                 : 'border-gray-200 hover:border-gray-300'
             }`}
           >

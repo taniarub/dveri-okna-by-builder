@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
@@ -364,7 +365,7 @@ const CalculatorPage = () => {
                     onChange={handleContactInfoChange}
                   />
                   <label htmlFor="consent" className="ml-2">
-                    Вы соглашаетесь на <a href="#" className="text-brand-blue underline">обработку персональных данных</a>
+                    Нажимая кнопку, вы соглашаетесь на <a href="#" className="text-brand-blue underline">обработку персональных данных</a>
                   </label>
                 </div>
               </div>
