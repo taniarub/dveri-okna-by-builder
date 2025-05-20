@@ -11,14 +11,10 @@ const DoorExamples = () => {
   
   const projects = [
     {
-      image: "/lovable-uploads/aa6c52fb-c097-4358-a7f8-822b165af40f.png",
-      title: "Оконные и дверные элементы",
-      subtitle: "Различные размеры",
+      image: "/lovable-uploads/aa6c52fb-c097-4358-a7f8-822b165af40f.png"
     },
     {
-      image: "/lovable-uploads/f70072cc-b0a5-4a03-9b4b-a86bd4045de6.png",
-      title: "Панорамные двери",
-      subtitle: "Белый профиль",
+      image: "/lovable-uploads/f70072cc-b0a5-4a03-9b4b-a86bd4045de6.png"
     },
   ];
 
@@ -80,13 +76,9 @@ const DoorExamples = () => {
                   <div className="relative h-64">
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt="Пример двери"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent flex flex-col justify-end p-4 text-white">
-                      <h3 className="text-lg font-bold">{project.title}</h3>
-                      <p className="text-sm">{project.subtitle}</p>
-                    </div>
                   </div>
                 </div>
               ))}

@@ -44,8 +44,7 @@ const Portfolio = () => {
                 to="/window-examples" 
                 className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-8 py-6 rounded-lg transition-all flex flex-col items-center justify-center h-full shadow-md hover:shadow-xl border-b-4 border-[#d48c13]"
               >
-                <span className="text-2xl mb-2">Окна</span>
-                <span className="text-sm opacity-75">Посмотреть примеры</span>
+                <span className="text-2xl">Окна</span>
               </Link>
             </div>
             <div className="transform transition-all duration-300 hover:translate-y-[-5px] hover:shadow-lg">
@@ -53,8 +52,7 @@ const Portfolio = () => {
                 to="/door-examples" 
                 className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-8 py-6 rounded-lg transition-all flex flex-col items-center justify-center h-full shadow-md hover:shadow-xl border-b-4 border-[#d48c13]"
               >
-                <span className="text-2xl mb-2">Двери</span>
-                <span className="text-sm opacity-75">Посмотреть примеры</span>
+                <span className="text-2xl">Двери</span>
               </Link>
             </div>
           </div>
