@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Truck, Calendar, Shield, Ruler, WindowIcon, CreditCard } from 'lucide-react';
+import { Truck, Calendar, Shield, Ruler, Wind, CreditCard } from 'lucide-react';
 
 const Advantages = () => {
   return (
@@ -65,7 +65,7 @@ const Advantages = () => {
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">
             <div className="flex justify-center mb-6">
               <div className="w-20 h-20 rounded-full bg-blue-100 flex items-center justify-center">
-                <WindowIcon className="w-10 h-10 text-brand-orange" />
+                <Wind className="w-10 h-10 text-brand-orange" />
               </div>
             </div>
             <h3 className="text-xl font-bold mb-4">Сложные конструкции</h3>
