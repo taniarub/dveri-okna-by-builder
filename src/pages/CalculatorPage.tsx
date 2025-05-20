@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
@@ -25,9 +24,9 @@ const CalculatorPage = () => {
       case "three-leaf":
         return 3;
       case "balcony-door-two-window":
-        return 2; // Changed from 3 to 2 (removed window 3)
+        return 3; // 2 windows + 1 door
       case "balcony-door":
-        return 1; // Changed from 2 to 1 (removed window 2)
+        return 2; // 1 window + 1 door
       case "other-type":
       default:
         return 0;
@@ -210,57 +209,11 @@ const CalculatorPage = () => {
                   {window.windowType && window.windowType !== "other-type" && (
                     <li className="pb-8 border-b">
                       <h2 className="text-2xl font-medium mb-6">Выберите тип оконной створки</h2>
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        {Array.from({ length: getWindowCount(window.windowType) }).map((_, frameIndex) => {
-                          // Adjust what frame options we show
-                          const isBalconyDoor = 
-                            (window.windowType === "balcony-door" && frameIndex === 1) || 
-                            (window.windowType === "balcony-door-two-window" && frameIndex === 2);
-                          
-                          const frameOptions = isBalconyDoor ? 
-                            [
-                              { id: "swing", name: "Поворотная" },
-                              { id: "tilt-turn", name: "Поворотно-откидная" }
-                            ] : 
-                            [
-                              { id: "fixed", name: "Глухое" },
-                              { id: "swing", name: "Поворотное" },
-                              { id: "tilt-turn", name: "Поворотно-откидное" }
-                            ];
-                            
-                          return (
-                            <div key={frameIndex} className="mb-6">
-                              <h3 className="font-medium mb-3">{getFrameLabel(windowIndex, window.windowType, frameIndex)}</h3>
-                              <div className="flex flex-wrap gap-4">
-                                {frameOptions.map((option) => (
-                                  <label 
-                                    key={option.id}
-                                    className={`cursor-pointer flex flex-col items-center p-4 border rounded-md transition-colors ${
-                                      window.frameTypes[frameIndex] === option.id 
-                                        ? 'bg-brand-lightblue border-brand-blue' 
-                                        : 'hover:bg-gray-50'
-                                    }`}
-                                  >
-                                    <input
-                                      type="radio"
-                                      name={`window-${windowIndex}-frame-${frameIndex}`}
-                                      value={option.id}
-                                      checked={window.frameTypes[frameIndex] === option.id}
-                                      onChange={() => {
-                                        const newFrames = [...window.frameTypes];
-                                        newFrames[frameIndex] = option.id;
-                                        handleFrameTypeChange(newFrames, windowIndex);
-                                      }}
-                                      className="sr-only"
-                                    />
-                                    <span>{option.name}</span>
-                                  </label>
-                                ))}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
+                      <WindowFrameSelector 
+                        onChange={(frames) => handleFrameTypeChange(frames, windowIndex)}
+                        windowCount={getWindowCount(window.windowType)}
+                        windowType={window.windowType}
+                      />
                     </li>
                   )}
 
