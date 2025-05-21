@@ -178,7 +178,7 @@ const CalculatorPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f9f9f7]">
+    <div className="min-h-screen flex flex-col bg-[#FDE1D3]">
       <Header />
       <div className="py-16 flex-grow animate-fade-in">
         <div className="container">
