@@ -195,11 +195,34 @@ const Calculator = () => {
 
             {step === 2 && (
               <>
-                <WindowFrameSelector 
-                  onChange={handleFrameTypeChange}
-                  windowCount={getWindowCount(windowType)}
-                  windowType={windowType}
-                />
+                <h4 className="text-lg font-medium mb-4">Выберите тип:</h4>
+                <div className="space-y-3">
+                  <div className="flex items-center">
+                    <input
+                      id="frame-type-fixed"
+                      type="radio"
+                      className="w-5 h-5"
+                      checked={frameTypes[0] === "fixed"}
+                      onChange={() => handleFrameTypeChange(['fixed'])}
+                    />
+                    <label htmlFor="frame-type-fixed" className="ml-2">
+                      Створка (глухая, поворотная, поворотно-откидная)
+                    </label>
+                  </div>
+                  
+                  <div className="flex items-center">
+                    <input
+                      id="frame-type-door"
+                      type="radio"
+                      className="w-5 h-5"
+                      checked={frameTypes[0] === "door"}
+                      onChange={() => handleFrameTypeChange(['door'])}
+                    />
+                    <label htmlFor="frame-type-door" className="ml-2">
+                      Балконная дверь (поворотная, поворотно-откидная)
+                    </label>
+                  </div>
+                </div>
 
                 <div className="mt-8">
                   <h4 className="text-lg font-medium mb-4">Укажите размеры</h4>

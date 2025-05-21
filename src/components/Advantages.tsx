@@ -7,9 +7,6 @@ const Advantages = () => {
     <section id="advantages" className="bg-gray-50">
       <div className="container">
         <h2 className="section-title">Наши преимущества</h2>
-        <p className="section-subtitle">
-          Почему клиенты выбирают нас для установки окон и дверей?
-        </p>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-16">
           <div className="bg-white p-10 rounded-lg shadow-sm text-center">

@@ -37,9 +37,7 @@ const ContactForm = () => {
               <div>
                 <h4 className="font-bold text-lg mb-4">Режим работы</h4>
                 <p className="text-gray-600">
-                  Пн-Пт: 9:00 - 18:00<br />
-                  Сб: 9:00 - 14:00<br />
-                  Вс: выходной
+                  9:00 - 19:00 Без выходных
                 </p>
               </div>
               
