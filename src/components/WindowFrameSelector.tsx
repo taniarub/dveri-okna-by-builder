@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 
 interface WindowFrameSelectorProps {
@@ -12,17 +13,17 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const frameTypes = [
     {
       id: "fixed",
-      name: "Створка (глухая, поворотная, поворотно-откидная)",
+      name: "Левая створка (глухая, поворотная, поворотно-откидная)",
       image: "/lovable-uploads/06109cee-21de-482d-90df-9f3de9229638.png"
     },
     {
       id: "swing",
-      name: "Поворотное",
+      name: "Правая створка (глухая, поворотная, поворотно-откидная)",
       image: "/lovable-uploads/b673b462-5fe7-4343-861f-b3ca0be38b11.png"
     },
     {
       id: "tilt-turn",
-      name: "Поворотно-откидное",
+      name: "Центральная створка (глухая, поворотная, поворотно-откидная)",
       image: "/lovable-uploads/76e3f1b1-210e-43e8-ab6b-2aa06595280d.png"
     }
   ];
@@ -61,7 +62,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
       {isBalconyDoorWithWindows && (
         <>
           <div className="mb-6">
-            <p className="font-medium mb-3">Левое окно</p>
+            <p className="font-medium mb-3">Створка</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {frameTypes.map((type) => (
                 <div 
@@ -87,7 +88,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
           </div>
           
           <div className="mb-6">
-            <p className="font-medium mb-3">Правое окно</p>
+            <p className="font-medium mb-3">Створка</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {frameTypes.map((type) => (
                 <div 
@@ -143,7 +144,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
       {isBalconyDoorOnly && (
         <>
           <div className="mb-6">
-            <p className="font-medium mb-3">Окно</p>
+            <p className="font-medium mb-3">Створка</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {frameTypes.map((type) => (
                 <div 
@@ -200,13 +201,13 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
         Array(windowCount).fill(null).map((_, index) => {
           let frameLabel;
           if (windowType === "one-leaf") {
-            frameLabel = "Окно";
+            frameLabel = "Створка";
           } else if (windowType === "two-leaf") {
-            frameLabel = index === 0 ? "Левое окно" : "Правое окно";
+            frameLabel = index === 0 ? "Левая створка" : "Правая створка";
           } else if (windowType === "three-leaf") {
-            frameLabel = index === 0 ? "Левое окно" : index === 1 ? "Центральное окно" : "Правое окно";
+            frameLabel = index === 0 ? "Левая створка" : index === 1 ? "Центральная створка" : "Правая створка";
           } else {
-            frameLabel = `Окно ${index + 1}`;
+            frameLabel = `Створка ${index + 1}`;
           }
           
           return (

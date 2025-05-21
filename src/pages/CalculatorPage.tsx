@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
@@ -178,7 +177,7 @@ const CalculatorPage = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#FDE1D3]">
+    <div className="min-h-screen flex flex-col bg-[#FFF5EC]">
       <Header />
       <div className="py-16 flex-grow animate-fade-in">
         <div className="container">
@@ -378,6 +377,10 @@ const CalculatorPage = () => {
               >
                 Отправить заявку
               </button>
+            </div>
+            
+            <div className="text-center mt-4 text-sm text-gray-500">
+              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
             </div>
           </div>
         </div>

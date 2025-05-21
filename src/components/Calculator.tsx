@@ -364,6 +364,12 @@ const Calculator = () => {
                 {step === 4 ? "Отправить заявку" : "Далее"}
               </button>
             </div>
+            
+            {step === 4 && (
+              <div className="text-center mt-4 text-sm text-gray-500">
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              </div>
+            )}
           </div>
 
           <div className="lg:w-1/3 bg-brand-darkblue text-white p-8 rounded-lg">
