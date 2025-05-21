@@ -6,6 +6,7 @@ import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Numbers from "@/components/Numbers";
 import Portfolio from "@/components/Portfolio";
 import Reviews from "@/components/Reviews";
 import PromotionPopup from "@/components/PromotionPopup";
@@ -16,6 +17,7 @@ const Index = () => {
       <Header />
       <Hero />
       <AboutUs />
+      <Numbers />
       <Advantages />
       <Portfolio />
       <CalculatorBanner />
