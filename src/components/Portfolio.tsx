@@ -45,13 +45,11 @@ const Portfolio = () => {
         >
           <h2 className="text-4xl font-bold text-center mb-8 text-white">Примеры наших работ</h2>
           
-          <Link to="/window-examples">
-            <Button 
-              className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-10 py-8 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl border-b-4 border-[#d48c13]"
-            >
-              Примеры наших работ
-            </Button>
-          </Link>
+          <Button 
+            className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-10 py-8 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl border-b-4 border-[#d48c13]"
+          >
+            Примеры наших работ
+          </Button>
         </div>
       </div>
     </section>
