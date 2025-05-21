@@ -13,17 +13,17 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const frameTypes = [
     {
       id: "fixed",
-      name: "Левая створка (глухая, поворотная, поворотно-откидная)",
+      name: "Глухая",
       image: "/lovable-uploads/06109cee-21de-482d-90df-9f3de9229638.png"
     },
     {
       id: "swing",
-      name: "Правая створка (глухая, поворотная, поворотно-откидная)",
+      name: "Поворотная",
       image: "/lovable-uploads/b673b462-5fe7-4343-861f-b3ca0be38b11.png"
     },
     {
       id: "tilt-turn",
-      name: "Центральная створка (глухая, поворотная, поворотно-откидная)",
+      name: "Поворотно-откидная",
       image: "/lovable-uploads/76e3f1b1-210e-43e8-ab6b-2aa06595280d.png"
     }
   ];
@@ -31,12 +31,12 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const balconyDoorTypes = [
     {
       id: "balcony-swing",
-      name: "Балконная дверь (поворотная, поворотно-откидная)",
+      name: "Поворотная",
       image: "/lovable-uploads/b673b462-5fe7-4343-861f-b3ca0be38b11.png"
     },
     {
       id: "balcony-tilt-turn",
-      name: "Балконная дверь (поворотно-откидная)",
+      name: "Поворотно-откидная",
       image: "/lovable-uploads/76e3f1b1-210e-43e8-ab6b-2aa06595280d.png"
     }
   ];
@@ -55,6 +55,23 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const isBalconyDoorWithWindows = windowType === "balcony-door-two-window";
   const isBalconyDoorOnly = windowType === "balcony-door";
 
+  // Helper function to get the appropriate frame label based on window type and frame index
+  const getFrameLabel = (windowType: string, frameIndex: number): string => {
+    if (windowType === "one-leaf") {
+      return "Створка";
+    } else if (windowType === "two-leaf") {
+      return frameIndex === 0 ? "Левая створка" : "Правая створка";
+    } else if (windowType === "three-leaf") {
+      return frameIndex === 0 ? "Левая створка" : frameIndex === 1 ? "Центральная створка" : "Правая створка";
+    } else if (windowType === "balcony-door-two-window") {
+      return frameIndex < 2 ? (frameIndex === 0 ? "Левая створка" : "Правая створка") : "Балконная дверь";
+    } else if (windowType === "balcony-door") {
+      return frameIndex === 0 ? "Створка" : "Балконная дверь";
+    }
+    
+    return `Створка ${frameIndex + 1}`;
+  };
+
   return (
     <div>
       <h4 className="text-lg font-medium mb-4">Выберите тип оконной створки</h4>
@@ -62,7 +79,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
       {isBalconyDoorWithWindows && (
         <>
           <div className="mb-6">
-            <p className="font-medium mb-3">Створка</p>
+            <p className="font-medium mb-3">Левая створка</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {frameTypes.map((type) => (
                 <div 
@@ -88,7 +105,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
           </div>
           
           <div className="mb-6">
-            <p className="font-medium mb-3">Створка</p>
+            <p className="font-medium mb-3">Правая створка</p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {frameTypes.map((type) => (
                 <div 
@@ -199,16 +216,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
       
       {!isBalconyDoorWithWindows && !isBalconyDoorOnly && (
         Array(windowCount).fill(null).map((_, index) => {
-          let frameLabel;
-          if (windowType === "one-leaf") {
-            frameLabel = "Створка";
-          } else if (windowType === "two-leaf") {
-            frameLabel = index === 0 ? "Левая створка" : "Правая створка";
-          } else if (windowType === "three-leaf") {
-            frameLabel = index === 0 ? "Левая створка" : index === 1 ? "Центральная створка" : "Правая створка";
-          } else {
-            frameLabel = `Створка ${index + 1}`;
-          }
+          const frameLabel = getFrameLabel(windowType, index);
           
           return (
             <div key={index} className="mb-6">
