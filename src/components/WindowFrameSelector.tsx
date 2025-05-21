@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 
 interface WindowFrameSelectorProps {
@@ -13,7 +12,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const frameTypes = [
     {
       id: "fixed",
-      name: "Глухое",
+      name: "Створка (глухая, поворотная, поворотно-откидная)",
       image: "/lovable-uploads/06109cee-21de-482d-90df-9f3de9229638.png"
     },
     {
@@ -31,7 +30,7 @@ const WindowFrameSelector = ({ onChange, windowCount, windowType }: WindowFrameS
   const balconyDoorTypes = [
     {
       id: "balcony-swing",
-      name: "Балконная дверь (поворотная)",
+      name: "Балконная дверь (поворотная, поворотно-откидная)",
       image: "/lovable-uploads/b673b462-5fe7-4343-861f-b3ca0be38b11.png"
     },
     {
