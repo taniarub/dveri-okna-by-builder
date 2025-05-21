@@ -10,7 +10,7 @@ const ContactForm = () => {
   };
 
   return (
-    <section id="contact" className="bg-[#FDE1D3] py-16 md:py-20">
+    <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
         <h2 className="section-title mb-4">Связаться с нами</h2>
         <h3 className="text-center font-medium text-xl text-gray-600 mb-12">Наши контакты</h3>

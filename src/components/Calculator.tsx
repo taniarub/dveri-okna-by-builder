@@ -174,7 +174,7 @@ const Calculator = () => {
   };
 
   return (
-    <section id="calculator" className="py-16 bg-[#FDE1D3]">
+    <section id="calculator" className="py-16 bg-[#FFF5EC]">
       <div className="container">
         <h2 className="text-4xl font-bold text-center mb-4">Калькулятор стоимости</h2>
         <p className="text-center text-gray-600 mb-12 max-w-3xl mx-auto">

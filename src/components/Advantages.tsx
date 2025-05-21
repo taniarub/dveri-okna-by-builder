@@ -4,7 +4,7 @@ import { Truck, Calendar, Shield, Ruler, LayoutGrid, CreditCard } from 'lucide-r
 
 const Advantages = () => {
   return (
-    <section id="advantages" className="bg-[#FDE1D3]">
+    <section id="advantages" className="bg-[#FFF5EC]">
       <div className="container">
         <h2 className="section-title">Наши преимущества</h2>
         
