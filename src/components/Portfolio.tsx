@@ -32,7 +32,7 @@ const Portfolio = () => {
       id="projects" 
       className="py-24 relative overflow-hidden min-h-[500px] bg-cover bg-center"
       style={{
-        backgroundImage: "url('/lovable-uploads/30fb427c-42ca-47b0-974c-df719af004a2.png')"
+        backgroundImage: "url('/lovable-uploads/86d974bd-d606-47e8-83bb-75d0e9c7d91a.png')"
       }}
     >
       {/* Dark overlay */}
@@ -45,11 +45,13 @@ const Portfolio = () => {
         >
           <h2 className="text-4xl font-bold text-center mb-8 text-white">Примеры наших работ</h2>
           
-          <Button 
-            className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-10 py-8 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl border-b-4 border-[#d48c13]"
-          >
-            Примеры наших работ
-          </Button>
+          <Link to="/portfolio">
+            <Button 
+              className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-10 py-8 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl border-b-4 border-[#d48c13]"
+            >
+              Примеры наших работ
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
