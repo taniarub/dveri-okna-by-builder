@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
@@ -377,10 +378,6 @@ const CalculatorPage = () => {
               >
                 Отправить заявку
               </button>
-            </div>
-            
-            <div className="text-center mt-4 text-sm text-gray-500">
-              Нажимая кнопку, вы соглашаетесь на обработку персональных данных
             </div>
           </div>
         </div>

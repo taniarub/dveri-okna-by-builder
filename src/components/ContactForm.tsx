@@ -12,8 +12,7 @@ const ContactForm = () => {
   return (
     <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
-        <h2 className="section-title mb-4">Связаться с нами</h2>
-        <h3 className="text-center font-medium text-xl text-gray-600 mb-12">Наши контакты</h3>
+        <h2 className="section-title mb-12">Связаться с нами</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
