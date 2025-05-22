@@ -41,6 +41,43 @@ const portfolioImages = [
   {
     src: "/lovable-uploads/0977c5c6-8264-4067-9f98-2aef292a3032.png",
     alt: "Чёрная дверь с трехсекционным остеклением"
+  },
+  // Newly added images
+  {
+    src: "/lovable-uploads/de2abc1c-027a-4921-8049-5cb88baa3a65.png",
+    alt: "Двустворчатое окно с установкой в белом цвете"
+  },
+  {
+    src: "/lovable-uploads/40ec8548-5185-4bb5-89b7-cb6fc8dd3c80.png",
+    alt: "Чёрная дверь с многосекционным остеклением"
+  },
+  {
+    src: "/lovable-uploads/653b459a-6124-494c-ba37-2cad708e0d56.png",
+    alt: "Тёмная входная дверь с двойным остеклением"
+  },
+  {
+    src: "/lovable-uploads/dbbf74cd-7a3b-4b6e-b969-332b7d4c19ca.png",
+    alt: "Окна и дверь в стадии установки"
+  },
+  {
+    src: "/lovable-uploads/c4c1ab97-b66f-4e79-a841-c6f6781195b5.png",
+    alt: "Деревянная входная дверь с окнами по бокам"
+  },
+  {
+    src: "/lovable-uploads/3f03fdda-803c-434e-aa2a-a1da0a7016ca.png",
+    alt: "Современные окна в белом доме"
+  },
+  {
+    src: "/lovable-uploads/5270e569-ce25-49ea-ba80-224e6bf40e26.png",
+    alt: "Три белых окна в зелёном деревянном доме"
+  },
+  {
+    src: "/lovable-uploads/74982c13-bdf1-4c00-bdfd-fafbeb2d6f84.png",
+    alt: "Чёрные окна с декоративной раскладкой в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/9affab7b-7004-44b2-bf21-6b1872cb8fc1.png",
+    alt: "Белое окно с декоративной раскладкой в кирпичном доме"
   }
 ];
 
