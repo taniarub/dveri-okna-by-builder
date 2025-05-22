@@ -1,108 +1,38 @@
 
 import React, { useRef, useState, useEffect } from 'react';
-import { Truck, Calendar, Shield, Ruler, LayoutGrid, CreditCard, Award, DollarSign } from 'lucide-react';
-
-// CountUp component for animating numbers
-const CountUp = ({ end, duration = 2000 }: { end: number, duration?: number }) => {
-  const [count, setCount] = useState(0);
-  const countRef = useRef<number>(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLSpanElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (elementRef.current) {
-      observer.observe(elementRef.current);
-    }
-
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!isVisible) return;
-
-    let startTime: number;
-    let animationFrameId: number;
-    const startValue = 0;
-
-    const step = (timestamp: number) => {
-      if (!startTime) startTime = timestamp;
-      const progress = Math.min((timestamp - startTime) / duration, 1);
-      const currentCount = Math.floor(progress * (end - startValue) + startValue);
-
-      setCount(currentCount);
-
-      if (progress < 1) {
-        animationFrameId = requestAnimationFrame(step);
-      } else {
-        setCount(end);
-      }
-    };
-
-    animationFrameId = requestAnimationFrame(step);
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-    };
-  }, [end, duration, isVisible]);
-
-  return <span ref={elementRef}>{count}</span>;
-};
+import { Truck, Calendar, Shield, Ruler, LayoutGrid, CreditCard } from 'lucide-react';
 
 const Advantages = () => {
   const advantages = [
     {
       icon: <Truck className="w-6 h-6 text-brand-yellow" />,
       title: "Бесплатная доставка",
-      description: "Доставим ваш заказ быстро и бесплатно в любой уголок страны.",
-      stat: 100,
-      suffix: "%"
+      description: "Доставим ваш заказ быстро и бесплатно в любой уголок страны."
     },
     {
       icon: <Calendar className="w-6 h-6 text-brand-yellow" />,
       title: "Работаем с 2009 года",
-      description: "Многолетний опыт и надежность компании гарантируют качество услуг.",
-      stat: 14,
-      suffix: " лет"
+      description: "Многолетний опыт и надежность компании гарантируют качество услуг."
     },
     {
       icon: <Shield className="w-6 h-6 text-brand-yellow" />,
       title: "Качество",
-      description: "Только высококачественные товары и услуги для наших клиентов.",
-      stat: 5000,
-      suffix: "+"
+      description: "Только высококачественные товары и услуги для наших клиентов."
     },
     {
       icon: <Ruler className="w-6 h-6 text-brand-yellow" />,
       title: "Индивидуальный размер",
-      description: "Окна и двери ПВХ под ваш размер с доставкой по всей стране.",
-      stat: 300,
-      suffix: " размеров"
+      description: "Окна и двери ПВХ под ваш размер с доставкой по всей стране."
     },
     {
       icon: <LayoutGrid className="w-6 h-6 text-brand-yellow" />,
       title: "Сложные конструкции",
-      description: "Делаем любой сложности конструкции из ПВХ, ламинируем и тонируем стекло.",
-      stat: 95,
-      suffix: "%"
+      description: "Делаем любой сложности конструкции из ПВХ, ламинируем и тонируем стекло."
     },
     {
       icon: <CreditCard className="w-6 h-6 text-brand-yellow" />,
       title: "Гибкая оплата",
-      description: "Работаем с наличным и безналичным расчетом, предлагаем различные варианты оплаты.",
-      stat: 10,
-      suffix: " способов"
+      description: "Работаем с наличным и безналичным расчетом, предлагаем различные варианты оплаты."
     }
   ];
 
@@ -142,9 +72,6 @@ const Advantages = () => {
               <div>
                 <h3 className="text-xl font-medium mb-2">{advantage.title}</h3>
                 <p className="text-gray-600">{advantage.description}</p>
-                <p className="text-2xl font-bold text-brand-yellow mt-2">
-                  {isVisible ? <CountUp end={advantage.stat} /> : 0}{advantage.suffix}
-                </p>
               </div>
             </div>
           ))}

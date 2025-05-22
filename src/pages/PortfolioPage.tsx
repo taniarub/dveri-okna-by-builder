@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -6,6 +5,22 @@ import Footer from "@/components/Footer";
 import ImageLightbox from "@/components/ImageLightbox";
 
 const portfolioImages = [
+  {
+    src: "/lovable-uploads/f3f46460-0fef-4610-bd88-a102d5fefff3.png",
+    alt: "Установка окна в частном доме"
+  },
+  {
+    src: "/lovable-uploads/89c8bfb5-7110-47b8-a2bf-d25e93b9bb94.png",
+    alt: "Трехсекционная оконная система"
+  },
+  {
+    src: "/lovable-uploads/6cd952b1-ce2b-4e15-b56b-ca9327820e56.png",
+    alt: "Французское окно большой высоты"
+  },
+  {
+    src: "/lovable-uploads/7c2f7a0c-87d1-41a3-b46b-f76bd3f5cc6c.png",
+    alt: "Комбинированная оконная система"
+  },
   {
     src: "/lovable-uploads/8f0b35f2-9578-47ce-a04b-15054000b79b.png",
     alt: "Пример работы 1"
@@ -38,7 +53,6 @@ const portfolioImages = [
     src: "/lovable-uploads/c94fff34-e275-454c-929d-cbec5df5aae0.png",
     alt: "Пример работы 8"
   },
-  // Original images from the portfolio page
   {
     src: "/lovable-uploads/f20fe5a5-0623-4c64-be89-f265f3d5c854.png", 
     alt: "Пример работы 9"

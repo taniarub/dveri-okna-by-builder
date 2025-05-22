@@ -42,11 +42,11 @@ const ImageLightbox = ({ imageUrl, alt, onClose }: ImageLightboxProps) => {
     >
       <div className="relative max-w-6xl max-h-[90vh] w-full">
         <button 
-          className="absolute top-4 right-4 bg-white/20 hover:bg-white/40 rounded-full p-2 transition-colors"
+          className="absolute top-4 right-4 bg-white rounded-full p-2 transition-colors hover:bg-gray-200"
           onClick={onClose}
           aria-label="Close"
         >
-          <X className="h-6 w-6 text-white" />
+          <X className="h-6 w-6 text-black" />
         </button>
         <div className="bg-white p-2 rounded-lg shadow-xl overflow-hidden">
           <img 
