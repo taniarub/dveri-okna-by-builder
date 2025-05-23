@@ -115,6 +115,19 @@ const portfolioImages = [
   {
     src: "/lovable-uploads/b65b0426-5481-4496-a0e7-c8062d8dd321.png",
     alt: "Окна с арочным верхом перед установкой"
+  },
+  // Newest batch of images
+  {
+    src: "/lovable-uploads/b432003f-03d0-4d3f-8577-68614f8e067c.png",
+    alt: "Вид через окно с видом на двор"
+  },
+  {
+    src: "/lovable-uploads/e5064329-3519-4e33-ad83-dcb4e339690a.png",
+    alt: "Белая трёхстворчатая дверь перед установкой"
+  },
+  {
+    src: "/lovable-uploads/cd43adf0-93d5-43d1-8db8-a3df1eb8eb32.png",
+    alt: "Белая дверь с многосекционным остеклением перед установкой"
   }
 ];
 
