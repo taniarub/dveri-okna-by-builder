@@ -42,7 +42,7 @@ const portfolioImages = [
     src: "/lovable-uploads/0977c5c6-8264-4067-9f98-2aef292a3032.png",
     alt: "Чёрная дверь с трехсекционным остеклением"
   },
-  // Newly added images
+  // Previously added images
   {
     src: "/lovable-uploads/de2abc1c-027a-4921-8049-5cb88baa3a65.png",
     alt: "Двустворчатое окно с установкой в белом цвете"
@@ -78,6 +78,43 @@ const portfolioImages = [
   {
     src: "/lovable-uploads/9affab7b-7004-44b2-bf21-6b1872cb8fc1.png",
     alt: "Белое окно с декоративной раскладкой в кирпичном доме"
+  },
+  // Latest batch of uploaded images
+  {
+    src: "/lovable-uploads/99f9d80e-9038-434e-a6a8-3186ea541760.png",
+    alt: "Горизонтальное окно в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/ced40bdc-3086-45de-954a-e0e2bc171137.png",
+    alt: "Деревянные окна с декоративной раскладкой в деревянном доме"
+  },
+  {
+    src: "/lovable-uploads/999987dd-1999-4267-a53e-3796b78af2b6.png",
+    alt: "Серые окна в белом кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/46a6cf07-0a62-483f-b178-533990ad1fb9.png",
+    alt: "Белые окна перед установкой"
+  },
+  {
+    src: "/lovable-uploads/a993deac-5e74-4ca5-ad1c-e807baca9a9c.png",
+    alt: "Белые окна и двери в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/f94249a2-03d0-4970-ba71-2cb3c7cc8afa.png",
+    alt: "Белые окна в желтом кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/b0551884-0f34-4d74-94cf-17ec56da4617.png",
+    alt: "Белое застекление балкона в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/28e84f23-1bd5-418a-bd56-6d4fcf66b61c.png",
+    alt: "Балконные двери и окна в белом цвете"
+  },
+  {
+    src: "/lovable-uploads/b65b0426-5481-4496-a0e7-c8062d8dd321.png",
+    alt: "Окна с арочным верхом перед установкой"
   }
 ];
 
