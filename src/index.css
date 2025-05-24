@@ -131,6 +131,11 @@
   .animate-slide-in {
     animation: slideIn 0.6s ease-in-out forwards;
   }
+
+  /* Moving sun animation */
+  .animate-sun-move {
+    animation: sunMove 6s ease-in-out infinite;
+  }
 }
 
 @keyframes fadeIn {
@@ -163,6 +168,18 @@
   100% {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+@keyframes sunMove {
+  0% {
+    transform: translateX(0) translateY(0) scale(1);
+  }
+  50% {
+    transform: translateX(20px) translateY(-10px) scale(1.1);
+  }
+  100% {
+    transform: translateX(0) translateY(0) scale(1);
   }
 }
 

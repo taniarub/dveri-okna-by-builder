@@ -14,26 +14,22 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-[800px] flex items-center overflow-hidden">
-      {/* Enhanced gradient background with more vibrant colors */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 via-orange-400 to-red-500 z-0" />
+      {/* Exact background gradient matching reference image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-300 z-0" />
       
-      {/* Overlay for depth */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-white/5 z-0" />
+      {/* Moving sun animation */}
+      <div className="absolute top-20 right-1/4 w-32 h-32 bg-yellow-300 rounded-full opacity-80 animate-pulse shadow-2xl"></div>
+      <div className="absolute top-16 right-1/3 w-40 h-40 bg-yellow-200 rounded-full opacity-60 animate-bounce shadow-xl"></div>
+      <div className="absolute top-24 right-1/5 w-24 h-24 bg-orange-200 rounded-full opacity-70 animate-ping shadow-lg"></div>
       
-      {/* Enhanced decorative geometric shapes with better positioning */}
-      <div className="absolute top-16 left-8 w-40 h-40 bg-blue-500/15 rounded-full animate-pulse blur-sm"></div>
-      <div className="absolute top-24 right-16 w-32 h-32 bg-purple-500/15 transform rotate-45 animate-bounce blur-sm"></div>
-      <div className="absolute bottom-20 left-1/4 w-28 h-28 bg-green-400/15 rounded-full animate-ping blur-sm"></div>
-      <div className="absolute bottom-32 right-1/3 w-24 h-24 bg-pink-400/15 transform rotate-12 animate-pulse delay-500 blur-sm"></div>
+      {/* Sun rays animation */}
+      <div className="absolute top-32 right-1/4 w-2 h-16 bg-yellow-300 opacity-60 animate-pulse transform rotate-12"></div>
+      <div className="absolute top-28 right-1/3 w-2 h-20 bg-yellow-300 opacity-60 animate-pulse transform rotate-45 delay-300"></div>
+      <div className="absolute top-36 right-1/5 w-2 h-12 bg-yellow-300 opacity-60 animate-pulse transform -rotate-12 delay-700"></div>
       
-      {/* Enhanced floating decorative lines */}
-      <div className="absolute top-1/3 right-12 w-20 h-1 bg-white/40 transform rotate-12 animate-pulse shadow-lg"></div>
-      <div className="absolute top-1/2 right-24 w-16 h-1 bg-white/40 transform rotate-45 animate-pulse delay-150 shadow-lg"></div>
-      <div className="absolute top-2/3 right-20 w-12 h-1 bg-white/40 transform rotate-12 animate-pulse delay-300 shadow-lg"></div>
-      
-      {/* Additional floating elements */}
-      <div className="absolute top-40 left-20 w-3 h-3 bg-white/60 rounded-full animate-bounce delay-700"></div>
-      <div className="absolute top-60 right-40 w-2 h-2 bg-white/50 rounded-full animate-ping delay-1000"></div>
+      {/* Additional decorative elements matching reference */}
+      <div className="absolute top-40 left-20 w-3 h-3 bg-white rounded-full animate-bounce delay-700"></div>
+      <div className="absolute top-60 right-40 w-2 h-2 bg-white rounded-full animate-ping delay-1000"></div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
