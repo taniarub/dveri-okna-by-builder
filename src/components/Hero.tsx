@@ -14,44 +14,59 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-[800px] flex items-center overflow-hidden">
-      {/* Exact background gradient matching reference image */}
-      <div className="absolute inset-0 bg-gradient-to-br from-orange-300 via-yellow-300 to-orange-400 z-0" />
+      {/* Radial gradient background matching reference style */}
+      <div className="absolute inset-0 bg-gradient-radial from-yellow-300 via-orange-400 to-orange-500 z-0" />
       
-      {/* Central moving sun */}
-      <div className="absolute top-20 right-1/3 w-40 h-40 bg-yellow-200 rounded-full opacity-90 animate-sun-move shadow-2xl"></div>
-      
-      {/* Sun rays radiating from center */}
-      <div className="absolute top-28 right-1/3 transform translate-x-1/2 translate-y-1/2">
-        {/* Top rays */}
-        <div className="absolute w-1 h-20 bg-yellow-300 opacity-70 transform -translate-y-full rotate-0 animate-pulse"></div>
-        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform -translate-y-full rotate-12 animate-pulse delay-100"></div>
-        <div className="absolute w-1 h-18 bg-yellow-300 opacity-65 transform -translate-y-full -rotate-12 animate-pulse delay-200"></div>
+      {/* Sunburst rays emanating from center-left where text will be */}
+      <div className="absolute top-1/2 left-1/4 transform -translate-y-1/2 -translate-x-1/2">
+        {/* Primary sunburst rays */}
+        {Array.from({ length: 16 }).map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-1 h-40 bg-gradient-to-t from-transparent via-yellow-200 to-transparent opacity-60 animate-rotate-rays"
+            style={{
+              transform: `rotate(${i * 22.5}deg)`,
+              transformOrigin: 'bottom center',
+              animationDelay: `${i * 0.1}s`
+            }}
+          />
+        ))}
         
-        {/* Right rays */}
-        <div className="absolute w-20 h-1 bg-yellow-300 opacity-70 transform translate-x-full rotate-0 animate-pulse delay-150"></div>
-        <div className="absolute w-16 h-1 bg-yellow-300 opacity-60 transform translate-x-full rotate-12 animate-pulse delay-250"></div>
-        <div className="absolute w-18 h-1 bg-yellow-300 opacity-65 transform translate-x-full -rotate-12 animate-pulse delay-350"></div>
-        
-        {/* Bottom rays */}
-        <div className="absolute w-1 h-20 bg-yellow-300 opacity-70 transform translate-y-full rotate-0 animate-pulse delay-300"></div>
-        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform translate-y-full rotate-12 animate-pulse delay-400"></div>
-        <div className="absolute w-1 h-18 bg-yellow-300 opacity-65 transform translate-y-full -rotate-12 animate-pulse delay-500"></div>
-        
-        {/* Left rays */}
-        <div className="absolute w-20 h-1 bg-yellow-300 opacity-70 transform -translate-x-full rotate-0 animate-pulse delay-450"></div>
-        <div className="absolute w-16 h-1 bg-yellow-300 opacity-60 transform -translate-x-full rotate-12 animate-pulse delay-550"></div>
-        <div className="absolute w-18 h-1 bg-yellow-300 opacity-65 transform -translate-x-full -rotate-12 animate-pulse delay-650"></div>
-        
-        {/* Diagonal rays */}
-        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform rotate-45 animate-pulse delay-200"></div>
-        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform -rotate-45 animate-pulse delay-300"></div>
-        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform rotate-135 animate-pulse delay-400"></div>
-        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform -rotate-135 animate-pulse delay-500"></div>
+        {/* Secondary shorter rays */}
+        {Array.from({ length: 12 }).map((_, i) => (
+          <div
+            key={`short-${i}`}
+            className="absolute w-0.5 h-24 bg-gradient-to-t from-transparent via-yellow-100 to-transparent opacity-40 animate-rotate-rays-slow"
+            style={{
+              transform: `rotate(${i * 30 + 15}deg)`,
+              transformOrigin: 'bottom center',
+              animationDelay: `${i * 0.15}s`
+            }}
+          />
+        ))}
       </div>
       
-      {/* Additional floating decorative elements */}
-      <div className="absolute top-40 left-20 w-3 h-3 bg-white rounded-full animate-bounce delay-700"></div>
-      <div className="absolute top-60 right-40 w-2 h-2 bg-white rounded-full animate-ping delay-1000"></div>
+      {/* Dynamic speed lines/streaks */}
+      <div className="absolute top-20 left-10">
+        <div className="w-16 h-0.5 bg-white opacity-70 animate-streak-1"></div>
+        <div className="w-12 h-0.5 bg-white opacity-50 mt-1 animate-streak-2"></div>
+        <div className="w-8 h-0.5 bg-white opacity-60 mt-1 animate-streak-3"></div>
+      </div>
+      
+      <div className="absolute top-40 left-16">
+        <div className="w-20 h-0.5 bg-white opacity-60 animate-streak-2"></div>
+        <div className="w-14 h-0.5 bg-white opacity-40 mt-1 animate-streak-1"></div>
+      </div>
+      
+      <div className="absolute top-60 left-12">
+        <div className="w-12 h-0.5 bg-white opacity-50 animate-streak-3"></div>
+        <div className="w-18 h-0.5 bg-white opacity-70 mt-1 animate-streak-1"></div>
+      </div>
+      
+      {/* Additional floating energy elements */}
+      <div className="absolute top-32 right-1/4 w-2 h-2 bg-white rounded-full opacity-80 animate-float-1"></div>
+      <div className="absolute top-50 right-1/3 w-1.5 h-1.5 bg-white rounded-full opacity-60 animate-float-2"></div>
+      <div className="absolute top-72 right-1/5 w-3 h-3 bg-white rounded-full opacity-70 animate-float-3"></div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
