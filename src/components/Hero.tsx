@@ -67,11 +67,6 @@ const Hero = () => {
               </div>
             </div>
             
-            <p className="text-xl md:text-2xl mb-10 opacity-90 font-medium drop-shadow-lg">
-              Профессиональная установка окон с гарантией качества, 
-              современными технологиями и доступными ценами.
-            </p>
-            
             <div className="flex flex-wrap gap-6">
               <Link 
                 to="/calculator" 
