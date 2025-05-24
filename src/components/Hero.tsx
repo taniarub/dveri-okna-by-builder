@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
@@ -13,94 +14,79 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-[800px] flex items-center overflow-hidden">
-      {/* Large sunburst rays background covering entire hero space */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 via-orange-400 to-amber-500">
-        {/* Large primary sunburst rays covering full hero space */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full h-full">
-          {Array.from({ length: 20 }).map((_, i) => (
+      {/* Golden-yellow to orange retro background */}
+      <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-orange-400 to-orange-500">
+        
+        {/* Sharp sunburst rays from bottom center */}
+        <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
+          {Array.from({ length: 24 }).map((_, i) => (
             <div
               key={i}
-              className="absolute origin-center"
+              className="absolute origin-bottom"
               style={{
-                width: '8px',
+                width: '6px',
                 height: '120vh',
                 background: `linear-gradient(to top, 
-                  rgba(255, 255, 255, 0) 0%, 
-                  rgba(255, 255, 255, 0.15) 20%, 
-                  rgba(255, 255, 255, 0.3) 50%, 
-                  rgba(255, 255, 255, 0.15) 80%, 
+                  rgba(255, 255, 255, 0.4) 0%, 
+                  rgba(255, 255, 255, 0.2) 50%, 
                   rgba(255, 255, 255, 0) 100%)`,
-                transform: `rotate(${i * 18}deg)`,
-                borderRadius: '4px',
+                transform: `rotate(${(i - 12) * 7.5}deg)`,
                 left: '50%',
-                top: '50%',
-                transformOrigin: 'center',
-                marginLeft: '-4px',
-                marginTop: '-60vh',
-                animation: `rotateRaysSlow 25s linear infinite`,
+                bottom: '0',
+                transformOrigin: 'bottom center',
+                marginLeft: '-3px',
+                animation: `rotateRays 20s linear infinite`,
+                animationDelay: `${i * 0.2}s`
+              }}
+            />
+          ))}
+          
+          {/* Secondary thinner rays for depth */}
+          {Array.from({ length: 48 }).map((_, i) => (
+            <div
+              key={`thin-${i}`}
+              className="absolute origin-bottom"
+              style={{
+                width: '2px',
+                height: '100vh',
+                background: `linear-gradient(to top, 
+                  rgba(255, 255, 255, 0.2) 0%, 
+                  rgba(255, 255, 255, 0.1) 40%, 
+                  rgba(255, 255, 255, 0) 100%)`,
+                transform: `rotate(${(i - 24) * 3.75}deg)`,
+                left: '50%',
+                bottom: '0',
+                transformOrigin: 'bottom center',
+                marginLeft: '-1px',
+                animation: `rotateRays 30s linear infinite reverse`,
                 animationDelay: `${i * 0.1}s`
               }}
             />
           ))}
-          
-          {/* Secondary thinner rays for depth and texture */}
-          {Array.from({ length: 32 }).map((_, i) => (
-            <div
-              key={`thin-${i}`}
-              className="absolute origin-center"
-              style={{
-                width: '3px',
-                height: '100vh',
-                background: `linear-gradient(to top, 
-                  rgba(255, 255, 255, 0) 0%, 
-                  rgba(255, 255, 255, 0.08) 30%, 
-                  rgba(255, 255, 255, 0.2) 50%, 
-                  rgba(255, 255, 255, 0.08) 70%, 
-                  rgba(255, 255, 255, 0) 100%)`,
-                transform: `rotate(${i * 11.25}deg)`,
-                borderRadius: '2px',
-                left: '50%',
-                top: '50%',
-                transformOrigin: 'center',
-                marginLeft: '-1.5px',
-                marginTop: '-50vh',
-                animation: `rotateRaysReverse 35s linear infinite reverse`,
-                animationDelay: `${i * 0.05}s`
-              }}
-            />
-          ))}
-          
-          {/* Pulsating central glow for sunlight effect */}
-          <div 
-            className="absolute w-96 h-96 rounded-full opacity-30 transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2"
-            style={{
-              background: `radial-gradient(circle, 
-                rgba(255, 255, 255, 0.4) 0%, 
-                rgba(255, 255, 255, 0.2) 30%, 
-                rgba(255, 255, 255, 0.1) 60%, 
-                rgba(255, 255, 255, 0) 100%)`,
-              animation: `pulseSunlight 4s ease-in-out infinite`
-            }}
-          />
         </div>
-      </div>
-      
-      {/* Dynamic accent elements for energy */}
-      <div className="absolute inset-0 pointer-events-none z-5">
-        {/* Speed streaks */}
-        <div className="absolute top-1/4 left-1/4 w-24 h-1 bg-white opacity-60 rounded-full animate-streak-1"></div>
-        <div className="absolute top-1/3 left-1/3 w-16 h-0.5 bg-white opacity-40 rounded-full animate-streak-2 delay-500"></div>
-        <div className="absolute top-2/3 right-1/3 w-20 h-1 bg-white opacity-50 rounded-full animate-streak-3 delay-1000"></div>
         
-        {/* Floating sparkles */}
-        <div className="absolute top-1/5 right-1/4 w-2 h-2 bg-white rounded-full opacity-70 animate-ping delay-300"></div>
-        <div className="absolute bottom-1/4 left-2/3 w-1.5 h-1.5 bg-white rounded-full opacity-60 animate-ping delay-700"></div>
-        <div className="absolute top-3/4 right-1/5 w-1 h-1 bg-white rounded-full opacity-80 animate-ping delay-1200"></div>
+        {/* Diagonal motion lines for energy */}
+        <div className="absolute inset-0 pointer-events-none">
+          {/* Left side diagonal lines */}
+          <div className="absolute top-1/4 left-1/4 w-32 h-1 bg-white/30 rounded-full transform rotate-12 animate-streak-1"></div>
+          <div className="absolute top-1/3 left-1/5 w-24 h-0.5 bg-white/20 rounded-full transform rotate-12 animate-streak-2 delay-300"></div>
+          <div className="absolute top-2/5 left-1/3 w-20 h-0.5 bg-white/25 rounded-full transform rotate-12 animate-streak-3 delay-600"></div>
+          
+          {/* Right side diagonal lines */}
+          <div className="absolute top-1/5 right-1/4 w-28 h-1 bg-white/30 rounded-full transform -rotate-12 animate-streak-1 delay-150"></div>
+          <div className="absolute top-2/5 right-1/5 w-22 h-0.5 bg-white/20 rounded-full transform -rotate-12 animate-streak-2 delay-450"></div>
+          <div className="absolute top-1/2 right-1/3 w-18 h-0.5 bg-white/25 rounded-full transform -rotate-12 animate-streak-3 delay-750"></div>
+          
+          {/* Sparkle accents */}
+          <div className="absolute top-1/6 left-2/3 w-2 h-2 bg-white rounded-full animate-ping delay-200"></div>
+          <div className="absolute top-3/4 left-1/4 w-1.5 h-1.5 bg-white rounded-full animate-ping delay-500"></div>
+          <div className="absolute top-1/2 right-1/5 w-1 h-1 bg-white rounded-full animate-ping delay-800"></div>
+        </div>
       </div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-          {/* Left side content area - preserved space for text */}
+          {/* Left side content area */}
           <div 
             ref={heroContentRef}
             className="flex-1 text-white opacity-0 transition-all duration-1000"
