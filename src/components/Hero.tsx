@@ -1,4 +1,3 @@
-
 import { Link } from "react-router-dom";
 import { useEffect, useRef } from "react";
 
@@ -17,32 +16,55 @@ const Hero = () => {
       {/* Golden-yellow to orange retro background */}
       <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-orange-400 to-orange-500">
         
-        {/* Sharp sunburst rays from bottom center */}
+        {/* Sharp sunburst rays from bottom center - Primary thick rays */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
-          {Array.from({ length: 24 }).map((_, i) => (
+          {Array.from({ length: 60 }).map((_, i) => (
             <div
               key={i}
               className="absolute origin-bottom"
               style={{
-                width: '6px',
+                width: '8px',
                 height: '120vh',
                 background: `linear-gradient(to top, 
-                  rgba(255, 255, 255, 0.4) 0%, 
-                  rgba(255, 255, 255, 0.2) 50%, 
+                  rgba(255, 255, 255, 0.5) 0%, 
+                  rgba(255, 255, 255, 0.3) 50%, 
                   rgba(255, 255, 255, 0) 100%)`,
-                transform: `rotate(${(i - 12) * 7.5}deg)`,
+                transform: `rotate(${(i - 30) * 3}deg)`,
                 left: '50%',
                 bottom: '0',
                 transformOrigin: 'bottom center',
-                marginLeft: '-3px',
-                animation: `rotateRays 20s linear infinite`,
-                animationDelay: `${i * 0.2}s`
+                marginLeft: '-4px',
+                animation: `rotateRays 25s linear infinite`,
+                animationDelay: `${i * 0.1}s`
               }}
             />
           ))}
           
-          {/* Secondary thinner rays for depth */}
-          {Array.from({ length: 48 }).map((_, i) => (
+          {/* Secondary medium rays for density */}
+          {Array.from({ length: 120 }).map((_, i) => (
+            <div
+              key={`medium-${i}`}
+              className="absolute origin-bottom"
+              style={{
+                width: '4px',
+                height: '110vh',
+                background: `linear-gradient(to top, 
+                  rgba(255, 255, 255, 0.3) 0%, 
+                  rgba(255, 255, 255, 0.15) 40%, 
+                  rgba(255, 255, 255, 0) 100%)`,
+                transform: `rotate(${(i - 60) * 1.5}deg)`,
+                left: '50%',
+                bottom: '0',
+                transformOrigin: 'bottom center',
+                marginLeft: '-2px',
+                animation: `rotateRays 35s linear infinite reverse`,
+                animationDelay: `${i * 0.05}s`
+              }}
+            />
+          ))}
+          
+          {/* Tertiary thin rays for maximum density */}
+          {Array.from({ length: 200 }).map((_, i) => (
             <div
               key={`thin-${i}`}
               className="absolute origin-bottom"
@@ -51,15 +73,15 @@ const Hero = () => {
                 height: '100vh',
                 background: `linear-gradient(to top, 
                   rgba(255, 255, 255, 0.2) 0%, 
-                  rgba(255, 255, 255, 0.1) 40%, 
+                  rgba(255, 255, 255, 0.1) 30%, 
                   rgba(255, 255, 255, 0) 100%)`,
-                transform: `rotate(${(i - 24) * 3.75}deg)`,
+                transform: `rotate(${(i - 100) * 0.9}deg)`,
                 left: '50%',
                 bottom: '0',
                 transformOrigin: 'bottom center',
                 marginLeft: '-1px',
-                animation: `rotateRays 30s linear infinite reverse`,
-                animationDelay: `${i * 0.1}s`
+                animation: `rotateRays 45s linear infinite`,
+                animationDelay: `${i * 0.02}s`
               }}
             />
           ))}
