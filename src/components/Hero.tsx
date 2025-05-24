@@ -15,19 +15,41 @@ const Hero = () => {
   return (
     <div className="relative min-h-[800px] flex items-center overflow-hidden">
       {/* Exact background gradient matching reference image */}
-      <div className="absolute inset-0 bg-gradient-to-r from-orange-400 via-yellow-400 to-orange-300 z-0" />
+      <div className="absolute inset-0 bg-gradient-to-br from-orange-300 via-yellow-300 to-orange-400 z-0" />
       
-      {/* Moving sun animation */}
-      <div className="absolute top-20 right-1/4 w-32 h-32 bg-yellow-300 rounded-full opacity-80 animate-pulse shadow-2xl"></div>
-      <div className="absolute top-16 right-1/3 w-40 h-40 bg-yellow-200 rounded-full opacity-60 animate-bounce shadow-xl"></div>
-      <div className="absolute top-24 right-1/5 w-24 h-24 bg-orange-200 rounded-full opacity-70 animate-ping shadow-lg"></div>
+      {/* Central moving sun */}
+      <div className="absolute top-20 right-1/3 w-40 h-40 bg-yellow-200 rounded-full opacity-90 animate-sun-move shadow-2xl"></div>
       
-      {/* Sun rays animation */}
-      <div className="absolute top-32 right-1/4 w-2 h-16 bg-yellow-300 opacity-60 animate-pulse transform rotate-12"></div>
-      <div className="absolute top-28 right-1/3 w-2 h-20 bg-yellow-300 opacity-60 animate-pulse transform rotate-45 delay-300"></div>
-      <div className="absolute top-36 right-1/5 w-2 h-12 bg-yellow-300 opacity-60 animate-pulse transform -rotate-12 delay-700"></div>
+      {/* Sun rays radiating from center */}
+      <div className="absolute top-28 right-1/3 transform translate-x-1/2 translate-y-1/2">
+        {/* Top rays */}
+        <div className="absolute w-1 h-20 bg-yellow-300 opacity-70 transform -translate-y-full rotate-0 animate-pulse"></div>
+        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform -translate-y-full rotate-12 animate-pulse delay-100"></div>
+        <div className="absolute w-1 h-18 bg-yellow-300 opacity-65 transform -translate-y-full -rotate-12 animate-pulse delay-200"></div>
+        
+        {/* Right rays */}
+        <div className="absolute w-20 h-1 bg-yellow-300 opacity-70 transform translate-x-full rotate-0 animate-pulse delay-150"></div>
+        <div className="absolute w-16 h-1 bg-yellow-300 opacity-60 transform translate-x-full rotate-12 animate-pulse delay-250"></div>
+        <div className="absolute w-18 h-1 bg-yellow-300 opacity-65 transform translate-x-full -rotate-12 animate-pulse delay-350"></div>
+        
+        {/* Bottom rays */}
+        <div className="absolute w-1 h-20 bg-yellow-300 opacity-70 transform translate-y-full rotate-0 animate-pulse delay-300"></div>
+        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform translate-y-full rotate-12 animate-pulse delay-400"></div>
+        <div className="absolute w-1 h-18 bg-yellow-300 opacity-65 transform translate-y-full -rotate-12 animate-pulse delay-500"></div>
+        
+        {/* Left rays */}
+        <div className="absolute w-20 h-1 bg-yellow-300 opacity-70 transform -translate-x-full rotate-0 animate-pulse delay-450"></div>
+        <div className="absolute w-16 h-1 bg-yellow-300 opacity-60 transform -translate-x-full rotate-12 animate-pulse delay-550"></div>
+        <div className="absolute w-18 h-1 bg-yellow-300 opacity-65 transform -translate-x-full -rotate-12 animate-pulse delay-650"></div>
+        
+        {/* Diagonal rays */}
+        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform rotate-45 animate-pulse delay-200"></div>
+        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform -rotate-45 animate-pulse delay-300"></div>
+        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform rotate-135 animate-pulse delay-400"></div>
+        <div className="absolute w-1 h-16 bg-yellow-300 opacity-60 transform -rotate-135 animate-pulse delay-500"></div>
+      </div>
       
-      {/* Additional decorative elements matching reference */}
+      {/* Additional floating decorative elements */}
       <div className="absolute top-40 left-20 w-3 h-3 bg-white rounded-full animate-bounce delay-700"></div>
       <div className="absolute top-60 right-40 w-2 h-2 bg-white rounded-full animate-ping delay-1000"></div>
       

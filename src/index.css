@@ -175,8 +175,14 @@
   0% {
     transform: translateX(0) translateY(0) scale(1);
   }
+  25% {
+    transform: translateX(15px) translateY(-8px) scale(1.05);
+  }
   50% {
-    transform: translateX(20px) translateY(-10px) scale(1.1);
+    transform: translateX(30px) translateY(-15px) scale(1.1);
+  }
+  75% {
+    transform: translateX(15px) translateY(-8px) scale(1.05);
   }
   100% {
     transform: translateX(0) translateY(0) scale(1);
