@@ -14,63 +14,72 @@ const Hero = () => {
 
   return (
     <div className="relative min-h-[800px] flex items-center overflow-hidden">
-      {/* Radial gradient background matching reference style */}
-      <div className="absolute inset-0 bg-gradient-radial from-yellow-300 via-orange-400 to-orange-500 z-0" />
+      {/* Clean vector sunburst background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-yellow-300 via-orange-400 to-amber-500">
+        {/* Primary sunburst rays - clean vector style */}
+        <div className="absolute top-1/2 left-2/3 transform -translate-y-1/2 -translate-x-1/2">
+          {Array.from({ length: 24 }).map((_, i) => (
+            <div
+              key={i}
+              className="absolute origin-bottom"
+              style={{
+                width: '4px',
+                height: '200px',
+                background: `linear-gradient(to top, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1))`,
+                transform: `rotate(${i * 15}deg)`,
+                borderRadius: '2px',
+                animation: `rotateRays 20s linear infinite`,
+                animationDelay: `${i * 0.05}s`
+              }}
+            />
+          ))}
+          
+          {/* Secondary shorter rays for depth */}
+          {Array.from({ length: 16 }).map((_, i) => (
+            <div
+              key={`short-${i}`}
+              className="absolute origin-bottom"
+              style={{
+                width: '2px',
+                height: '120px',
+                background: `linear-gradient(to top, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.25), rgba(255, 255, 255, 0.05))`,
+                transform: `rotate(${i * 22.5 + 7.5}deg)`,
+                borderRadius: '1px',
+                animation: `rotateRays 30s linear infinite reverse`,
+                animationDelay: `${i * 0.1}s`
+              }}
+            />
+          ))}
+          
+          {/* Central bright core */}
+          <div className="absolute w-32 h-32 bg-gradient-to-br from-white via-yellow-200 to-orange-300 rounded-full blur-sm opacity-80 transform -translate-x-1/2 -translate-y-1/2 animate-pulse"></div>
+          <div className="absolute w-16 h-16 bg-gradient-to-br from-white to-yellow-100 rounded-full transform -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+      </div>
       
-      {/* Sunburst rays emanating from center-left where text will be */}
-      <div className="absolute top-1/2 left-1/4 transform -translate-y-1/2 -translate-x-1/2">
-        {/* Primary sunburst rays */}
-        {Array.from({ length: 16 }).map((_, i) => (
-          <div
-            key={i}
-            className="absolute w-1 h-40 bg-gradient-to-t from-transparent via-yellow-200 to-transparent opacity-60 animate-rotate-rays"
-            style={{
-              transform: `rotate(${i * 22.5}deg)`,
-              transformOrigin: 'bottom center',
-              animationDelay: `${i * 0.1}s`
-            }}
-          />
-        ))}
+      {/* Clean accent lines and sparkles */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Top accent lines */}
+        <div className="absolute top-16 left-1/4 w-20 h-1 bg-white opacity-70 rounded-full animate-pulse"></div>
+        <div className="absolute top-20 left-1/3 w-12 h-0.5 bg-white opacity-50 rounded-full animate-pulse delay-300"></div>
         
-        {/* Secondary shorter rays */}
-        {Array.from({ length: 12 }).map((_, i) => (
-          <div
-            key={`short-${i}`}
-            className="absolute w-0.5 h-24 bg-gradient-to-t from-transparent via-yellow-100 to-transparent opacity-40 animate-rotate-rays-slow"
-            style={{
-              transform: `rotate(${i * 30 + 15}deg)`,
-              transformOrigin: 'bottom center',
-              animationDelay: `${i * 0.15}s`
-            }}
-          />
-        ))}
+        {/* Side accent lines */}
+        <div className="absolute top-1/3 right-1/4 w-16 h-1 bg-white opacity-60 rounded-full animate-pulse delay-700"></div>
+        <div className="absolute top-2/5 right-1/5 w-8 h-0.5 bg-white opacity-40 rounded-full animate-pulse delay-1000"></div>
+        
+        {/* Sparkle elements */}
+        <div className="absolute top-1/4 left-2/3 w-2 h-2 bg-white rounded-full opacity-80 animate-ping"></div>
+        <div className="absolute top-2/3 right-1/3 w-1.5 h-1.5 bg-white rounded-full opacity-60 animate-ping delay-500"></div>
+        <div className="absolute top-1/2 right-1/4 w-1 h-1 bg-white rounded-full opacity-70 animate-ping delay-1000"></div>
+        
+        {/* Additional energy sparkles */}
+        <div className="absolute top-1/5 left-3/4 w-1 h-8 bg-white opacity-50 rounded-full animate-pulse delay-200"></div>
+        <div className="absolute top-3/4 left-2/3 w-1 h-6 bg-white opacity-40 rounded-full animate-pulse delay-800"></div>
       </div>
-      
-      {/* Dynamic speed lines/streaks */}
-      <div className="absolute top-20 left-10">
-        <div className="w-16 h-0.5 bg-white opacity-70 animate-streak-1"></div>
-        <div className="w-12 h-0.5 bg-white opacity-50 mt-1 animate-streak-2"></div>
-        <div className="w-8 h-0.5 bg-white opacity-60 mt-1 animate-streak-3"></div>
-      </div>
-      
-      <div className="absolute top-40 left-16">
-        <div className="w-20 h-0.5 bg-white opacity-60 animate-streak-2"></div>
-        <div className="w-14 h-0.5 bg-white opacity-40 mt-1 animate-streak-1"></div>
-      </div>
-      
-      <div className="absolute top-60 left-12">
-        <div className="w-12 h-0.5 bg-white opacity-50 animate-streak-3"></div>
-        <div className="w-18 h-0.5 bg-white opacity-70 mt-1 animate-streak-1"></div>
-      </div>
-      
-      {/* Additional floating energy elements */}
-      <div className="absolute top-32 right-1/4 w-2 h-2 bg-white rounded-full opacity-80 animate-float-1"></div>
-      <div className="absolute top-50 right-1/3 w-1.5 h-1.5 bg-white rounded-full opacity-60 animate-float-2"></div>
-      <div className="absolute top-72 right-1/5 w-3 h-3 bg-white rounded-full opacity-70 animate-float-3"></div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-          {/* Left side content with enhanced styling */}
+          {/* Left side content area - preserved space for text */}
           <div 
             ref={heroContentRef}
             className="flex-1 text-white opacity-0 transition-all duration-1000"
