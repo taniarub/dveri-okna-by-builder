@@ -38,7 +38,7 @@ const Hero = () => {
             <div className="relative mb-8">
               <div className="bg-gradient-to-r from-blue-600 to-purple-700 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-lg">
                 <h1 className="text-4xl md:text-6xl font-bold transform skew-x-12 leading-tight">
-                  Двери и окна ПВХ с бесплатной доставкой по РБ
+                  окна и двери
                 </h1>
               </div>
               {/* Decorative lines next to title */}
@@ -46,6 +46,24 @@ const Hero = () => {
                 <div className="w-8 h-1 bg-white mb-1"></div>
                 <div className="w-6 h-1 bg-white mb-1"></div>
                 <div className="w-4 h-1 bg-white"></div>
+              </div>
+            </div>
+
+            {/* Second text with colorful background */}
+            <div className="relative mb-6">
+              <div className="bg-gradient-to-r from-green-500 to-teal-600 transform -skew-x-12 px-6 py-4 inline-block shadow-xl rounded-lg">
+                <h2 className="text-2xl md:text-4xl font-bold transform skew-x-12 text-white">
+                  без монтажа
+                </h2>
+              </div>
+            </div>
+
+            {/* Third text with colorful background */}
+            <div className="relative mb-10">
+              <div className="bg-gradient-to-r from-pink-500 to-rose-600 transform -skew-x-12 px-6 py-4 inline-block shadow-xl rounded-lg">
+                <h3 className="text-xl md:text-3xl font-bold transform skew-x-12 text-white">
+                  с бесплатной доставкой
+                </h3>
               </div>
             </div>
             
