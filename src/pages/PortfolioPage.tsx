@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -81,6 +80,34 @@ const portfolioImages: Array<{src: string; alt: string}> = [
   {
     src: "/lovable-uploads/5c3bc3b9-f688-460e-9078-b5f0ecd17014.png",
     alt: "Темная входная дверь в строящемся доме"
+  },
+  {
+    src: "/lovable-uploads/e9d0f43b-560e-4788-a121-f74e6614f06c.png",
+    alt: "Коричневая пластиковая дверь с тремя панелями в процессе установки"
+  },
+  {
+    src: "/lovable-uploads/c4a41f14-224b-4b89-80ee-eb94e6134070.png",
+    alt: "Черная входная дверь с горизонтальными стеклянными вставками"
+  },
+  {
+    src: "/lovable-uploads/5d86d7a2-3aac-4bed-9ebd-cdeeb3f2004d.png",
+    alt: "Черная входная дверь с большими стеклянными панелями"
+  },
+  {
+    src: "/lovable-uploads/2880df95-8940-416b-90fe-8d815f8f4fff.png",
+    alt: "Темные окна и дверь в каменном доме"
+  },
+  {
+    src: "/lovable-uploads/7dd23bd1-624f-4386-b886-d867e990faae.png",
+    alt: "Белые пластиковые окна и двери в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/7899a64a-10e8-4780-ae70-2df0a061ad79.png",
+    alt: "Белые пластиковые двери с защитной пленкой"
+  },
+  {
+    src: "/lovable-uploads/12ef9963-23c6-4f38-8b39-31aa4c9f7f71.png",
+    alt: "Белая пластиковая дверь с множественными стеклянными панелями"
   }
 ];
 
