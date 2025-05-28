@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from 'react';
 
 const AboutUs = () => {
@@ -71,7 +70,7 @@ const AboutUs = () => {
         <div className="max-w-3xl mx-auto text-center mb-16">
           <h2 className="text-4xl font-bold mb-6">О нас</h2>
           <p className="text-xl text-gray-600">
-            Мы - команда профессионалов с более чем <span className="text-brand-orange font-bold">{count1}+</span> летним опытом в установке и обслуживании окон
+            Наша компания уже более <span className="text-brand-orange font-bold">{count1}+</span> лет работает на рынке оконных конструкций. Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
           </p>
         </div>
         
