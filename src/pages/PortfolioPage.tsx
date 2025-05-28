@@ -1,11 +1,51 @@
-
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ImageLightbox from "@/components/ImageLightbox";
 
-const portfolioImages: Array<{src: string; alt: string}> = [];
+const portfolioImages: Array<{src: string; alt: string}> = [
+  {
+    src: "/lovable-uploads/c28c989c-3309-4eb0-9ef8-2cd5e9c2acec.png",
+    alt: "Белые пластиковые окна различных размеров"
+  },
+  {
+    src: "/lovable-uploads/1bbbaca7-93c1-444c-80b5-5d32d9176822.png",
+    alt: "Окна в деревянном доме с бирюзовыми и зелеными стенами"
+  },
+  {
+    src: "/lovable-uploads/70427fce-56ad-45ce-a8b6-6c38c45490fd.png",
+    alt: "Коричневые деревянные окна в каменном доме"
+  },
+  {
+    src: "/lovable-uploads/1e8ee32d-0fd5-433d-ae08-d7dbe2c80d53.png",
+    alt: "Черные пластиковые окна в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/a870395e-92a4-45c4-b768-8a67a516e22b.png",
+    alt: "Серые пластиковые окна в белом кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/bc50b004-a5da-4933-b08d-308e4e721760.png",
+    alt: "Темные окна в белом кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/0ff6a3ce-ad45-46a5-81cb-dc3fb9b3617b.png",
+    alt: "Три белых окна в зеленом деревянном доме"
+  },
+  {
+    src: "/lovable-uploads/a662a934-24ed-4cac-8191-15134efd4c0e.png",
+    alt: "Темные окна с декоративными элементами в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/bca390b2-69a1-4634-acfe-9ebf4b324d1f.png",
+    alt: "Белые пластиковые окна в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/4b4a93b2-840a-4843-aeff-57513faa3e3d.png",
+    alt: "Коричневые деревянные окна в бревенчатом доме"
+  }
+];
 
 const PortfolioPage = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
