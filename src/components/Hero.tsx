@@ -74,9 +74,9 @@ const Hero = () => {
       </div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
-        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
-          {/* Left side content area */}
-          <div className="flex-1 text-white">
+        <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
+          {/* Text content centered */}
+          <div className="text-white">
             {/* Main banner shape with enhanced styling */}
             <div className="relative mb-10">
               <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20">
@@ -111,7 +111,7 @@ const Hero = () => {
             </div>
             
             {/* Enhanced buttons */}
-            <div className="flex flex-wrap gap-8">
+            <div className="flex flex-wrap gap-8 justify-center">
               <Link 
                 to="/calculator" 
                 className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold px-14 py-5 rounded-full transition-all duration-300 text-xl shadow-2xl hover:shadow-red-500/30 transform hover:-translate-y-2 hover:scale-105 uppercase tracking-wider border border-white/20"
@@ -124,44 +124,6 @@ const Hero = () => {
               >
                 Связаться с нами
               </a>
-            </div>
-          </div>
-
-          {/* Right side - Enhanced Window visualization */}
-          <div className="flex-1 flex flex-col items-center relative">
-            {/* Enhanced circular background with window */}
-            <div className="relative">
-              <div className="w-80 h-80 bg-gradient-to-br from-blue-400 via-blue-500 to-blue-700 rounded-full shadow-2xl flex items-center justify-center relative overflow-hidden border-4 border-white/30 backdrop-blur-sm">
-                {/* Enhanced window frame simulation */}
-                <div className="w-40 h-48 bg-white rounded-xl shadow-inner relative border-4 border-gray-300 overflow-hidden">
-                  <div className="absolute inset-3 bg-gradient-to-br from-blue-50 to-blue-100 rounded-lg"></div>
-                  <div className="absolute top-1/2 left-0 right-0 h-1.5 bg-gray-400 shadow-sm"></div>
-                  <div className="absolute top-0 bottom-0 left-1/2 w-1.5 bg-gray-400 shadow-sm"></div>
-                  {/* Window handles */}
-                  <div className="absolute top-1/2 right-1 w-2 h-6 bg-gray-500 rounded-sm transform -translate-y-1/2"></div>
-                </div>
-                
-                {/* Enhanced floating price badge */}
-                <div className="absolute -bottom-6 -right-6 bg-gradient-to-r from-white to-gray-50 rounded-full px-8 py-4 shadow-2xl border border-gray-200">
-                  <div className="text-center">
-                    <div className="text-sm text-gray-500 font-medium">от</div>
-                    <div className="text-2xl font-bold text-blue-600">3334 ₽</div>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Enhanced navigation arrows */}
-              <button className="absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all duration-300 border border-gray-200 hover:shadow-2xl">
-                <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                </svg>
-              </button>
-              
-              <button className="absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-1/2 w-16 h-16 bg-white rounded-full shadow-xl flex items-center justify-center hover:scale-110 transition-all duration-300 border border-gray-200 hover:shadow-2xl">
-                <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </button>
             </div>
           </div>
         </div>
