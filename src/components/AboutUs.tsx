@@ -1,3 +1,4 @@
+
 import { useRef, useEffect, useState } from 'react';
 
 const AboutUs = () => {
@@ -39,8 +40,8 @@ const AboutUs = () => {
       const totalFrames = duration / 1000 * framesPerSecond;
       
       const target1 = 15;
-      const target2 = 5000;
-      const target3 = 10000;
+      const target2 = 80;
+      const target3 = 6;
 
       let frame = 0;
       
@@ -86,19 +87,19 @@ const AboutUs = () => {
           
           <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
             <div className="text-4xl font-bold mb-4">
-              <span className="text-brand-orange">{count2}+</span>
+              <span className="text-brand-orange">{count2}%</span>
             </div>
             <p className="text-lg text-gray-600">
-              установленных окон в жилых и коммерческих помещениях
+              клиентов обращаются к нам повторно
             </p>
           </div>
           
           <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
             <div className="text-4xl font-bold mb-4">
-              <span className="text-brand-orange">{count3}+</span>
+              <span className="text-brand-orange">{count3} из 10</span>
             </div>
             <p className="text-lg text-gray-600">
-              довольных клиентов рекомендуют нас своим знакомым
+              новых клиентов обращаются к нам по рекомендациям от довольных заказчиков
             </p>
           </div>
         </div>
