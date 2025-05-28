@@ -61,7 +61,7 @@ const Advantages = () => {
   return (
     <section id="advantages" className="bg-[#FFF5EC] py-16" ref={sectionRef}>
       <div className="container mx-auto px-4">
-        <h2 className="section-title text-3xl md:text-4xl font-bold mb-16">Наши преимущества</h2>
+        <h2 className="section-title text-3xl md:text-4xl font-bold mb-16">6 причин выбрать нас</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {advantages.map((advantage, index) => (

@@ -12,7 +12,7 @@ const ContactForm = () => {
   return (
     <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
-        <h2 className="section-title mb-12">Связаться с нами</h2>
+        <h2 className="section-title mb-12">Нужна консультация? Перезвоним в удобное время!</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}

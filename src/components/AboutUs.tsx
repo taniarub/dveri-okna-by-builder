@@ -69,7 +69,7 @@ const AboutUs = () => {
     <section id="about" className="py-16 bg-white">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6">О нас</h2>
+          <h2 className="text-4xl font-bold mb-6">Почему мы?</h2>
           <p className="text-xl text-gray-600">
             Наша компания уже более <span className="text-brand-orange font-bold">{count1}+</span> лет работает на рынке оконных конструкций. Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
           </p>
