@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Header from "@/components/Header";
@@ -44,6 +45,42 @@ const portfolioImages: Array<{src: string; alt: string}> = [
   {
     src: "/lovable-uploads/4b4a93b2-840a-4843-aeff-57513faa3e3d.png",
     alt: "Коричневые деревянные окна в бревенчатом доме"
+  },
+  {
+    src: "/lovable-uploads/8e2b30d3-c283-4178-946d-e7b78968f2c5.png",
+    alt: "Белые пластиковые окна в кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/2e7b11a4-8e01-48d9-9eb0-f6b0a0311d1b.png",
+    alt: "Белые окна с арочным дизайном в производстве"
+  },
+  {
+    src: "/lovable-uploads/072e5201-cf25-4290-8c68-000e30a7463f.png",
+    alt: "Белые пластиковые окна и двери в процессе установки"
+  },
+  {
+    src: "/lovable-uploads/926930bf-2f14-4680-a760-9ab3f3ad6f59.png",
+    alt: "Белые пластиковые двери с многокамерным остеклением"
+  },
+  {
+    src: "/lovable-uploads/a3fee1b6-658f-4052-a7f3-ff07a86a0101.png",
+    alt: "Установка белых окон и дверей на балконе"
+  },
+  {
+    src: "/lovable-uploads/acf01a73-d054-48e2-b15f-81d2264f566b.png",
+    alt: "Белые пластиковые двери с тремя створками"
+  },
+  {
+    src: "/lovable-uploads/ade91ed9-baa1-4c74-88ce-f33e1ff0727f.png",
+    alt: "Большие белые окна и двери на кирпичном доме"
+  },
+  {
+    src: "/lovable-uploads/f94c3198-586f-4be8-bf09-dda086360082.png",
+    alt: "Белая пластиковая дверь с комбинированным остеклением"
+  },
+  {
+    src: "/lovable-uploads/5c3bc3b9-f688-460e-9078-b5f0ecd17014.png",
+    alt: "Темная входная дверь в строящемся доме"
   }
 ];
 
