@@ -109,6 +109,13 @@ const Hero = () => {
                 </h3>
               </div>
             </div>
+
+            {/* Descriptive text */}
+            <div className="mb-12">
+              <p className="text-xl md:text-2xl text-white font-medium leading-relaxed max-w-4xl mx-auto bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20">
+                Ищете качественные пластиковые окна и двери ПВХ без навязчивых услуг монтажа? У нас – прямые поставки от производителя с бесплатной доставкой по всей Беларуси
+              </p>
+            </div>
             
             {/* Enhanced buttons */}
             <div className="flex flex-wrap gap-8 justify-center">
