@@ -1,23 +1,13 @@
 
 import { Link } from "react-router-dom";
-import { useEffect, useRef } from "react";
 
 const Hero = () => {
-  const heroContentRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const element = heroContentRef.current;
-    if (element) {
-      element.classList.add('animate-fade-in');
-    }
-  }, []);
-
   return (
     <div className="relative min-h-[800px] flex items-center overflow-hidden">
       {/* Golden-yellow to orange retro background */}
       <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-orange-400 to-orange-500">
         
-        {/* Sharp sunburst rays from bottom center - Primary thick rays */}
+        {/* Static sunburst rays from bottom center */}
         <div className="absolute bottom-0 left-1/2 transform -translate-x-1/2">
           {Array.from({ length: 60 }).map((_, i) => (
             <div
@@ -34,9 +24,7 @@ const Hero = () => {
                 left: '50%',
                 bottom: '0',
                 transformOrigin: 'bottom center',
-                marginLeft: '-4px',
-                animation: `rotateRays 25s linear infinite`,
-                animationDelay: `${i * 0.1}s`
+                marginLeft: '-4px'
               }}
             />
           ))}
@@ -57,9 +45,7 @@ const Hero = () => {
                 left: '50%',
                 bottom: '0',
                 transformOrigin: 'bottom center',
-                marginLeft: '-2px',
-                animation: `rotateRays 35s linear infinite reverse`,
-                animationDelay: `${i * 0.05}s`
+                marginLeft: '-2px'
               }}
             />
           ))}
@@ -80,40 +66,17 @@ const Hero = () => {
                 left: '50%',
                 bottom: '0',
                 transformOrigin: 'bottom center',
-                marginLeft: '-1px',
-                animation: `rotateRays 45s linear infinite`,
-                animationDelay: `${i * 0.02}s`
+                marginLeft: '-1px'
               }}
             />
           ))}
-        </div>
-        
-        {/* Diagonal motion lines for energy */}
-        <div className="absolute inset-0 pointer-events-none">
-          {/* Left side diagonal lines */}
-          <div className="absolute top-1/4 left-1/4 w-32 h-1 bg-white/30 rounded-full transform rotate-12 animate-streak-1"></div>
-          <div className="absolute top-1/3 left-1/5 w-24 h-0.5 bg-white/20 rounded-full transform rotate-12 animate-streak-2 delay-300"></div>
-          <div className="absolute top-2/5 left-1/3 w-20 h-0.5 bg-white/25 rounded-full transform rotate-12 animate-streak-3 delay-600"></div>
-          
-          {/* Right side diagonal lines */}
-          <div className="absolute top-1/5 right-1/4 w-28 h-1 bg-white/30 rounded-full transform -rotate-12 animate-streak-1 delay-150"></div>
-          <div className="absolute top-2/5 right-1/5 w-22 h-0.5 bg-white/20 rounded-full transform -rotate-12 animate-streak-2 delay-450"></div>
-          <div className="absolute top-1/2 right-1/3 w-18 h-0.5 bg-white/25 rounded-full transform -rotate-12 animate-streak-3 delay-750"></div>
-          
-          {/* Sparkle accents */}
-          <div className="absolute top-1/6 left-2/3 w-2 h-2 bg-white rounded-full animate-ping delay-200"></div>
-          <div className="absolute top-3/4 left-1/4 w-1.5 h-1.5 bg-white rounded-full animate-ping delay-500"></div>
-          <div className="absolute top-1/2 right-1/5 w-1 h-1 bg-white rounded-full animate-ping delay-800"></div>
         </div>
       </div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-12 max-w-7xl mx-auto">
           {/* Left side content area */}
-          <div 
-            ref={heroContentRef}
-            className="flex-1 text-white opacity-0 transition-all duration-1000"
-          >
+          <div className="flex-1 text-white">
             {/* Main banner shape with enhanced styling */}
             <div className="relative mb-10">
               <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20">
@@ -121,11 +84,11 @@ const Hero = () => {
                   окна и двери
                 </h1>
               </div>
-              {/* Enhanced decorative lines */}
+              {/* Static decorative lines */}
               <div className="absolute -right-6 top-1/2 transform -translate-y-1/2">
-                <div className="w-12 h-1.5 bg-white mb-2 shadow-lg animate-pulse"></div>
-                <div className="w-8 h-1.5 bg-white mb-2 shadow-lg animate-pulse delay-150"></div>
-                <div className="w-6 h-1.5 bg-white shadow-lg animate-pulse delay-300"></div>
+                <div className="w-12 h-1.5 bg-white mb-2 shadow-lg"></div>
+                <div className="w-8 h-1.5 bg-white mb-2 shadow-lg"></div>
+                <div className="w-6 h-1.5 bg-white shadow-lg"></div>
               </div>
             </div>
 
@@ -185,10 +148,6 @@ const Hero = () => {
                     <div className="text-2xl font-bold text-blue-600">3334 ₽</div>
                   </div>
                 </div>
-                
-                {/* Floating sparkles */}
-                <div className="absolute top-4 right-8 w-2 h-2 bg-white rounded-full animate-ping"></div>
-                <div className="absolute bottom-8 left-6 w-1.5 h-1.5 bg-white rounded-full animate-pulse delay-500"></div>
               </div>
               
               {/* Enhanced navigation arrows */}
