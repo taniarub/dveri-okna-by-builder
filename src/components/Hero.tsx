@@ -81,7 +81,7 @@ const Hero = () => {
             <div className="relative mb-10">
               <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20 transition-transform duration-300 group-hover:scale-105">
                 <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold transform skew-x-12 leading-tight tracking-wide">
-                  Окна и Двери
+                  Окна и двери ПВХ
                 </h1>
               </div>
               {/* Static decorative lines */}

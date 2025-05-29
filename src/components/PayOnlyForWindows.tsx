@@ -8,8 +8,8 @@ const PayOnlyForWindows = () => {
             Платите только за окна!
           </h2>
           
-          <div className="flex flex-col lg:flex-row items-center gap-8">
-            <div className="lg:w-1/2">
+          <div className="flex flex-col items-center gap-8">
+            <div className="w-full">
               <p className="text-lg text-gray-700 leading-relaxed">
                 В стандартную цену на окна «под ключ» закладываются все расходы, а в случае с дилерами еще и наценка, еще более увеличивающая стоимость окна, как минимум, наполовину.
               </p>
@@ -18,7 +18,7 @@ const PayOnlyForWindows = () => {
               </p>
             </div>
             
-            <div className="lg:w-1/2">
+            <div className="w-full">
               <img 
                 src="/lovable-uploads/85eacec9-72f8-4633-9afd-f88f218fa7f6.png" 
                 alt="Экономия при покупке окон без установки"
