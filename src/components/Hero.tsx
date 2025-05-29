@@ -134,13 +134,13 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Window image with background removal effect */}
-          <div className="flex-1 lg:flex-none lg:w-1/2 max-w-md">
+          {/* Window image with background removal effect and hover animation */}
+          <div className="flex-1 lg:flex-none lg:w-1/2 max-w-lg">
             <div className="relative">
               <img 
                 src="/lovable-uploads/fc927ff3-e72c-4e2c-98ff-7b7c6811512e.png" 
                 alt="Окно ПВХ"
-                className="w-full h-auto drop-shadow-2xl"
+                className="w-full h-auto drop-shadow-2xl transition-transform duration-300 hover:scale-105 cursor-pointer"
                 style={{
                   filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))',
                   mixBlendMode: 'multiply'
