@@ -138,7 +138,7 @@ const Hero = () => {
           <div className="flex-1 lg:flex-none lg:w-1/2 max-w-md">
             <div className="relative">
               <img 
-                src="/lovable-uploads/1cef28ac-6086-4cfd-b6ad-2990c147b20d.png" 
+                src="/lovable-uploads/fc927ff3-e72c-4e2c-98ff-7b7c6811512e.png" 
                 alt="Окно ПВХ"
                 className="w-full h-auto drop-shadow-2xl"
                 style={{
