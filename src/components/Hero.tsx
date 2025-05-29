@@ -74,12 +74,12 @@ const Hero = () => {
       </div>
       
       <div className="container relative z-10 px-6 py-24 md:py-32">
-        <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto">
+        <div className="flex flex-col items-center justify-center text-center max-w-5xl mx-auto group">
           {/* Text content centered */}
           <div className="text-white">
             {/* Main banner shape with enhanced styling */}
             <div className="relative mb-10">
-              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20">
+              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20 transition-transform duration-300 group-hover:scale-105">
                 <h1 className="text-5xl md:text-7xl font-bold transform skew-x-12 leading-tight tracking-wide">
                   Окна и Двери
                 </h1>
@@ -94,7 +94,7 @@ const Hero = () => {
 
             {/* Second text with enhanced colorful background */}
             <div className="relative mb-8">
-              <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20">
+              <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-transform duration-300 group-hover:scale-105">
                 <h2 className="text-3xl md:text-5xl font-bold transform skew-x-12 text-white tracking-wide">
                   без монтажа
                 </h2>
@@ -103,7 +103,7 @@ const Hero = () => {
 
             {/* Third text with enhanced colorful background */}
             <div className="relative mb-12">
-              <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20">
+              <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-transform duration-300 group-hover:scale-105">
                 <h3 className="text-2xl md:text-4xl font-bold transform skew-x-12 text-white tracking-wide">
                   с бесплатной доставкой
                 </h3>
