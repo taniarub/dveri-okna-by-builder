@@ -1,6 +1,8 @@
+
 import PromotionPopup from "@/components/PromotionPopup";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import PayOnlyForWindows from "@/components/PayOnlyForWindows";
 import AboutUs from "@/components/AboutUs";
 import Advantages from "@/components/Advantages";
 import Portfolio from "@/components/Portfolio";
@@ -16,6 +18,7 @@ const Index = () => {
       <PromotionPopup />
       <Header />
       <Hero />
+      <PayOnlyForWindows />
       <AboutUs />
       <Advantages />
       <Portfolio />
