@@ -32,7 +32,7 @@ const Portfolio = () => {
       id="projects" 
       className="py-24 relative overflow-hidden min-h-[500px] bg-cover bg-center"
       style={{
-        backgroundImage: "url('/lovable-uploads/86d974bd-d606-47e8-83bb-75d0e9c7d91a.png')"
+        backgroundImage: "url('/lovable-uploads/251f8b97-522e-4a32-95fa-0964d05c98fb.png')"
       }}
     >
       {/* Dark overlay */}
