@@ -28,49 +28,33 @@ const CalculatorBanner = () => {
   }, []);
 
   return (
-    <section className="py-24 relative overflow-hidden">
-      {/* Dynamic gradient background */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500"></div>
-      
-      {/* Geometric shapes */}
-      <div className="absolute top-10 left-10 w-32 h-32 bg-blue-600 rounded-full opacity-20 animate-pulse"></div>
-      <div className="absolute top-20 right-20 w-24 h-24 bg-purple-600 transform rotate-45 opacity-20 animate-bounce"></div>
-      <div className="absolute bottom-10 left-1/4 w-20 h-20 bg-green-500 rounded-full opacity-20 animate-ping"></div>
-      
-      {/* Floating decorative lines */}
-      <div className="absolute top-1/3 left-10 w-16 h-1 bg-white/30 transform rotate-12 animate-pulse"></div>
-      <div className="absolute top-1/2 left-20 w-12 h-1 bg-white/30 transform rotate-45 animate-pulse delay-150"></div>
-      <div className="absolute top-2/3 left-16 w-8 h-1 bg-white/30 transform rotate-12 animate-pulse delay-300"></div>
-      
-      <div className="container relative z-10">
+    <section className="bg-[#FFF5EC] py-16">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
+            <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">Калькулятор стоимости</h2>
+          </div>
+        </div>
+        
         <div 
           ref={bannerRef}
-          className="flex flex-col lg:flex-row items-center justify-between gap-8 max-w-6xl mx-auto opacity-0 transition-opacity duration-1000"
+          className="opacity-0 transition-opacity duration-1000 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
         >
           {/* Left side content */}
-          <div className="flex-1 text-center lg:text-left text-white">
-            {/* Main banner shape */}
-            <div className="relative mb-8">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-700 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl">
-                <h2 className="text-4xl font-bold transform skew-x-12">Калькулятор стоимости</h2>
-              </div>
-              {/* Decorative lines */}
-              <div className="absolute -right-4 top-1/2 transform -translate-y-1/2">
-                <div className="w-8 h-1 bg-white mb-1"></div>
-                <div className="w-6 h-1 bg-white mb-1"></div>
-                <div className="w-4 h-1 bg-white"></div>
-              </div>
+          <div className="flex items-start">
+            <div className="mr-5 mt-1 text-brand-yellow">
+              <Calculator className="w-6 h-6" />
             </div>
-            
-            <p className="text-xl mb-8 font-medium drop-shadow-lg">
-              Рассчитайте предварительную стоимость окон с учетом ваших требований.
-            </p>
+            <div>
+              <h3 className="text-xl font-medium mb-2">Рассчитайте предварительную стоимость</h3>
+              <p className="text-gray-600">Рассчитайте предварительную стоимость окон с учетом ваших требований.</p>
+            </div>
           </div>
 
-          {/* Right side - Calculator icon and button */}
-          <div className="flex-1 flex flex-col items-center relative">
+          {/* Right side - Calculator visualization and button */}
+          <div className="flex flex-col items-center relative">
             {/* Large circular background */}
-            <div className="relative">
+            <div className="relative mb-6">
               <div className="w-64 h-64 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full shadow-2xl flex items-center justify-center relative overflow-hidden">
                 {/* Window frame simulation */}
                 <div className="w-32 h-40 bg-white rounded-lg shadow-inner relative border-4 border-gray-300">
@@ -105,7 +89,7 @@ const CalculatorBanner = () => {
             {/* Call to action button */}
             <Link 
               to="/calculator" 
-              className="mt-8 bg-red-500 hover:bg-red-600 text-white font-bold px-12 py-4 rounded-full transition-all text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 uppercase tracking-wide"
+              className="bg-red-500 hover:bg-red-600 text-white font-bold px-12 py-4 rounded-full transition-all text-lg shadow-xl hover:shadow-2xl transform hover:-translate-y-1 hover:scale-105 uppercase tracking-wide"
             >
               Рассчитать стоимость
             </Link>
