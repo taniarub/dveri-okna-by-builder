@@ -1,3 +1,4 @@
+
 import { useEffect } from 'react';
 
 const Reviews = () => {
@@ -20,7 +21,11 @@ const Reviews = () => {
   return (
     <section id="reviews" className="py-16 bg-white">
       <div className="container">
-        <h2 className="text-4xl font-bold text-center mb-8">Что говорят наши клиенты?</h2>
+        <div className="text-center mb-8">
+          <div className="bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
+            <h2 className="text-4xl font-bold transform skew-x-12 text-white">Что говорят наши клиенты?</h2>
+          </div>
+        </div>
         {/* Elfsight Google Reviews | Untitled Google Reviews */}
         <div 
           className="elfsight-app-8d921e3b-61b7-4130-bcda-cbdec3bc0015" 

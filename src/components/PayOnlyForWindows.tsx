@@ -4,9 +4,13 @@ const PayOnlyForWindows = () => {
     <section className="py-16 bg-gray-50">
       <div className="container mx-auto px-4">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-8">
-            Платите только за окна!
-          </h2>
+          <div className="text-center mb-8">
+            <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
+              <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">
+                Платите только за окна!
+              </h2>
+            </div>
+          </div>
           
           <div className="flex flex-col items-center gap-8">
             <div className="w-full">

@@ -69,7 +69,11 @@ const AboutUs = () => {
     <section id="about" className="py-16 bg-white">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <h2 className="text-4xl font-bold mb-6">Почему мы?</h2>
+          <div className="mb-6">
+            <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
+              <h2 className="text-4xl font-bold transform skew-x-12 text-white">Почему мы?</h2>
+            </div>
+          </div>
           <p className="text-xl text-gray-600">
             Наша компания уже более <span className="text-brand-orange font-bold">{count1}+</span> лет работает на рынке оконных конструкций. Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
           </p>

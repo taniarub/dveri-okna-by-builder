@@ -43,7 +43,11 @@ const Portfolio = () => {
           ref={portfolioRef} 
           className="opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center"
         >
-          <h2 className="text-4xl font-bold text-center mb-8 text-white">Примеры наших работ</h2>
+          <div className="mb-8">
+            <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
+              <h2 className="text-4xl font-bold transform skew-x-12 text-white">Примеры наших работ</h2>
+            </div>
+          </div>
           
           <Link to="/portfolio">
             <Button 
