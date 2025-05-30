@@ -122,7 +122,7 @@ const WindowConfigurationItem = ({ windowIndex, window, onWindowChange }: Window
               <label className="block mb-2">Ширина, мм</label>
               <input
                 type="number"
-                name={`window_${windowIndex}_width`}
+                name="width"
                 value={window.dimensions.width}
                 onChange={handleDimensionsChange}
                 className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
@@ -133,7 +133,7 @@ const WindowConfigurationItem = ({ windowIndex, window, onWindowChange }: Window
               <label className="block mb-2">Высота, мм</label>
               <input
                 type="number"
-                name={`window_${windowIndex}_height`}
+                name="height"
                 value={window.dimensions.height}
                 onChange={handleDimensionsChange}
                 className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
