@@ -1,7 +1,6 @@
 
 import { useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
 
 const Portfolio = () => {
   const portfolioRef = useRef<HTMLDivElement>(null);
@@ -44,18 +43,12 @@ const Portfolio = () => {
           className="opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center"
         >
           <div className="mb-8">
-            <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
-              <h2 className="text-4xl font-bold transform skew-x-12 text-white">Примеры наших работ</h2>
-            </div>
+            <Link to="/portfolio">
+              <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20 hover:scale-105 transition-transform cursor-pointer">
+                <h2 className="text-4xl font-bold transform skew-x-12 text-white">Примеры наших работ</h2>
+              </div>
+            </Link>
           </div>
-          
-          <Link to="/portfolio">
-            <Button 
-              className="bg-brand-orange hover:bg-[#e69816] text-white font-medium px-10 py-8 rounded-lg text-xl transition-all shadow-lg hover:shadow-xl border-b-4 border-[#d48c13]"
-            >
-              Примеры наших работ
-            </Button>
-          </Link>
         </div>
       </div>
     </section>
