@@ -41,8 +41,8 @@ const CalculatorBanner = () => {
         >
           {/* Left side content */}
           <div>
-            <h3 className="text-xl font-medium mb-2">Рассчитайте предварительную стоимость</h3>
-            <p className="text-gray-600">Рассчитайте предварительную стоимость окон с учетом ваших требований.</p>
+            <h3 className="text-2xl font-medium mb-4">Рассчитайте предварительную стоимость</h3>
+            <p className="text-xl text-gray-600">Рассчитайте предварительную стоимость окон с учетом ваших требований.</p>
           </div>
 
           {/* Right side - Window image */}
@@ -51,16 +51,8 @@ const CalculatorBanner = () => {
               <img 
                 src="/lovable-uploads/37587afc-ddc1-45b5-9a47-86b1dfa75cd4.png" 
                 alt="Открытое белое окно с видом на зеленый сад" 
-                className="w-80 h-80 object-cover rounded-lg shadow-2xl"
+                className="w-96 h-96 object-cover rounded-lg shadow-2xl"
               />
-              
-              {/* Floating price badge */}
-              <div className="absolute -bottom-4 -right-4 bg-white rounded-full px-6 py-3 shadow-xl">
-                <div className="text-center">
-                  <div className="text-xs text-gray-600">от</div>
-                  <div className="text-lg font-bold text-blue-600">3334 ₽</div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

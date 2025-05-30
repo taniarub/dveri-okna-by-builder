@@ -1,4 +1,3 @@
-
 import { useRef, useEffect, useState } from 'react';
 
 const AboutUs = () => {
@@ -66,7 +65,7 @@ const AboutUs = () => {
   }, [visible]);
 
   return (
-    <section id="about" className="py-16 bg-white">
+    <section id="about" className="py-16 bg-[#FFF5EC]">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
           <div className="mb-6">
