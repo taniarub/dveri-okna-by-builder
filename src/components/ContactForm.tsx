@@ -3,12 +3,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ContactForm = () => {
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Form submission logic would go here
-    alert("Форма отправлена! Мы свяжемся с вами в ближайшее время.");
-  };
-
   return (
     <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
@@ -83,12 +77,13 @@ const ContactForm = () => {
           
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form action="https://formspree.io/f/myzwrqvo" method="POST" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-medium">Ваше имя</label>
                 <input 
                   type="text" 
                   id="name" 
+                  name="name"
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше имя"
                   required
@@ -100,6 +95,7 @@ const ContactForm = () => {
                 <input 
                   type="tel" 
                   id="phone" 
+                  name="phone"
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="+375 XX XXX XX XX"
                   required
@@ -110,6 +106,7 @@ const ContactForm = () => {
                 <label htmlFor="message" className="block mb-2 font-medium">Сообщение</label>
                 <textarea 
                   id="message" 
+                  name="message"
                   rows={4} 
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше сообщение"
