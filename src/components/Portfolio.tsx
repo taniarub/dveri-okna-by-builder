@@ -29,7 +29,7 @@ const Portfolio = () => {
   return (
     <section 
       id="projects" 
-      className="py-24 relative overflow-hidden min-h-[500px] bg-cover bg-center"
+      className="py-24 relative overflow-hidden min-h-[500px] bg-cover bg-center flex items-center justify-center"
       style={{
         backgroundImage: "url('/lovable-uploads/251f8b97-522e-4a32-95fa-0964d05c98fb.png')"
       }}

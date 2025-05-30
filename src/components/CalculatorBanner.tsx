@@ -41,7 +41,6 @@ const CalculatorBanner = () => {
         >
           {/* Left side content */}
           <div>
-            <h3 className="text-2xl font-medium mb-4">Рассчитайте предварительную стоимость</h3>
             <p className="text-xl text-gray-600">Рассчитайте предварительную стоимость окон с учетом ваших требований.</p>
           </div>
 
