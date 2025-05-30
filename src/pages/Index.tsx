@@ -10,7 +10,6 @@ import CalculatorBanner from "@/components/CalculatorBanner";
 import Reviews from "@/components/Reviews";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
-import MeasurementSection from "@/components/MeasurementSection";
 
 const Index = () => {
   return (
@@ -22,7 +21,6 @@ const Index = () => {
       <AboutUs />
       <Advantages />
       <Portfolio />
-      <MeasurementSection />
       <CalculatorBanner />
       <Reviews />
       <ContactForm />
