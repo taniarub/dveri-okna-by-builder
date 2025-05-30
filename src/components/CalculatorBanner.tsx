@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -42,7 +41,6 @@ const CalculatorBanner = () => {
           {/* Left side content */}
           <div>
             <h3 className="text-2xl font-medium mb-4">Рассчитайте предварительную стоимость</h3>
-            <p className="text-xl text-gray-600">Рассчитайте предварительную стоимость окон с учетом ваших требований.</p>
           </div>
 
           {/* Right side - Window image */}
@@ -51,7 +49,7 @@ const CalculatorBanner = () => {
               <img 
                 src="/lovable-uploads/37587afc-ddc1-45b5-9a47-86b1dfa75cd4.png" 
                 alt="Открытое белое окно с видом на зеленый сад" 
-                className="w-96 h-96 object-cover rounded-lg shadow-2xl"
+                className="w-96 h-96 object-cover rounded-lg shadow-2xl transition-transform duration-300 hover:scale-105"
               />
             </div>
           </div>
