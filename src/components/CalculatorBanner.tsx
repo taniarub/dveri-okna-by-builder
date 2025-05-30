@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
@@ -26,8 +27,14 @@ const CalculatorBanner = () => {
   }, []);
 
   return (
-    <section className="bg-[#FFF5EC] py-16">
-      <div className="container mx-auto px-4">
+    <section 
+      className="py-16 bg-cover bg-center relative"
+      style={{
+        backgroundImage: "url('/lovable-uploads/61a3a38f-c6f1-40e7-a1b3-5f1004cff925.png')"
+      }}
+    >
+      <div className="absolute inset-0 bg-black/50"></div>
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="bg-gradient-to-r from-yellow-400 via-orange-500 to-red-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
             <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">Калькулятор стоимости</h2>
@@ -36,22 +43,11 @@ const CalculatorBanner = () => {
         
         <div 
           ref={bannerRef}
-          className="opacity-0 transition-opacity duration-1000 grid grid-cols-1 md:grid-cols-2 gap-8 items-center"
+          className="opacity-0 transition-opacity duration-1000 text-center"
         >
-          {/* Left side content */}
-          <div>
-            <h3 className="text-2xl font-medium mb-4">Рассчитайте предварительную стоимость</h3>
-          </div>
-
-          {/* Right side - Window image */}
-          <div className="flex justify-center">
-            <div className="relative">
-              <img 
-                src="/lovable-uploads/37587afc-ddc1-45b5-9a47-86b1dfa75cd4.png" 
-                alt="Открытое белое окно с видом на зеленый сад" 
-                className="w-96 h-96 object-cover rounded-lg shadow-2xl transition-transform duration-300 hover:scale-105"
-              />
-            </div>
+          <div className="text-white text-2xl md:text-3xl font-medium mb-12 max-w-3xl mx-auto">
+            Хотите узнать цену? Всё просто.<br />
+            Ответьте на несколько вопросов — и получите предварительную стоимость.
           </div>
         </div>
         
