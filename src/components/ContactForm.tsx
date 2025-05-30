@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -8,7 +7,10 @@ const ContactForm = () => {
       <div className="container">
         <div className="text-center mb-12">
           <div className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
-            <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">Нужна консультация? Перезвоним в удобное время!</h2>
+            <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">
+              Нужна консультация?<br />
+              Перезвоним в удобное время!
+            </h2>
           </div>
         </div>
         

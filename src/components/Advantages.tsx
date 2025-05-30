@@ -59,7 +59,7 @@ const Advantages = () => {
   }, []);
 
   return (
-    <section id="advantages" className="bg-[#FFF5EC] py-16" ref={sectionRef}>
+    <section id="advantages" className="bg-white py-16" ref={sectionRef}>
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
