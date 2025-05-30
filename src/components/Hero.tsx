@@ -80,8 +80,8 @@ const Hero = () => {
             {/* Main banner shape with enhanced styling */}
             <div className="relative mb-10">
               <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20 transition-transform duration-300 group-hover:scale-105">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold transform skew-x-12 leading-tight tracking-wide">
-                  Окна и двери ПВХ
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold transform skew-x-12 leading-tight tracking-wide">
+                  Окна и Двери
                 </h1>
               </div>
               {/* Static decorative lines */}
@@ -135,7 +135,7 @@ const Hero = () => {
           </div>
 
           {/* Window image with background removal effect and hover animation */}
-          <div className="flex-1 lg:flex-none lg:w-1/2 max-w-lg">
+          <div className="flex-1 lg:flex-none lg:w-3/5 max-w-xl">
             <div className="relative">
               <img 
                 src="/lovable-uploads/fc927ff3-e72c-4e2c-98ff-7b7c6811512e.png" 
