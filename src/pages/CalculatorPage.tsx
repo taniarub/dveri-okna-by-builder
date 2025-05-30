@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { toast } from "@/components/ui/use-toast";
 import { Link } from "react-router-dom";
@@ -95,7 +94,9 @@ const CalculatorPage = () => {
     }]);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    
     // Validate all windows
     for (let i = 0; i < windows.length; i++) {
       if (!windows[i].windowType) {
@@ -135,7 +136,10 @@ const CalculatorPage = () => {
       return;
     }
     
-    // Form submission logic
+    // Submit the form (Formspree will handle the actual submission)
+    const form = e.target as HTMLFormElement;
+    form.submit();
+    
     toast({
       title: "Заявка отправлена",
       description: "Мы свяжемся с вами в ближайшее время",
@@ -177,6 +181,24 @@ const CalculatorPage = () => {
     return `Окно ${frameIndex + 1}`;
   };
 
+  const formatWindowsData = () => {
+    return windows.map((window, index) => {
+      const windowTypeNames = {
+        "one-leaf": "Одностворчатое окно",
+        "two-leaf": "Двухстворчатое окно", 
+        "three-leaf": "Трехстворчатое окно",
+        "balcony-door": "Балконная дверь с окном",
+        "balcony-door-two-window": "Балконная дверь с двумя окнами",
+        "other-type": "Другой тип окна"
+      };
+      
+      return `Окно #${index + 1}:
+Тип: ${windowTypeNames[window.windowType as keyof typeof windowTypeNames] || window.windowType}
+Размеры: ${window.dimensions.width}мм x ${window.dimensions.height}мм
+Опции: ${window.options.length > 0 ? window.options.join(", ") : "Нет"}`;
+    }).join("\n\n");
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-[#FFF5EC]">
       <Header />
@@ -189,197 +211,211 @@ const CalculatorPage = () => {
             </Link>
           </div>
 
-          <div className="bg-white p-8 rounded-lg shadow-sm">
-            {windows.map((window, windowIndex) => (
-              <div key={windowIndex} className="mb-12">
-                {windowIndex > 0 && (
-                  <div className="border-t border-gray-200 pt-8 mb-8">
-                    <h2 className="text-2xl font-bold mb-6">Окно #{windowIndex + 1}</h2>
-                  </div>
-                )}
-                
-                <ol className="list-decimal list-inside space-y-8">
-                  <li className="pb-8 border-b">
-                    <h2 className="text-2xl font-medium mb-6">Выберите тип окна</h2>
-                    <WindowTypeSelector 
-                      onChange={(type) => handleWindowTypeChange(type, windowIndex)} 
-                      value={window.windowType} 
-                    />
-                  </li>
+          <form action="https://formspree.io/f/myzwrqvo" method="POST" onSubmit={handleSubmit}>
+            <div className="bg-white p-8 rounded-lg shadow-sm">
+              {windows.map((window, windowIndex) => (
+                <div key={windowIndex} className="mb-12">
+                  {windowIndex > 0 && (
+                    <div className="border-t border-gray-200 pt-8 mb-8">
+                      <h2 className="text-2xl font-bold mb-6">Окно #{windowIndex + 1}</h2>
+                    </div>
+                  )}
                   
-                  {window.windowType && window.windowType !== "other-type" && (
+                  <ol className="list-decimal list-inside space-y-8">
                     <li className="pb-8 border-b">
-                      <h2 className="text-2xl font-medium mb-6">Выберите тип оконной створки</h2>
-                      <WindowFrameSelector 
-                        onChange={(frames) => handleFrameTypeChange(frames, windowIndex)}
-                        windowCount={getWindowCount(window.windowType)}
-                        windowType={window.windowType}
+                      <h2 className="text-2xl font-medium mb-6">Выберите тип окна</h2>
+                      <WindowTypeSelector 
+                        onChange={(type) => handleWindowTypeChange(type, windowIndex)} 
+                        value={window.windowType} 
                       />
                     </li>
-                  )}
-
-                  <li className="pb-8 border-b">
-                    <h2 className="text-2xl font-medium mb-6">Укажите размеры</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      <div>
-                        <label className="block mb-2">Ширина, мм</label>
-                        <input
-                          type="number"
-                          name="width"
-                          value={window.dimensions.width}
-                          onChange={(e) => handleDimensionsChange(e, windowIndex)}
-                          className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
-                          placeholder="Введите ширину"
-                        />
-                      </div>
-                      <div>
-                        <label className="block mb-2">Высота, мм</label>
-                        <input
-                          type="number"
-                          name="height"
-                          value={window.dimensions.height}
-                          onChange={(e) => handleDimensionsChange(e, windowIndex)}
-                          className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
-                          placeholder="Введите высоту"
-                        />
-                      </div>
-                    </div>
                     
-                    {window.windowType === "other-type" && (
-                      <div className="mt-6">
-                        <label className="block mb-2">Опишите, какое вы хотите окно</label>
-                        <textarea
-                          className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
-                          placeholder="Опишите детали вашего окна..."
-                          rows={4}
-                          onChange={() => {
-                            // Mark that the description was provided
-                            if (!window.options.includes("description")) {
-                              const newOptions = [...window.options, "description"];
-                              const updatedWindows = [...windows];
-                              updatedWindows[windowIndex].options = newOptions;
-                              setWindows(updatedWindows);
-                            }
-                          }}
+                    {window.windowType && window.windowType !== "other-type" && (
+                      <li className="pb-8 border-b">
+                        <h2 className="text-2xl font-medium mb-6">Выберите тип оконной створки</h2>
+                        <WindowFrameSelector 
+                          onChange={(frames) => handleFrameTypeChange(frames, windowIndex)}
+                          windowCount={getWindowCount(window.windowType)}
+                          windowType={window.windowType}
                         />
-                      </div>
+                      </li>
                     )}
-                  </li>
-                
-                  <li className="pb-8 border-b">
-                    <h2 className="text-2xl font-medium mb-6">Дополнительные опции</h2>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
-                      <div className="flex items-center">
-                        <input
-                          id={`option-mosquito-${windowIndex}`}
-                          type="checkbox"
-                          className="w-5 h-5"
-                          checked={window.options.includes("mosquito")}
-                          onChange={() => toggleOption("mosquito", windowIndex)}
-                          disabled={window.options.includes("none")}
-                        />
-                        <label htmlFor={`option-mosquito-${windowIndex}`} className="ml-2">Москитная сетка</label>
-                      </div>
-                      <div className="flex items-center">
-                        <input
-                          id={`option-drain-${windowIndex}`}
-                          type="checkbox"
-                          className="w-5 h-5"
-                          checked={window.options.includes("drain")}
-                          onChange={() => toggleOption("drain", windowIndex)}
-                          disabled={window.options.includes("none")}
-                        />
-                        <label htmlFor={`option-drain-${windowIndex}`} className="ml-2">Отлив</label>
-                      </div>
-                      <div className="flex items-center">
-                        <input
-                          id={`option-sill-${windowIndex}`}
-                          type="checkbox"
-                          className="w-5 h-5"
-                          checked={window.options.includes("sill")}
-                          onChange={() => toggleOption("sill", windowIndex)}
-                          disabled={window.options.includes("none")}
-                        />
-                        <label htmlFor={`option-sill-${windowIndex}`} className="ml-2">Подоконник</label>
-                      </div>
-                      <div className="flex items-center">
-                        <input
-                          id={`option-none-${windowIndex}`}
-                          type="checkbox"
-                          className="w-5 h-5"
-                          checked={window.options.includes("none")}
-                          onChange={() => toggleOption("none", windowIndex)}
-                        />
-                        <label htmlFor={`option-none-${windowIndex}`} className="ml-2">Ничего из перечисленного</label>
-                      </div>
-                    </div>
-                  </li>
-                </ol>
-              </div>
-            ))}
 
-            <div className="mb-8 flex justify-center">
-              <button
-                onClick={addWindow}
-                className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
-              >
-                Добавить окно
-              </button>
-            </div>
-            
-            <div className="mt-12">
-              <h2 className="text-2xl font-medium mb-6">Контактные данные</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <div>
-                  <label className="block mb-2">Ваше имя*</label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={contactInfo.name}
-                    onChange={handleContactInfoChange}
-                    className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
-                    placeholder="Введите имя"
-                  />
+                    <li className="pb-8 border-b">
+                      <h2 className="text-2xl font-medium mb-6">Укажите размеры</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                          <label className="block mb-2">Ширина, мм</label>
+                          <input
+                            type="number"
+                            name={`window_${windowIndex}_width`}
+                            value={window.dimensions.width}
+                            onChange={(e) => handleDimensionsChange(e, windowIndex)}
+                            className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                            placeholder="Введите ширину"
+                          />
+                        </div>
+                        <div>
+                          <label className="block mb-2">Высота, мм</label>
+                          <input
+                            type="number"
+                            name={`window_${windowIndex}_height`}
+                            value={window.dimensions.height}
+                            onChange={(e) => handleDimensionsChange(e, windowIndex)}
+                            className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                            placeholder="Введите высоту"
+                          />
+                        </div>
+                      </div>
+                      
+                      {window.windowType === "other-type" && (
+                        <div className="mt-6">
+                          <label className="block mb-2">Опишите, какое вы хотите окно</label>
+                          <textarea
+                            name={`window_${windowIndex}_description`}
+                            className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                            placeholder="Опишите детали вашего окна..."
+                            rows={4}
+                            onChange={() => {
+                              // Mark that the description was provided
+                              if (!window.options.includes("description")) {
+                                const newOptions = [...window.options, "description"];
+                                const updatedWindows = [...windows];
+                                updatedWindows[windowIndex].options = newOptions;
+                                setWindows(updatedWindows);
+                              }
+                            }}
+                          />
+                        </div>
+                      )}
+                    </li>
+                  
+                    <li className="pb-8 border-b">
+                      <h2 className="text-2xl font-medium mb-6">Дополнительные опции</h2>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-y-4">
+                        <div className="flex items-center">
+                          <input
+                            id={`option-mosquito-${windowIndex}`}
+                            type="checkbox"
+                            name={`window_${windowIndex}_mosquito`}
+                            className="w-5 h-5"
+                            checked={window.options.includes("mosquito")}
+                            onChange={() => toggleOption("mosquito", windowIndex)}
+                            disabled={window.options.includes("none")}
+                          />
+                          <label htmlFor={`option-mosquito-${windowIndex}`} className="ml-2">Москитная сетка</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input
+                            id={`option-drain-${windowIndex}`}
+                            type="checkbox"
+                            name={`window_${windowIndex}_drain`}
+                            className="w-5 h-5"
+                            checked={window.options.includes("drain")}
+                            onChange={() => toggleOption("drain", windowIndex)}
+                            disabled={window.options.includes("none")}
+                          />
+                          <label htmlFor={`option-drain-${windowIndex}`} className="ml-2">Отлив</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input
+                            id={`option-sill-${windowIndex}`}
+                            type="checkbox"
+                            name={`window_${windowIndex}_sill`}
+                            className="w-5 h-5"
+                            checked={window.options.includes("sill")}
+                            onChange={() => toggleOption("sill", windowIndex)}
+                            disabled={window.options.includes("none")}
+                          />
+                          <label htmlFor={`option-sill-${windowIndex}`} className="ml-2">Подоконник</label>
+                        </div>
+                        <div className="flex items-center">
+                          <input
+                            id={`option-none-${windowIndex}`}
+                            type="checkbox"
+                            name={`window_${windowIndex}_none`}
+                            className="w-5 h-5"
+                            checked={window.options.includes("none")}
+                            onChange={() => toggleOption("none", windowIndex)}
+                          />
+                          <label htmlFor={`option-none-${windowIndex}`} className="ml-2">Ничего из перечисленного</label>
+                        </div>
+                      </div>
+                    </li>
+                  </ol>
                 </div>
-                <div>
-                  <label className="block mb-2">Телефон*</label>
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={contactInfo.phone}
-                    onChange={handleContactInfoChange}
-                    className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
-                    placeholder="+375 XX XXX XX XX"
-                  />
-                </div>
+              ))}
+
+              <div className="mb-8 flex justify-center">
+                <button
+                  type="button"
+                  onClick={addWindow}
+                  className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
+                >
+                  Добавить окно
+                </button>
               </div>
               
-              <div className="mb-8">
-                <div className="flex items-center">
-                  <input
-                    id="consent"
-                    name="consent"
-                    type="checkbox"
-                    className="w-5 h-5"
-                    checked={contactInfo.consent}
-                    onChange={handleContactInfoChange}
-                  />
-                  <label htmlFor="consent" className="ml-2">
-                    Нажимая кнопку, вы соглашаетесь на <a href="#" className="text-brand-orange underline">обработку персональных данных</a>
-                  </label>
+              {/* Hidden input to send formatted windows data */}
+              <input type="hidden" name="windows_configuration" value={formatWindowsData()} />
+              
+              <div className="mt-12">
+                <h2 className="text-2xl font-medium mb-6">Контактные данные</h2>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                  <div>
+                    <label className="block mb-2">Ваше имя*</label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={contactInfo.name}
+                      onChange={handleContactInfoChange}
+                      className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                      placeholder="Введите имя"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <label className="block mb-2">Телефон*</label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={contactInfo.phone}
+                      onChange={handleContactInfoChange}
+                      className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue focus:outline-none"
+                      placeholder="+375 XX XXX XX XX"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="mb-8">
+                  <div className="flex items-center">
+                    <input
+                      id="consent"
+                      name="consent"
+                      type="checkbox"
+                      className="w-5 h-5"
+                      checked={contactInfo.consent}
+                      onChange={handleContactInfoChange}
+                      required
+                    />
+                    <label htmlFor="consent" className="ml-2">
+                      Нажимая кнопку, вы соглашаетесь на <a href="#" className="text-brand-orange underline">обработку персональных данных</a>
+                    </label>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <div className="flex justify-center">
-              <button
-                onClick={handleSubmit}
-                className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
-              >
-                Отправить заявку
-              </button>
+              <div className="flex justify-center">
+                <button
+                  type="submit"
+                  className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
+                >
+                  Отправить заявку
+                </button>
+              </div>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <Footer />
