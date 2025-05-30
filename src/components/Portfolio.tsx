@@ -34,15 +34,18 @@ const Portfolio = () => {
         backgroundImage: "url('/lovable-uploads/251f8b97-522e-4a32-95fa-0964d05c98fb.png')"
       }}
     >
-      {/* Dark overlay */}
-      <div className="absolute inset-0 bg-black/50"></div>
+      {/* Dark overlay with more blur */}
+      <div className="absolute inset-0 bg-black/70"></div>
       
       <div className="container relative z-10">
         <div 
           ref={portfolioRef} 
           className="opacity-0 transition-opacity duration-1000 flex flex-col items-center justify-center"
         >
-          <div className="mb-8">
+          <div className="text-center mb-8">
+            <p className="text-white text-xl mb-8">
+              Наши клиенты уже наслаждаются новыми окнами. Посмотрите, как это может выглядеть и у вас
+            </p>
             <Link to="/portfolio">
               <div className="bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20 hover:scale-105 transition-transform cursor-pointer">
                 <h2 className="text-4xl font-bold transform skew-x-12 text-white">Примеры наших работ</h2>
