@@ -79,23 +79,17 @@ const Hero = () => {
           <div className="text-white flex-1 flex flex-col items-center">
             {/* Main banner shape with enhanced styling - centered and bigger */}
             <div className="relative mb-10">
-              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-16 py-12 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
-                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold transform skew-x-12 leading-tight tracking-wide font-sans">
+              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-20 py-16 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide text-white">
                   ОКНА и ДВЕРИ
                 </h1>
-              </div>
-              {/* Static decorative lines */}
-              <div className="absolute -right-6 top-1/2 transform -translate-y-1/2 hidden lg:block">
-                <div className="w-12 h-1.5 bg-white mb-2 shadow-lg transition-all duration-300 hover:w-16"></div>
-                <div className="w-8 h-1.5 bg-white mb-2 shadow-lg transition-all duration-300 hover:w-12"></div>
-                <div className="w-6 h-1.5 bg-white shadow-lg transition-all duration-300 hover:w-10"></div>
               </div>
             </div>
 
             {/* Second text with enhanced colorful background */}
             <div className="relative mb-8">
-              <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide font-sans">
+              <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide">
                   без монтажа
                 </h2>
               </div>
@@ -103,8 +97,8 @@ const Hero = () => {
 
             {/* Third text with enhanced colorful background */}
             <div className="relative mb-12">
-              <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide font-sans">
+              <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide">
                   с бесплатной доставкой
                 </h3>
               </div>
@@ -121,13 +115,13 @@ const Hero = () => {
             <div className="flex flex-wrap gap-8 justify-center lg:justify-start animate-fade-in" style={{animationDelay: '0.8s'}}>
               <Link 
                 to="/calculator" 
-                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold px-14 py-5 rounded-full transition-all duration-300 text-xl shadow-2xl hover:shadow-red-500/30 transform hover:-translate-y-2 hover:scale-105 uppercase tracking-wider border border-white/20 font-sans"
+                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold px-14 py-5 rounded-full transition-all duration-300 text-xl shadow-2xl hover:shadow-red-500/30 transform hover:-translate-y-2 hover:scale-105 uppercase tracking-wider border border-white/20"
               >
                 Рассчитать стоимость
               </Link>
               <a 
                 href="#contact" 
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-12 py-5 rounded-full transition-all duration-300 text-xl shadow-xl hover:shadow-white/30 transform hover:-translate-y-1 backdrop-blur-sm bg-white/10 font-sans"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-12 py-5 rounded-full transition-all duration-300 text-xl shadow-xl hover:shadow-white/30 transform hover:-translate-y-1 backdrop-blur-sm bg-white/10"
               >
                 Связаться с нами
               </a>
