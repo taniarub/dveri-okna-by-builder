@@ -78,9 +78,9 @@ const Hero = () => {
           {/* Text content */}
           <div className="text-white flex-1 flex flex-col items-center">
             {/* Main banner shape with enhanced styling - centered and bigger */}
-            <div className="relative mb-10">
-              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-20 py-16 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
-                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide text-white">
+            <div className="relative mb-10 w-full flex justify-center">
+              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-32 py-16 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
+                <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide text-white font-sans">
                   ОКНА и ДВЕРИ
                 </h1>
               </div>
@@ -89,7 +89,7 @@ const Hero = () => {
             {/* Second text with enhanced colorful background */}
             <div className="relative mb-8">
               <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide font-sans">
                   без монтажа
                 </h2>
               </div>
@@ -98,7 +98,7 @@ const Hero = () => {
             {/* Third text with enhanced colorful background */}
             <div className="relative mb-12">
               <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide">
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide font-sans">
                   с бесплатной доставкой
                 </h3>
               </div>
