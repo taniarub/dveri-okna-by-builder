@@ -80,7 +80,7 @@ const Hero = () => {
             {/* Main banner shape with enhanced styling */}
             <div className="relative mb-10">
               <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
-                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold transform skew-x-12 leading-tight tracking-wide">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 leading-tight tracking-wide not-italic">
                   ОКНА и ДВЕРИ
                 </h1>
               </div>
@@ -95,7 +95,7 @@ const Hero = () => {
             {/* Second text with enhanced colorful background */}
             <div className="relative mb-8">
               <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide not-italic">
                   без монтажа
                 </h2>
               </div>
@@ -104,7 +104,7 @@ const Hero = () => {
             {/* Third text with enhanced colorful background */}
             <div className="relative mb-12">
               <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide">
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide not-italic">
                   с бесплатной доставкой
                 </h3>
               </div>
@@ -135,7 +135,7 @@ const Hero = () => {
           </div>
 
           {/* Window image with background removal effect and hover animation */}
-          <div className="flex-1 lg:flex-none lg:w-3/5 max-w-xl animate-scale-in" style={{animationDelay: '1s'}}>
+          <div className="flex-1 lg:flex-none lg:w-2/3 max-w-2xl animate-scale-in" style={{animationDelay: '1s'}}>
             <div className="relative">
               <img 
                 src="/lovable-uploads/fc927ff3-e72c-4e2c-98ff-7b7c6811512e.png" 
