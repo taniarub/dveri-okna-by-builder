@@ -7,7 +7,6 @@ import AboutUs from "@/components/AboutUs";
 import Advantages from "@/components/Advantages";
 import Portfolio from "@/components/Portfolio";
 import CalculatorBanner from "@/components/CalculatorBanner";
-import Reviews from "@/components/Reviews";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
 
@@ -22,7 +21,6 @@ const Index = () => {
       <Advantages />
       <Portfolio />
       <CalculatorBanner />
-      <Reviews />
       <ContactForm />
       <Footer />
     </div>
