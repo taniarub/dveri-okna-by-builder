@@ -76,11 +76,11 @@ const Hero = () => {
       <div className="container relative z-10 px-6 py-24 md:py-32">
         <div className="flex flex-col lg:flex-row items-center justify-center text-center lg:text-left max-w-7xl mx-auto group gap-8">
           {/* Text content */}
-          <div className="text-white flex-1">
-            {/* Main banner shape with enhanced styling */}
+          <div className="text-white flex-1 flex flex-col items-center">
+            {/* Main banner shape with enhanced styling - centered and bigger */}
             <div className="relative mb-10">
-              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 leading-tight tracking-wide">
+              <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-16 py-12 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold transform skew-x-12 leading-tight tracking-wide font-sans">
                   ОКНА и ДВЕРИ
                 </h1>
               </div>
@@ -95,7 +95,7 @@ const Hero = () => {
             {/* Second text with enhanced colorful background */}
             <div className="relative mb-8">
               <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide font-sans">
                   без монтажа
                 </h2>
               </div>
@@ -104,7 +104,7 @@ const Hero = () => {
             {/* Third text with enhanced colorful background */}
             <div className="relative mb-12">
               <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide">
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide font-sans">
                   с бесплатной доставкой
                 </h3>
               </div>
@@ -121,13 +121,13 @@ const Hero = () => {
             <div className="flex flex-wrap gap-8 justify-center lg:justify-start animate-fade-in" style={{animationDelay: '0.8s'}}>
               <Link 
                 to="/calculator" 
-                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold px-14 py-5 rounded-full transition-all duration-300 text-xl shadow-2xl hover:shadow-red-500/30 transform hover:-translate-y-2 hover:scale-105 uppercase tracking-wider border border-white/20"
+                className="bg-gradient-to-r from-red-500 to-red-600 hover:from-red-600 hover:to-red-700 text-white font-bold px-14 py-5 rounded-full transition-all duration-300 text-xl shadow-2xl hover:shadow-red-500/30 transform hover:-translate-y-2 hover:scale-105 uppercase tracking-wider border border-white/20 font-sans"
               >
                 Рассчитать стоимость
               </Link>
               <a 
                 href="#contact" 
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-12 py-5 rounded-full transition-all duration-300 text-xl shadow-xl hover:shadow-white/30 transform hover:-translate-y-1 backdrop-blur-sm bg-white/10"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 font-semibold px-12 py-5 rounded-full transition-all duration-300 text-xl shadow-xl hover:shadow-white/30 transform hover:-translate-y-1 backdrop-blur-sm bg-white/10 font-sans"
               >
                 Связаться с нами
               </a>

@@ -49,7 +49,7 @@ const Portfolio = () => {
             <div className="relative mb-8">
               <div className="absolute inset-0 bg-gradient-to-r from-red-500/10 via-orange-500/10 to-yellow-500/10 rounded-2xl transform rotate-1"></div>
               <p className="relative text-gray-800 text-xl md:text-2xl font-medium px-8 py-6 leading-relaxed">
-                Наши клиенты уже наслаждаются новыми окнами.<br />
+                Наши клиенты уже наслаждаются новыми окнами и дверями.<br />
                 <span className="text-red-600 font-semibold">Посмотрите, как это может выглядеть и у вас</span>
               </p>
             </div>

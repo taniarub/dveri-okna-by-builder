@@ -54,9 +54,6 @@ const Header = () => {
             <a href="/#projects" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105">
               Наши работы
             </a>
-            <a href="/#reviews" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105">
-              Отзывы
-            </a>
             <Link 
               to="/calculator" 
               className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105"
@@ -95,13 +92,6 @@ const Header = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Наши работы
-            </a>
-            <a 
-              href="/#reviews" 
-              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Отзывы
             </a>
             <Link
               to="/calculator"
