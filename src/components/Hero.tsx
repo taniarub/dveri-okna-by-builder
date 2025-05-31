@@ -1,3 +1,4 @@
+
 import { Link } from "react-router-dom";
 
 const Hero = () => {
@@ -79,7 +80,7 @@ const Hero = () => {
             {/* Main banner shape with enhanced styling */}
             <div className="relative mb-10">
               <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 transform -skew-x-12 px-10 py-8 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
-                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 leading-tight tracking-wide" style={{fontStyle: 'normal'}}>
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 leading-tight tracking-wide">
                   ОКНА и ДВЕРИ
                 </h1>
               </div>
@@ -94,7 +95,7 @@ const Hero = () => {
             {/* Second text with enhanced colorful background */}
             <div className="relative mb-8">
               <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide" style={{fontStyle: 'normal'}}>
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold transform skew-x-12 text-white tracking-wide">
                   без монтажа
                 </h2>
               </div>
@@ -103,7 +104,7 @@ const Hero = () => {
             {/* Third text with enhanced colorful background */}
             <div className="relative mb-12">
               <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 transform -skew-x-12 px-8 py-6 inline-block shadow-2xl rounded-xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide" style={{fontStyle: 'normal'}}>
+                <h3 className="text-xl md:text-3xl lg:text-4xl font-bold transform skew-x-12 text-white tracking-wide">
                   с бесплатной доставкой
                 </h3>
               </div>
