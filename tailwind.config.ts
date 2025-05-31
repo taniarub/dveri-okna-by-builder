@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -64,14 +63,14 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				brand: {
-					red: '#E53935', // Primary color from reference images
-					blue: '#2B5278', // Secondary color 
+					red: '#E53935',
+					blue: '#2B5278',
 					lightblue: '#EBF1F8',
 					darkblue: '#1A2533',
 					gray: '#F5F5F5',
-					yellow: '#f5a623', // Updated to match reference images
-					orange: '#f5a623', // Added from reference images
-					beige: '#f9f7f4', // Added from reference images
+					yellow: '#f5a623',
+					orange: '#f5a623',
+					beige: '#f9f7f4',
 				}
 			},
 			borderRadius: {
@@ -97,12 +96,52 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'scale-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'scale(0.95)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'scale(1)'
+					}
+				},
+				'slide-in': {
+					'0%': {
+						opacity: '0',
+						transform: 'translateX(-20px)'
+					},
+					'100%': {
+						opacity: '1',
+						transform: 'translateX(0)'
+					}
+				},
+				'bounce-soft': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
+				},
+				'pulse-soft': {
+					'0%, 100%': {
+						opacity: '1'
+					},
+					'50%': {
+						opacity: '0.8'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
-				'fade-in': 'fade-in 0.8s ease-out forwards'
+				'fade-in': 'fade-in 0.8s ease-out forwards',
+				'scale-in': 'scale-in 0.6s ease-out forwards',
+				'slide-in': 'slide-in 0.6s ease-out forwards',
+				'bounce-soft': 'bounce-soft 2s ease-in-out infinite',
+				'pulse-soft': 'pulse-soft 3s ease-in-out infinite'
 			}
 		}
 	},
