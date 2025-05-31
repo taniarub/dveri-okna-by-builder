@@ -8,8 +8,6 @@ const Reviews = () => {
             <h2 className="text-4xl font-bold transform skew-x-12 text-white">Что говорят наши клиенты?</h2>
           </div>
         </div>
-        {/* Elfsight Google Reviews | Untitled Google Reviews */}
-        <script src="https://static.elfsight.com/platform/platform.js" async></script>
         <div className="elfsight-app-90e46020-da7b-4743-b2ed-68b619fef47a" data-elfsight-app-lazy></div>
       </div>
     </section>
