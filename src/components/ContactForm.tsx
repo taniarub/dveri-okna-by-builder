@@ -1,7 +1,55 @@
-import React from 'react';
+
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from "@/components/ui/use-toast";
 
 const ContactForm = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const phone = formData.get('phone') as string;
+    const message = formData.get('message') as string;
+
+    const telegramMessage = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📝 Сообщение: ${message}`;
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot8134015742:AAHoX9DetuDOJdEzqjL5yieReKg3oayxonA/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: "277234658",
+          text: telegramMessage
+        })
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Заявка отправлена",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+        // Reset form
+        (e.target as HTMLFormElement).reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте еще раз.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
@@ -83,7 +131,7 @@ const ContactForm = () => {
           
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <form action="https://formspree.io/f/myzwrqvo" method="POST" className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-medium">Ваше имя</label>
                 <input 
@@ -121,9 +169,10 @@ const ContactForm = () => {
               
               <button 
                 type="submit" 
-                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full"
+                disabled={isSubmitting}
+                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Отправить заявку
+                {isSubmitting ? 'Отправляется...' : 'Отправить заявку'}
               </button>
               
               <p className="text-sm text-gray-500 mt-4">

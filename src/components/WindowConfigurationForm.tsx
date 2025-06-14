@@ -25,6 +25,7 @@ const WindowConfigurationForm = () => {
     options: []
   }]);
   const [contactInfo, setContactInfo] = useState<ContactInfo>({ name: "", phone: "", consent: false });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleWindowChange = (index: number, updatedWindow: WindowConfig) => {
     const updatedWindows = [...windows];
@@ -67,7 +68,7 @@ const WindowConfigurationForm = () => {
     }).join("\n\n");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate all windows
@@ -108,28 +109,54 @@ const WindowConfigurationForm = () => {
       });
       return;
     }
+
+    setIsSubmitting(true);
     
-    // Submit the form (Formspree will handle the actual submission)
-    const form = e.target as HTMLFormElement;
-    form.submit();
-    
-    toast({
-      title: "Заявка отправлена",
-      description: "Мы свяжемся с вами в ближайшее время",
-    });
-    
-    // Reset form
-    setWindows([{
-      windowType: "",
-      frameTypes: [],
-      dimensions: { width: "", height: "" },
-      options: []
-    }]);
-    setContactInfo({ name: "", phone: "", consent: false });
+    const windowsData = formatWindowsData();
+    const telegramMessage = `🏠 Новая заявка на расчет окон\n\n👤 Имя: ${contactInfo.name}\n📞 Телефон: ${contactInfo.phone}\n\n📋 Конфигурация окон:\n${windowsData}`;
+
+    try {
+      const response = await fetch(`https://api.telegram.org/bot8134015742:AAHoX9DetuDOJdEzqjL5yieReKg3oayxonA/sendMessage`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          chat_id: "277234658",
+          text: telegramMessage
+        })
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Заявка отправлена",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+        
+        // Reset form
+        setWindows([{
+          windowType: "",
+          frameTypes: [],
+          dimensions: { width: "", height: "" },
+          options: []
+        }]);
+        setContactInfo({ name: "", phone: "", consent: false });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      toast({
+        title: "Ошибка",
+        description: "Не удалось отправить заявку. Попробуйте еще раз.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <form action="https://formspree.io/f/myzwrqvo" method="POST" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="bg-white p-8 rounded-lg shadow-sm">
         {windows.map((window, windowIndex) => (
           <WindowConfigurationItem
@@ -150,9 +177,6 @@ const WindowConfigurationForm = () => {
           </button>
         </div>
         
-        {/* Hidden input to send formatted windows data */}
-        <input type="hidden" name="windows_configuration" value={formatWindowsData()} />
-        
         <ContactInfoForm 
           contactInfo={contactInfo}
           onContactInfoChange={handleContactInfoChange}
@@ -161,9 +185,10 @@ const WindowConfigurationForm = () => {
         <div className="flex justify-center">
           <button
             type="submit"
-            className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors"
+            disabled={isSubmitting}
+            className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Отправить заявку
+            {isSubmitting ? 'Отправляется...' : 'Отправить заявку'}
           </button>
         </div>
       </div>
