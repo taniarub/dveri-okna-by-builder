@@ -5,17 +5,40 @@ import { toast } from "@/components/ui/use-toast";
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    message: ''
+  });
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleWhatsAppSend = () => {
+    if (!formData.name || !formData.phone) {
+      toast({
+        title: "Ошибка",
+        description: "Заполните имя и телефон перед отправкой в WhatsApp",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const whatsappText = `Имя: ${formData.name}%0AТелефон: ${formData.phone}%0AКомментарий: ${formData.message || 'Не указан'}`;
+    const whatsappUrl = `https://wa.me/375293423221?text=${whatsappText}`;
+    window.open(whatsappUrl, '_blank');
+  };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    const formData = new FormData(e.currentTarget);
-    const name = formData.get('name') as string;
-    const phone = formData.get('phone') as string;
-    const message = formData.get('message') as string;
-
-    const telegramMessage = `📩 Новая заявка с сайта\n\n👤 Имя: ${name}\n📞 Телефон: ${phone}\n📝 Сообщение: ${message}`;
+    const telegramMessage = `📩 Новая заявка с сайта\n\n👤 Имя: ${formData.name}\n📞 Телефон: ${formData.phone}\n📝 Сообщение: ${formData.message}`;
 
     try {
       const response = await fetch(`https://api.telegram.org/bot8134015742:AAHoX9DetuDOJdEzqjL5yieReKg3oayxonA/sendMessage`, {
@@ -35,7 +58,7 @@ const ContactForm = () => {
           description: "Мы свяжемся с вами в ближайшее время",
         });
         // Reset form
-        (e.target as HTMLFormElement).reset();
+        setFormData({ name: '', phone: '', message: '' });
       } else {
         throw new Error('Failed to send message');
       }
@@ -138,6 +161,8 @@ const ContactForm = () => {
                   type="text" 
                   id="name" 
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше имя"
                   required
@@ -150,6 +175,8 @@ const ContactForm = () => {
                   type="tel" 
                   id="phone" 
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="+375 XX XXX XX XX"
                   required
@@ -161,19 +188,36 @@ const ContactForm = () => {
                 <textarea 
                   id="message" 
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4} 
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше сообщение"
                 ></textarea>
               </div>
               
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Отправляется...' : 'Отправить заявку'}
-              </button>
+              <div className="space-y-3">
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? 'Отправляется...' : 'Отправить заявку'}
+                </button>
+                
+                <button 
+                  type="button"
+                  onClick={handleWhatsAppSend}
+                  className="bg-green-500 text-white px-8 py-3 rounded-md hover:bg-green-600 transition-colors w-full flex items-center justify-center gap-2"
+                >
+                  <img 
+                    src="/lovable-uploads/653de03b-05d0-4cd5-b6bf-515fa14a31d6.png" 
+                    alt="WhatsApp" 
+                    className="w-5 h-5" 
+                  />
+                  Отправить в WhatsApp
+                </button>
+              </div>
               
               <p className="text-sm text-gray-500 mt-4">
                 Нажимая кнопку, вы соглашаетесь на <Link to="/privacy" className="text-brand-blue hover:underline">обработку персональных данных</Link>

@@ -68,6 +68,43 @@ const WindowConfigurationForm = () => {
     }).join("\n\n");
   };
 
+  const handleWhatsAppSend = () => {
+    // Validate all windows
+    for (let i = 0; i < windows.length; i++) {
+      if (!windows[i].windowType) {
+        toast({
+          title: "Ошибка",
+          description: `Выберите тип окна #${i + 1}`,
+          variant: "destructive"
+        });
+        return;
+      }
+
+      if (!windows[i].dimensions.width || !windows[i].dimensions.height) {
+        toast({
+          title: "Ошибка",
+          description: `Укажите размеры окна #${i + 1}`,
+          variant: "destructive"
+        });
+        return;
+      }
+    }
+    
+    if (!contactInfo.name || !contactInfo.phone || !contactInfo.consent) {
+      toast({
+        title: "Ошибка",
+        description: "Заполните все обязательные поля",
+        variant: "destructive"
+      });
+      return;
+    }
+
+    const windowsData = formatWindowsData();
+    const whatsappText = `Имя: ${contactInfo.name}%0AТелефон: ${contactInfo.phone}%0AКомментарий: Расчет окон:%0A${encodeURIComponent(windowsData)}`;
+    const whatsappUrl = `https://wa.me/375293423221?text=${whatsappText}`;
+    window.open(whatsappUrl, '_blank');
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -182,13 +219,26 @@ const WindowConfigurationForm = () => {
           onContactInfoChange={handleContactInfoChange}
         />
 
-        <div className="flex justify-center">
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
             type="submit"
             disabled={isSubmitting}
             className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Отправляется...' : 'Отправить заявку'}
+          </button>
+          
+          <button
+            type="button"
+            onClick={handleWhatsAppSend}
+            className="px-8 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
+          >
+            <img 
+              src="/lovable-uploads/653de03b-05d0-4cd5-b6bf-515fa14a31d6.png" 
+              alt="WhatsApp" 
+              className="w-5 h-5" 
+            />
+            Отправить в WhatsApp
           </button>
         </div>
       </div>
