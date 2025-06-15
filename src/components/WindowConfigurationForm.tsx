@@ -68,34 +68,6 @@ const WindowConfigurationForm = () => {
     }).join("\n\n");
   };
 
-  const handleWhatsAppSend = () => {
-    // Validate required fields first
-    for (let i = 0; i < windows.length; i++) {
-      if (!windows[i].windowType || !windows[i].dimensions.width || !windows[i].dimensions.height) {
-        toast({
-          title: "Ошибка",
-          description: "Заполните все обязательные поля перед отправкой в WhatsApp",
-          variant: "destructive"
-        });
-        return;
-      }
-    }
-    
-    if (!contactInfo.name || !contactInfo.phone) {
-      toast({
-        title: "Ошибка",
-        description: "Заполните контактную информацию перед отправкой в WhatsApp",
-        variant: "destructive"
-      });
-      return;
-    }
-
-    const windowsData = formatWindowsData();
-    const whatsappText = `Имя: ${contactInfo.name}%0AТелефон: ${contactInfo.phone}%0AКомментарий: Расчет окон%0A%0AКонфигурация окон:%0A${encodeURIComponent(windowsData)}`;
-    const whatsappUrl = `https://wa.me/375293423221?text=${whatsappText}`;
-    window.open(whatsappUrl, '_blank');
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
@@ -210,21 +182,13 @@ const WindowConfigurationForm = () => {
           onContactInfoChange={handleContactInfoChange}
         />
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex justify-center">
           <button
             type="submit"
             disabled={isSubmitting}
             className="px-8 py-3 bg-brand-orange text-white rounded-md hover:bg-[#e69816] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isSubmitting ? 'Отправляется...' : 'Отправить заявку'}
-          </button>
-          
-          <button
-            type="button"
-            onClick={handleWhatsAppSend}
-            className="px-8 py-3 bg-green-500 text-white rounded-md hover:bg-green-600 transition-colors flex items-center justify-center gap-2"
-          >
-            📤 Отправить в WhatsApp
           </button>
         </div>
       </div>
