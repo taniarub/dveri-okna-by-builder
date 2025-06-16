@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -83,7 +84,7 @@ const ContactForm = () => {
           
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <form action="https://formspree.io/f/myzwrqvo" method="POST" className="space-y-6">
+            <form action="https://submit-form.com/esY14v503" method="POST" className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-medium">Ваше имя</label>
                 <input 
@@ -92,6 +93,18 @@ const ContactForm = () => {
                   name="name"
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше имя"
+                  required
+                />
+              </div>
+              
+              <div>
+                <label htmlFor="email" className="block mb-2 font-medium">Email</label>
+                <input 
+                  type="email" 
+                  id="email" 
+                  name="email"
+                  className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
+                  placeholder="your@email.com"
                   required
                 />
               </div>
@@ -116,6 +129,7 @@ const ContactForm = () => {
                   rows={4} 
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше сообщение"
+                  required
                 ></textarea>
               </div>
               

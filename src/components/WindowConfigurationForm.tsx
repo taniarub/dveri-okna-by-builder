@@ -109,7 +109,7 @@ const WindowConfigurationForm = () => {
       return;
     }
     
-    // Submit the form (Formspree will handle the actual submission)
+    // Submit the form (submit-form.com will handle the actual submission)
     const form = e.target as HTMLFormElement;
     form.submit();
     
@@ -129,7 +129,7 @@ const WindowConfigurationForm = () => {
   };
 
   return (
-    <form action="https://formspree.io/f/myzwrqvo" method="POST" onSubmit={handleSubmit}>
+    <form action="https://submit-form.com/esY14v503" method="POST" onSubmit={handleSubmit}>
       <div className="bg-white p-8 rounded-lg shadow-sm">
         {windows.map((window, windowIndex) => (
           <WindowConfigurationItem
@@ -152,6 +152,9 @@ const WindowConfigurationForm = () => {
         
         {/* Hidden input to send formatted windows data */}
         <input type="hidden" name="windows_configuration" value={formatWindowsData()} />
+        
+        {/* Hidden input for email field (required by submit-form.com) */}
+        <input type="hidden" name="email" value="noreply@example.com" />
         
         <ContactInfoForm 
           contactInfo={contactInfo}
