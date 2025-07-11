@@ -13,6 +13,14 @@ const Header = () => {
             Окна и двери ПВХ
           </a>
           
+          {/* Phone number */}
+          <a 
+            href="tel:+375293423221" 
+            className="hidden lg:flex items-center text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-lg"
+          >
+            +375 29 342-32-21
+          </a>
+          
           {/* Mobile menu button */}
           <button 
             className="md:hidden p-2 transition-transform duration-200 hover:scale-110" 
