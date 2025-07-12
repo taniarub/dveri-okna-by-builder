@@ -78,7 +78,7 @@ const Hero = () => {
           <div className="relative mb-10 w-full flex justify-center">
             <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-32 py-16 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide text-white font-sans">
-                Окна и двери ПВХ в Лельчицах
+                Окна и двери ПВХ
               </h1>
             </div>
           </div>
@@ -107,7 +107,7 @@ const Hero = () => {
               {/* Descriptive text */}
               <div className="mb-12 animate-fade-in" style={{animationDelay: '0.6s'}}>
                 <p className="text-lg md:text-xl lg:text-2xl text-white font-medium leading-relaxed max-w-3xl mx-auto lg:mx-0 bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 transition-all duration-300 hover:bg-black/30">
-                  Качественные пластиковые окна и двери в Лельчицах и Гомельской области. Быстрый монтаж, гарантия качества, работаем без выходных.
+                  Надежные окна и двери ПВХ с бесплатной доставкой по РБ - комфорт без переплат!
                 </p>
               </div>
               
