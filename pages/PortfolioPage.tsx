@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button";
 const portfolioImages: Array<{src: string; alt: string}> = [
   {
     src: "/lovable-uploads/c28c989c-3309-4eb0-9ef8-2cd5e9c2acec.png",
-    alt: "Белые пластиковые окна различных размеров"
+    alt: "Белые пластиковые окна ПВХ различных размеров - установка в Лельчицах"
   },
   {
     src: "/lovable-uploads/1bbbaca7-93c1-444c-80b5-5d32d9176822.png",
-    alt: "Окна в деревянном доме с бирюзовыми и зелеными стенами"
+    alt: "Пластиковые окна ПВХ в деревянном доме - монтаж окон Лельчицы"
   },
   {
     src: "/lovable-uploads/70427fce-56ad-45ce-a8b6-6c38c45490fd.png",

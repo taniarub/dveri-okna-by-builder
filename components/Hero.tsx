@@ -78,7 +78,7 @@ const Hero = () => {
           <div className="relative mb-10 w-full flex justify-center">
             <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-32 py-16 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
               <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide text-white font-sans">
-                ОКНА и ДВЕРИ
+                Окна и двери ПВХ в Лельчицах
               </h1>
             </div>
           </div>
@@ -90,7 +90,7 @@ const Hero = () => {
               <div className="relative mb-8">
                 <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
                   <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide font-sans">
-                    без монтажа
+                    Профессиональная установка
                   </h2>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const Hero = () => {
               <div className="relative mb-12">
                 <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
                   <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide font-sans">
-                    с бесплатной доставкой
+                    Бесплатная доставка по Беларуси
                   </h3>
                 </div>
               </div>
@@ -107,7 +107,7 @@ const Hero = () => {
               {/* Descriptive text */}
               <div className="mb-12 animate-fade-in" style={{animationDelay: '0.6s'}}>
                 <p className="text-lg md:text-xl lg:text-2xl text-white font-medium leading-relaxed max-w-3xl mx-auto lg:mx-0 bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 transition-all duration-300 hover:bg-black/30">
-                  Надежные окна и двери ПВХ с бесплатной доставкой по РБ – комфорт без переплат!
+                  Качественные пластиковые окна и двери в Лельчицах и Гомельской области. Быстрый монтаж, гарантия качества, работаем без выходных.
                 </p>
               </div>
               
@@ -133,7 +133,7 @@ const Hero = () => {
               <div className="relative">
                 <img 
                   src="/lovable-uploads/fc927ff3-e72c-4e2c-98ff-7b7c6811512e.png" 
-                  alt="Окно ПВХ"
+                  alt="Пластиковые окна ПВХ в Лельчицах - качественная установка и монтаж"
                   className="w-full h-auto drop-shadow-2xl transition-all duration-500 hover:scale-105 hover:rotate-1 cursor-pointer"
                   style={{
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))',
