@@ -90,7 +90,7 @@ const Hero = () => {
               <div className="relative mb-8">
                 <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
                   <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide font-sans">
-                    Профессиональная установка
+                    бесплатная доставка ПО РЕСПУБЛИКЕ БЕЛАРУСЬ
                   </h2>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const Hero = () => {
               <div className="relative mb-12">
                 <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
                   <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide font-sans">
-                    Бесплатная доставка по Беларуси
+                    Без монтажа и переплат
                   </h3>
                 </div>
               </div>
