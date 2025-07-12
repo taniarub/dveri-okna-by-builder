@@ -10,11 +10,11 @@ import { Button } from "@/components/ui/button";
 const portfolioImages: Array<{src: string; alt: string}> = [
   {
     src: "/lovable-uploads/c28c989c-3309-4eb0-9ef8-2cd5e9c2acec.png",
-    alt: "Белые пластиковые окна ПВХ различных размеров - установка в Лельчицах"
+    alt: "Белые пластиковые окна ПВХ различных размеров"
   },
   {
     src: "/lovable-uploads/1bbbaca7-93c1-444c-80b5-5d32d9176822.png",
-    alt: "Пластиковые окна ПВХ в деревянном доме - монтаж окон Лельчицы"
+    alt: "Пластиковые окна ПВХ в деревянном доме"
   },
   {
     src: "/lovable-uploads/70427fce-56ad-45ce-a8b6-6c38c45490fd.png",
@@ -66,7 +66,7 @@ const portfolioImages: Array<{src: string; alt: string}> = [
   },
   {
     src: "/lovable-uploads/a3fee1b6-658f-4052-a7f3-ff07a86a0101.png",
-    alt: "Установка белых окон и дверей на балконе"
+    alt: "Белые окна и двери на балконе"
   },
   {
     src: "/lovable-uploads/acf01a73-d054-48e2-b15f-81d2264f566b.png",

@@ -18,7 +18,7 @@ const Header = () => {
           {/* Phone number */}
           <a 
             href="tel:+375293423221" 
-            className="hidden lg:flex items-center text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-lg"
+            className="hidden md:flex items-center text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-lg"
           >
             +375 29 342-32-21
           </a>
@@ -82,6 +82,14 @@ const Header = () => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-2 space-y-3 animate-fade-in">
+            {/* Phone number in mobile menu */}
+            <a 
+              href="tel:+375293423221" 
+              className="block text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-lg py-2 border-b border-gray-200 hover:translate-x-2"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              📞 +375 29 342-32-21
+            </a>
             <a 
               href="/#about" 
               className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2"

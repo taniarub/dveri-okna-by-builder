@@ -34,7 +34,7 @@
 ### 5. **Local SEO**
 - ✅ **Geographic Targeting**: Лельчицы, Гомельская область
 - ✅ **Service Area**: 50km radius from Лельчицы
-- ✅ **Local Keywords**: "окна Лельчицы", "установка окон Гомельская область"
+- ✅ **Local Keywords**: "окна Лельчицы", "окна Гомельская область"
 - ✅ **Business Hours**: Structured opening hours
 - ✅ **Contact Info**: Phone, email, address in schema
 
@@ -79,8 +79,8 @@ verification: {
 - ✅ Submit sitemap to Google Search Console
 - ✅ Submit sitemap to Yandex Webmaster
 - ✅ Monitor keywords ranking for:
-  - "пластиковые окна Лельчицы"
-  - "установка окон Гомельская область"  
+  - "пластиковые окна"
+  - "окна и двери Беларусь"  
   - "двери ПВХ Беларусь"
 
 ### 3. **Content Marketing** (Recommended)
@@ -114,7 +114,7 @@ verification: {
 
 ### **Primary Keywords:**
 - "пластиковые окна Лельчицы"
-- "установка окон Гомельская область"
+- "окна Гомельская область"
 - "двери ПВХ Беларусь"
 
 ### **Long-tail Keywords:**
