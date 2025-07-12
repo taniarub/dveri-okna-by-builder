@@ -1,5 +1,4 @@
 
-import PromotionPopup from "@/components/PromotionPopup";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import PayOnlyForWindows from "@/components/PayOnlyForWindows";
@@ -13,7 +12,6 @@ import Footer from "@/components/Footer";
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      <PromotionPopup />
       <Header />
       <Hero />
       <PayOnlyForWindows />

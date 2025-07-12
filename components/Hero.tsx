@@ -90,7 +90,7 @@ const Hero = () => {
               <div className="relative mb-8">
                 <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
                   <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide font-sans">
-                    Профессиональная установка
+                    <Бесплатная доставка по Республике Беларусь
                   </h2>
                 </div>
               </div>
@@ -99,7 +99,7 @@ const Hero = () => {
               <div className="relative mb-12">
                 <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
                   <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide font-sans">
-                    Бесплатная доставка по Беларуси
+                    Без монтажа и переплат
                   </h3>
                 </div>
               </div>
@@ -133,7 +133,7 @@ const Hero = () => {
               <div className="relative">
                 <img 
                   src="/lovable-uploads/fc927ff3-e72c-4e2c-98ff-7b7c6811512e.png" 
-                  alt="Пластиковые окна ПВХ в Лельчицах - качественная установка и монтаж"
+                  alt="Пластиковые окна ПВХ"
                   className="w-full h-auto drop-shadow-2xl transition-all duration-500 hover:scale-105 hover:rotate-1 cursor-pointer"
                   style={{
                     filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.3))',
