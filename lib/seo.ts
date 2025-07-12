@@ -3,7 +3,7 @@ import type { Metadata } from 'next'
 // Business information
 export const businessInfo = {
   name: "Окна и двери ПВХ",
-  description: "Качественные окна и двери ПВХ по доступным ценам с бесплатной доставкой по РБ. Качественные ПВХ конструкции, быстрый монтаж, гарантия качества.",
+  description: "Качественные окна и двери ПВХ по доступным ценам с бесплатной доставкой по РБ. Качественные ПВХ конструкции, гарантия качества.",
   phone: "+375293423221",
   email: "vitaliy9977@mail.ru",
   address: "Лельчицы, Гомельская область, Беларусь",
@@ -32,9 +32,9 @@ export const defaultMetadata: Metadata = {
     "двери ПВХ Беларусь",
     "остекление балконов",
     "окна под заказ",
-    "монтаж пластиковых окон",
-    "ремонт окон",
-    "энергосберегающие окна"
+    "бесплатная доставка",
+    "без монтажа и переплат",
+    "бесплатная доставка по РБ"
   ].join(", "),
   authors: [{ name: businessInfo.name }],
   creator: businessInfo.name,
@@ -63,16 +63,6 @@ export const defaultMetadata: Metadata = {
         alt: "Пластиковые окна и двери - наша работа",
       },
     ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Окна и двери ПВХ",
-    description: businessInfo.description,
-    images: ["/lovable-uploads/c28c989c-3309-4eb0-9ef8-2cd5e9c2acec.png"],
-  },
-  verification: {
-    google: "your-google-verification-code", // Replace with actual code from Google Search Console
-    yandex: "your-yandex-verification-code", // Replace with actual code from Yandex Webmaster
   },
   robots: {
     index: true,
@@ -117,27 +107,7 @@ export function generateBusinessStructuredData() {
     "url": businessInfo.website,
     "telephone": businessInfo.phone,
     "email": businessInfo.email,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Лельчицы",
-      "addressRegion": "Гомельская область",
-      "addressCountry": "BY"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 51.7875,
-      "longitude": 28.3214
-    },
     "openingHours": "Mo-Su 09:00-19:00",
-    "serviceArea": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.7875,
-        "longitude": 28.3214
-      },
-      "geoRadius": 50000
-    },
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
       "name": "Окна и двери ПВХ",
@@ -148,28 +118,6 @@ export function generateBusinessStructuredData() {
         "areaServed": "Гомельская область, Беларусь"
       }))
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": 4.8,
-      "reviewCount": 47,
-      "bestRating": 5,
-      "worstRating": 1
-    },
-    "review": [
-      {
-        "@type": "Review",
-        "author": {
-          "@type": "Person",
-          "name": "Анна М."
-        },
-        "reviewRating": {
-          "@type": "Rating",
-          "ratingValue": 5,
-          "bestRating": 5
-        },
-        "reviewBody": "Отличная работа! Установили окна быстро и качественно. Рекомендую!"
-      }
-    ],
     "sameAs": [
       "https://www.instagram.com/dveri_okna_krovlya_lelchicy/",
     ]
@@ -232,20 +180,12 @@ export function generateFAQStructuredData() {
       },
       {
         "@type": "Question",
-        "name": "Бесплатная ли доставка окон в Гомельской области?",
+        "name": "Бесплатная ли доставка окон по РБ?",
         "acceptedAnswer": {
           "@type": "Answer",
           "text": "Да, мы предоставляем бесплатную доставку пластиковых окон и дверей по всей территории Беларуси. Точные условия доставки уточняйте при оформлении заказа."
         }
       },
-      {
-        "@type": "Question",
-        "name": "Как быстро можно установить пластиковые окна?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Работаем без выходных с 9:00 до 19:00."
-        }
-      }
     ]
   }
 }
@@ -260,21 +200,6 @@ export function generateServiceStructuredData() {
       "@type": "LocalBusiness",
       "name": businessInfo.name,
       "telephone": businessInfo.phone,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Лельчицы",
-        "addressRegion": "Гомельская область",
-        "addressCountry": "BY"
-      }
-    },
-    "areaServed": {
-      "@type": "GeoCircle",
-      "geoMidpoint": {
-        "@type": "GeoCoordinates",
-        "latitude": 51.7875,
-        "longitude": 28.3214
-      },
-      "geoRadius": 50000
     },
     "serviceType": service,
     "description": `Профессиональная услуга ${service.toLowerCase()} в Лельчицах и Гомельской области`
@@ -295,12 +220,6 @@ export function generateOrganizationStructuredData() {
       "contactType": "customer service",
       "areaServed": "BY",
       "availableLanguage": "Russian"
-    },
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Лельчицы",
-      "addressRegion": "Гомельская область",
-      "addressCountry": "BY"
     },
     "sameAs": [
       "https://www.instagram.com/dveri_okna_krovlya_lelchicy/"
