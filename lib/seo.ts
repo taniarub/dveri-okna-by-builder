@@ -7,7 +7,7 @@ export const businessInfo = {
   phone: "+375293423221",
   email: "vitaliy9977@mail.ru",
   address: "Лельчицы, Гомельская область, Беларусь",
-  website: "https://dveri-okna-by-builder.vercel.app",
+  website: "https://dverivokna.by",
   workingHours: "9:00 – 19:00, без выходных",
   services: [
     "Установка пластиковых окон",
