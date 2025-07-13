@@ -24,13 +24,14 @@ const Header = () => {
           </a>
           
           {/* Mobile section - Phone + Menu button */}
-          <div className="md:hidden flex items-center space-x-3">
-            {/* Phone number - Mobile (always visible) */}
+          <div className="md:hidden flex items-center space-x-2">
+            {/* Phone number - Mobile (prominent and always visible) */}
             <a 
               href="tel:+375293423221" 
-              className="text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-sm animate-fade-in-right hover-glow"
+              className="bg-brand-blue text-white hover:bg-brand-orange transition-all duration-300 font-bold text-sm px-3 py-2 rounded-full shadow-lg animate-fade-in-right hover-glow flex items-center space-x-1"
             >
-              📞 +375 29 342-32-21
+              <span>📞</span>
+              <span>+375 29 342-32-21</span>
             </a>
             
             {/* Mobile menu button */}
