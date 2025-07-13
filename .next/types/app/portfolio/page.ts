@@ -1,4 +1,4 @@
-// File: /Users/asd/Github/dveri-okna-by-builder/app/portfolio/page.tsx
+// File: /Users/luyi/github/dveri-okna-by-builder/app/portfolio/page.tsx
 import * as entry from '../../../../app/portfolio/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 

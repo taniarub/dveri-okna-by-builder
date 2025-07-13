@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>https://dveri-okna-by-builder.vercel.app</loc>
-<lastmod>2025-07-12T18:26:17.166Z</lastmod>
+<loc>https://dverivokna.by</loc>
+<lastmod>2025-07-13T15:20:34.949Z</lastmod>
 <changefreq>weekly</changefreq>
 <priority>1</priority>
 </url>
 <url>
-<loc>https://dveri-okna-by-builder.vercel.app/calculator</loc>
-<lastmod>2025-07-12T18:26:17.166Z</lastmod>
+<loc>https://dverivokna.by/calculator</loc>
+<lastmod>2025-07-13T15:20:34.949Z</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.8</priority>
 </url>
 <url>
-<loc>https://dveri-okna-by-builder.vercel.app/portfolio</loc>
-<lastmod>2025-07-12T18:26:17.166Z</lastmod>
+<loc>https://dverivokna.by/portfolio</loc>
+<lastmod>2025-07-13T15:20:34.949Z</lastmod>
 <changefreq>weekly</changefreq>
 <priority>0.7</priority>
 </url>
