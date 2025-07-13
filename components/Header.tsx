@@ -8,14 +8,14 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <header className="bg-white shadow-sm sticky top-0 z-50 animate-fade-in">
+    <header className="bg-white shadow-sm sticky top-0 z-50 animate-fade-in hover-lift">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex justify-between items-center">
-          <a href="/" className="text-black text-2xl font-bold transition-transform duration-300 hover:scale-105">
+          <a href="/" className="text-black text-2xl font-bold transition-transform duration-300 hover:scale-105 animate-fade-in-left">
             Окна и двери ПВХ
           </a>
           
-          {/* Phone number */}
+          {/* Phone number - Desktop */}
           <a 
             href="tel:+375293423221" 
             className="hidden md:flex items-center text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-lg"
@@ -23,56 +23,67 @@ const Header = () => {
             +375 29 342-32-21
           </a>
           
-          {/* Mobile menu button */}
-          <button 
-            className="md:hidden p-2 transition-transform duration-200 hover:scale-110" 
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <svg 
-              className="w-6 h-6 transition-transform duration-300" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24" 
-              xmlns="http://www.w3.org/2000/svg"
+          {/* Mobile section - Phone + Menu button */}
+          <div className="md:hidden flex items-center space-x-3">
+            {/* Phone number - Mobile (always visible) */}
+            <a 
+              href="tel:+375293423221" 
+              className="text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-sm animate-fade-in-right hover-glow"
             >
-              {isMenuOpen ? (
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M6 18L18 6M6 6l12 12" 
-                />
-              ) : (
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M4 6h16M4 12h16M4 18h16" 
-                />
-              )}
-            </svg>
-          </button>
+              📞 +375 29 342-32-21
+            </a>
+            
+            {/* Mobile menu button */}
+            <button 
+              className="p-2 transition-transform duration-200 hover:scale-110 animate-bounce-subtle hover-lift" 
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              <svg 
+                className="w-6 h-6 transition-transform duration-300" 
+                fill="none" 
+                stroke="currentColor" 
+                viewBox="0 0 24 24" 
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                {isMenuOpen ? (
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M6 18L18 6M6 6l12 12" 
+                  />
+                ) : (
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2} 
+                    d="M4 6h16M4 12h16M4 18h16" 
+                  />
+                )}
+              </svg>
+            </button>
+          </div>
           
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            <a href="/#about" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105">
+            <a href="/#about" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105 animate-fade-in-up animate-stagger-1 hover-lift">
               О нас
             </a>
-            <a href="/#advantages" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105">
+            <a href="/#advantages" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105 animate-fade-in-up animate-stagger-2 hover-lift">
               Наши преимущества
             </a>
-            <a href="/#projects" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105">
+            <a href="/#projects" className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105 animate-fade-in-up animate-stagger-3 hover-lift">
               Наши работы
             </a>
             <Link 
               href="/calculator" 
-              className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105"
+              className="text-gray-600 hover:text-brand-blue transition-all duration-300 hover:scale-105 animate-fade-in-up animate-stagger-4 hover-lift"
             >
               Калькулятор
             </Link>
             <a 
               href="/#contact" 
-              className="bg-brand-orange text-white rounded-md px-6 py-2 hover:bg-[#e69816] transition-all duration-300 hover:scale-105 hover:shadow-lg"
+              className="bg-brand-orange text-white rounded-md px-6 py-2 hover:bg-[#e69816] transition-all duration-300 hover:scale-105 hover:shadow-lg animate-fade-in-up animate-stagger-5 btn-primary"
             >
               Контакты
             </a>
@@ -81,46 +92,38 @@ const Header = () => {
         
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden pt-4 pb-2 space-y-3 animate-fade-in">
-            {/* Phone number in mobile menu */}
-            <a 
-              href="tel:+375293423221" 
-              className="block text-brand-blue hover:text-brand-orange transition-colors duration-300 font-semibold text-lg py-2 border-b border-gray-200 hover:translate-x-2"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              📞 +375 29 342-32-21
-            </a>
+          <div className="md:hidden pt-4 pb-2 space-y-3 animate-slide-up">
             <a 
               href="/#about" 
-              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2"
+              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2 animate-fade-in-left animate-stagger-1 hover-lift"
               onClick={() => setIsMenuOpen(false)}
             >
               О нас
             </a>
             <a 
               href="/#advantages" 
-              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2"
+              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2 animate-fade-in-left animate-stagger-2 hover-lift"
               onClick={() => setIsMenuOpen(false)}
             >
               Наши преимущества
             </a>
             <a 
               href="/#projects" 
-              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2"
+              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2 animate-fade-in-left animate-stagger-3 hover-lift"
               onClick={() => setIsMenuOpen(false)}
             >
               Наши работы
             </a>
             <Link
               href="/calculator"
-              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2"
+              className="block text-gray-600 hover:text-brand-blue transition-all duration-300 py-2 hover:translate-x-2 animate-fade-in-left animate-stagger-4 hover-lift"
               onClick={() => setIsMenuOpen(false)}
             >
               Калькулятор
             </Link>
             <a 
               href="/#contact" 
-              className="block bg-brand-orange text-white rounded-md px-4 py-2 hover:bg-[#e69816] transition-all duration-300 w-full text-center hover:scale-105"
+              className="block bg-brand-orange text-white rounded-md px-4 py-2 hover:bg-[#e69816] transition-all duration-300 w-full text-center hover:scale-105 animate-fade-in-left animate-stagger-5 btn-primary"
               onClick={() => setIsMenuOpen(false)}
             >
               Контакты

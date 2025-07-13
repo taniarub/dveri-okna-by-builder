@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const Hero = () => {
   return (
-    <div className="relative min-h-[800px] flex items-center overflow-hidden animate-fade-in">
+    <div className="relative min-h-[650px] flex items-center overflow-hidden animate-fade-in">
       {/* Golden-yellow to orange retro background */}
       <div className="absolute inset-0 bg-gradient-to-tr from-yellow-400 via-orange-400 to-orange-500">
         
@@ -72,41 +72,41 @@ const Hero = () => {
         </div>
       </div>
       
-      <div className="container relative z-10 px-6 py-24 md:py-32">
-        <div className="flex flex-col items-center justify-center text-center max-w-7xl mx-auto group gap-8">
+      <div className="container relative z-10 px-6 py-12 md:py-16">
+        <div className="flex flex-col items-center justify-center text-center max-w-7xl mx-auto group gap-4">
           {/* Main banner shape with enhanced styling - centered */}
-          <div className="relative mb-10 w-full flex justify-center">
-            <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-32 py-16 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in">
-              <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight tracking-wide text-white font-sans">
+          <div className="relative mb-2 w-full flex justify-center">
+            <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-purple-700 px-16 py-8 md:px-24 md:py-12 lg:px-28 lg:py-14 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in w-full max-w-4xl">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-wide text-white font-sans text-center">
                 Окна и двери ПВХ
               </h1>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row items-center justify-center text-center lg:text-left max-w-7xl mx-auto group gap-8">
+          <div className="flex flex-col lg:flex-row items-center justify-center text-center lg:text-left max-w-7xl mx-auto group gap-4">
             {/* Text content */}
             <div className="text-white flex-1 flex flex-col items-center">
               {/* Second text with enhanced colorful background */}
-              <div className="relative mb-8">
-                <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.2s'}}>
-                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide font-sans">
-                    бесплатная доставка ПО РЕСПУБЛИКЕ БЕЛАРУСЬ
+              <div className="relative mb-1 w-full flex justify-center">
+                <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in w-full max-w-4xl" style={{animationDelay: '0.2s'}}>
+                  <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-white tracking-wide font-sans text-center">
+                    Бесплатная доставка по РБ
                   </h2>
                 </div>
               </div>
 
               {/* Third text with enhanced colorful background */}
-              <div className="relative mb-12">
-                <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in" style={{animationDelay: '0.4s'}}>
-                  <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide font-sans">
+              <div className="relative mb-3 w-full flex justify-center">
+                <div className="bg-gradient-to-r from-pink-500 via-rose-500 to-red-500 px-8 py-6 rounded-xl shadow-2xl border border-white/20 transition-all duration-500 group-hover:scale-105 animate-scale-in w-full max-w-4xl" style={{animationDelay: '0.4s'}}>
+                  <h3 className="text-xl md:text-3xl lg:text-4xl font-bold text-white tracking-wide font-sans text-center">
                     Без монтажа и переплат
                   </h3>
                 </div>
               </div>
 
               {/* Descriptive text */}
-              <div className="mb-12 animate-fade-in" style={{animationDelay: '0.6s'}}>
-                <p className="text-lg md:text-xl lg:text-2xl text-white font-medium leading-relaxed max-w-3xl mx-auto lg:mx-0 bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 transition-all duration-300 hover:bg-black/30">
+              <div className="mb-4 animate-fade-in w-full flex justify-center" style={{animationDelay: '0.6s'}}>
+                <p className="text-lg md:text-xl lg:text-2xl text-white font-medium leading-relaxed max-w-4xl mx-auto bg-black/20 backdrop-blur-sm rounded-2xl px-8 py-6 border border-white/20 transition-all duration-300 hover:bg-black/30 text-center">
                   Надежные окна и двери ПВХ с бесплатной доставкой по РБ - комфорт без переплат!
                 </p>
               </div>

@@ -47,6 +47,40 @@ export default function RootLayout({
         <Providers>
           {children}
         </Providers>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Scroll-triggered animations
+              const initScrollAnimations = () => {
+                const observerOptions = {
+                  threshold: 0.1,
+                  rootMargin: '0px 0px -50px 0px'
+                };
+
+                const observer = new IntersectionObserver((entries) => {
+                  entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                      entry.target.classList.add('show');
+                    }
+                  });
+                }, observerOptions);
+
+                // Observe all elements with animate-on-scroll class
+                const elementsToObserve = document.querySelectorAll('.animate-on-scroll');
+                elementsToObserve.forEach((element) => {
+                  observer.observe(element);
+                });
+              };
+
+              // Initialize animations when DOM is loaded
+              if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initScrollAnimations);
+              } else {
+                initScrollAnimations();
+              }
+            `,
+          }}
+        />
       </body>
     </html>
   )

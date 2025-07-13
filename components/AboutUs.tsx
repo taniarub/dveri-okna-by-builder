@@ -67,43 +67,43 @@ const AboutUs = () => {
   }, [visible]);
 
   return (
-    <section id="about" className="py-16 bg-[#FFF5EC]">
+    <section id="about" className="py-16 bg-[#FFF5EC] animate-on-scroll">
       <div className="container">
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <div className="mb-6">
-            <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
-              <h2 className="text-4xl font-bold transform skew-x-12 text-white">Почему мы?</h2>
+          <div className="mb-6 animate-fade-in-up">
+            <div className="bg-gradient-to-r from-green-500 via-green-600 to-teal-600 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20 hover-glow animate-wobble-slight">
+              <h2 className="text-4xl font-bold transform skew-x-12 text-white animate-pulse-soft">Почему мы?</h2>
             </div>
           </div>
-          <p className="text-xl text-gray-600">
-            Наша компания уже более <span className="text-brand-orange font-bold">{count1}+</span> лет работает на рынке оконных конструкций. Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
+          <p className="text-xl text-gray-600 animate-fade-in-up animate-stagger-1">
+            Наша компания уже более <span className="text-brand-orange font-bold animate-bounce-subtle">{count1}+</span> лет работает на рынке оконных конструкций. Применяя новейшие технологии, контроль каждой детали, безупречный стиль мы смогли достичь высокого качества предлагаемых товаров и услуг, главное - завоевали доверие тысяч потребителей!
           </p>
         </div>
         
         <div ref={aboutRef} className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-          <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm animate-fade-in-up animate-stagger-2 card-hover hover-glow">
             <div className="text-4xl font-bold mb-4">
-              <span className="text-brand-orange">{count1}+</span>
+              <span className="text-brand-orange animate-bounce-subtle">{count1}+</span>
             </div>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up animate-stagger-3">
               лет опыта работы в сфере оконных технологий
             </p>
           </div>
           
-          <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm animate-fade-in-up animate-stagger-3 card-hover hover-glow">
             <div className="text-4xl font-bold mb-4">
-              <span className="text-brand-orange">{count2}%</span>
+              <span className="text-brand-orange animate-bounce-subtle">{count2}%</span>
             </div>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up animate-stagger-4">
               клиентов обращаются к нам повторно
             </p>
           </div>
           
-          <div className="bg-gray-50 p-8 rounded-lg shadow-sm">
+          <div className="bg-gray-50 p-8 rounded-lg shadow-sm animate-fade-in-up animate-stagger-4 card-hover hover-glow">
             <div className="text-4xl font-bold mb-4">
-              <span className="text-brand-orange">{count3} из 10</span>
+              <span className="text-brand-orange animate-bounce-subtle">{count3} из 10</span>
             </div>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-fade-in-up animate-stagger-5">
               новых клиентов обращаются к нам по рекомендациям от довольных заказчиков
             </p>
           </div>
