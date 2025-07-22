@@ -40,7 +40,12 @@ const Footer = () => {
         </div>
         
         <div className="border-t border-gray-700 mt-10 pt-8 text-center text-sm text-gray-400 animate-fade-in-up animate-stagger-5">
-          © 2023 Dverivokna. Все права защищены.
+          <div className="mb-2">
+            © 2023 Dverivokna. Все права защищены.
+          </div>
+          <div className="text-xs text-gray-500">
+            ИП Рублевский В.В. | УНП 490628239
+          </div>
         </div>
       </div>
     </footer>
