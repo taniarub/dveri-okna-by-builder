@@ -48,6 +48,17 @@ export const defaultMetadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: '/icon.svg', type: 'image/svg+xml' },
+      { url: '/icon-16.svg', sizes: '16x16', type: 'image/svg+xml' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' }
+    ],
+    apple: [
+      { url: '/apple-touch-icon.svg', sizes: '180x180', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.ico'
+  },
   openGraph: {
     type: "website",
     locale: "ru_BY",

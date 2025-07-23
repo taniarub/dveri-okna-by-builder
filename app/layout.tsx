@@ -46,6 +46,13 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Окна и двери ПВХ" />
         <meta name="application-name" content="Окна и двери ПВХ" />
         
+        {/* Иконки домика для всех устройств */}
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/icon-16.svg" type="image/svg+xml" sizes="16x16" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.svg" sizes="180x180" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -104,3 +111,4 @@ export default function RootLayout({
 // Deploy trigger Sun Jul 13 17:29:16 +03 2025
 // Force re-deploy Sun Jul 13 18:00:43 +03 2025
 // Google reindex force deploy - Mon Jan 13 2025 20:15:00 +03
+// New house icon favicon deploy - Mon Jan 13 2025 20:30:00 +03
