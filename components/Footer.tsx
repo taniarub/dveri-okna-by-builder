@@ -1,7 +1,7 @@
 
 const Footer = () => {
   return (
-    <footer className="bg-brand-darkblue text-white animate-on-scroll">
+    <div className="bg-brand-darkblue text-white">
       <div className="container py-12">
         <div className="flex flex-col md:flex-row justify-between">
           <div className="mb-6 md:mb-0 animate-fade-in-left">
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   );
 };
 
