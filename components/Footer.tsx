@@ -4,16 +4,16 @@ const Footer = () => {
     <div className="bg-brand-darkblue text-white">
       <div className="container py-12">
         <div className="flex flex-col md:flex-row justify-between">
-          <div className="mb-6 md:mb-0 animate-fade-in-left">
+          <div className="mb-6 md:mb-0">
             <h3 className="text-xl font-bold mb-4 animate-pulse-soft">Dverivokna</h3>
-            <p className="max-w-xs text-gray-300 animate-fade-in-up animate-stagger-1">
+            <p className="max-w-xs text-gray-300 animate-stagger-1">
               Качественные окна и двери ПВХ по доступным ценам с бесплатной доставкой по РБ
             </p>
           </div>
           
-          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3 animate-fade-in-right">
-            <div className="animate-fade-in-up animate-stagger-2">
-              <h4 className="text-lg font-medium mb-4 animate-pulse-soft">О нас</h4>
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            <div className="animate-stagger-2">
+              <h4 className="text-lg font-medium mb-4">О нас</h4>
               <ul className="space-y-2 text-gray-300">
                 <li><a href="#about" className="hover:text-white transition-colors hover-lift">О нас</a></li>
                 <li><a href="#advantages" className="hover:text-white transition-colors hover-lift">Отзывы</a></li>
@@ -21,15 +21,15 @@ const Footer = () => {
               </ul>
             </div>
             
-            <div className="animate-fade-in-up animate-stagger-3">
-              <h4 className="text-lg font-medium mb-4 animate-pulse-soft">Услуги</h4>
+            <div className="animate-stagger-3">
+              <h4 className="text-lg font-medium mb-4">Услуги</h4>
               <ul className="space-y-2 text-gray-300">
                 <li><a href="#calculator" className="hover:text-white transition-colors hover-lift">Рассчитать стоимость</a></li>
               </ul>
             </div>
             
-            <div className="animate-fade-in-up animate-stagger-4">
-              <h4 className="text-lg font-medium mb-4 animate-pulse-soft">Контакты</h4>
+            <div className="animate-stagger-4">
+              <h4 className="text-lg font-medium mb-4">Контакты</h4>
               <ul className="space-y-2 text-gray-300">
                 <li><a href="tel:+375293423221" className="hover:text-white transition-colors hover-lift hover-glow">+375 29 342-32-21</a></li>
                 <li><a href="mailto:vitaliy9977@mail.ru" className="hover:text-white transition-colors hover-lift hover-glow">vitaliy9977@mail.ru</a></li>
