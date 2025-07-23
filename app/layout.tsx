@@ -28,8 +28,24 @@ export default function RootLayout({
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <meta name="theme-color" content="#f97316" />
-        <meta name="msapplication-TileColor" content="#f97316" />
+        
+        {/* Cache control meta tags for forced refresh */}
+        <meta httpEquiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+        <meta httpEquiv="Pragma" content="no-cache" />
+        <meta httpEquiv="Expires" content="0" />
+        <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" />
+        
+        {/* Updated timestamps to force reindexing */}
+        <meta name="revisit-after" content="1 day" />
+        <meta name="last-modified" content={new Date().toISOString()} />
+        
+        <meta name="theme-color" content="#dc2626" />
+        <meta name="msapplication-TileColor" content="#dc2626" />
+        <meta name="apple-mobile-web-app-title" content="Окна и двери ПВХ" />
+        <meta name="application-name" content="Окна и двери ПВХ" />
+        
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -84,6 +100,7 @@ export default function RootLayout({
       </body>
     </html>
   )
-} console.log('Force deploy trigger');
+} 
 // Deploy trigger Sun Jul 13 17:29:16 +03 2025
 // Force re-deploy Sun Jul 13 18:00:43 +03 2025
+// Google reindex force deploy - Mon Jan 13 2025 20:15:00 +03
