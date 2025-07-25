@@ -1,7 +1,8 @@
 'use client'
 
 // Portfolio organization by categories - Mon Jan 13 2025 20:45:00 +03
-// Фотографии организованы по папкам: Окна (17 шт) и Двери (9 шт)
+// Фотографии организованы по папкам: Окна (14 шт) и Двери (12 шт)
+// Updated: 3 комбинированные фотографии перемещены в папку Двери
 
 import { useState } from "react";
 import Link from "next/link";
@@ -73,19 +74,19 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     category: "Окна"
   },
   {
-    src: "/lovable-uploads/Окна/072e5201-cf25-4290-8c68-000e30a7463f.png",
+    src: "/lovable-uploads/Двери/072e5201-cf25-4290-8c68-000e30a7463f.png",
     alt: "Белые пластиковые окна и двери в процессе установки",
-    category: "Окна"
+    category: "Двери"
   },
   {
-    src: "/lovable-uploads/Окна/a3fee1b6-658f-4052-a7f3-ff07a86a0101.png",
+    src: "/lovable-uploads/Двери/a3fee1b6-658f-4052-a7f3-ff07a86a0101.png",
     alt: "Белые окна и двери на балконе",
-    category: "Окна"
+    category: "Двери"
   },
   {
-    src: "/lovable-uploads/Окна/ade91ed9-baa1-4c74-88ce-f33e1ff0727f.png",
+    src: "/lovable-uploads/Двери/ade91ed9-baa1-4c74-88ce-f33e1ff0727f.png",
     alt: "Большие белые окна и двери на кирпичном доме",
-    category: "Окна"
+    category: "Двери"
   },
   {
     src: "/lovable-uploads/Окна/2880df95-8940-416b-90fe-8d815f8f4fff.png",
