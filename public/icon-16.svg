@@ -1,6 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16">
+  <!-- Маленькая версия фавикона -->
   <path fill="#dc2626" d="M8 2L2 6v8h12V6L8 2z"/>
   <rect fill="#ffffff" x="4" y="8" width="2" height="2"/>
   <rect fill="#ffffff" x="10" y="8" width="2" height="2"/>
   <rect fill="#8b0000" x="7" y="11" width="2" height="3"/>
+  <circle fill="#ffffff" cx="8" cy="12.5" r="0.3"/>
 </svg>
