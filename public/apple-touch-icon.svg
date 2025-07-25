@@ -1,27 +1,61 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180" width="180" height="180">
+  <!-- Красивый домик для Apple устройств -->
+  <defs>
+    <linearGradient id="appleHouseGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4F46E5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C3AED;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="appleRoofGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1E40AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3730A3;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="appleDoorGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#92400E;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#78350F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="appleWindowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F0F9FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E0F2FE;stop-opacity:1" />
+    </linearGradient>
+    <filter id="appleShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="4" dy="8" stdDeviation="6" flood-color="#000000" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+  
   <!-- Фон для Apple устройств -->
-  <rect width="180" height="180" fill="#ffffff" rx="20"/>
+  <rect width="180" height="180" fill="#FFFFFF" rx="25"/>
   
-  <!-- Красный домик на основе прикрепленного изображения -->
-  <path fill="#dc2626" d="M90 30L30 70v80h120V70L90 30z"/>
+  <!-- Тень дома -->
+  <ellipse cx="90" cy="165" rx="45" ry="8" fill="#1F2937" opacity="0.15"/>
   
-  <!-- Крыша с тенью -->
-  <path fill="#b91c1c" d="M90 30L20 72v-6L90 20L160 66v6L90 30z"/>
+  <!-- Основа дома с градиентом -->
+  <path fill="url(#appleHouseGradient)" filter="url(#appleShadow)" d="M90 30L30 70v80h120V70L90 30z"/>
   
-  <!-- Окна -->
-  <rect fill="#ffffff" x="50" y="90" width="20" height="20" rx="3"/>
-  <rect fill="#ffffff" x="110" y="90" width="20" height="20" rx="3"/>
+  <!-- Крыша с градиентом -->
+  <path fill="url(#appleRoofGradient)" d="M90 30L20 72v-6L90 20L160 66v6L90 30z"/>
+  
+  <!-- Дымоход -->
+  <rect x="130" y="25" width="8" height="25" fill="#1E293B" rx="2"/>
+  <rect x="128" y="20" width="12" height="8" fill="#374151" rx="2"/>
+  
+  <!-- Окна с градиентом -->
+  <rect fill="url(#appleWindowGradient)" x="50" y="90" width="20" height="20" rx="3" stroke="#CBD5E1" stroke-width="1"/>
+  <rect fill="url(#appleWindowGradient)" x="110" y="90" width="20" height="20" rx="3" stroke="#CBD5E1" stroke-width="1"/>
   
   <!-- Оконные рамы -->
-  <line stroke="#cccccc" stroke-width="2" x1="60" y1="90" x2="60" y2="110"/>
-  <line stroke="#cccccc" stroke-width="2" x1="50" y1="100" x2="70" y2="100"/>
-  <line stroke="#cccccc" stroke-width="2" x1="120" y1="90" x2="120" y2="110"/>
-  <line stroke="#cccccc" stroke-width="2" x1="110" y1="100" x2="130" y2="100"/>
+  <line stroke="#94A3B8" stroke-width="2" x1="60" y1="90" x2="60" y2="110"/>
+  <line stroke="#94A3B8" stroke-width="2" x1="50" y1="100" x2="70" y2="100"/>
+  <line stroke="#94A3B8" stroke-width="2" x1="120" y1="90" x2="120" y2="110"/>
+  <line stroke="#94A3B8" stroke-width="2" x1="110" y1="100" x2="130" y2="100"/>
   
-  <!-- Дверь -->
-  <rect fill="#8b0000" x="80" y="120" width="20" height="30" rx="3"/>
-  <circle fill="#ffffff" cx="92" cy="135" r="2"/>
+  <!-- Дверь с градиентом -->
+  <rect fill="url(#appleDoorGradient)" x="80" y="120" width="20" height="30" rx="3"/>
+  <circle fill="#FEF3C7" cx="92" cy="135" r="3"/>
   
   <!-- Дополнительные детали -->
-  <rect fill="#ffffff" x="85" y="125" width="10" height="5" rx="1"/>
+  <rect fill="#FEF3C7" x="85" y="125" width="10" height="5" rx="1"/>
+  
+  <!-- Декоративные элементы -->
+  <circle fill="#F59E0B" cx="30" cy="45" r="3" opacity="0.8"/>
+  <circle fill="#F59E0B" cx="150" cy="45" r="3" opacity="0.8"/>
 </svg>
