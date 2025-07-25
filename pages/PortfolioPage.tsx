@@ -5,6 +5,7 @@
 // Updated: 3 комбинированные фотографии перемещены в папку Двери
 // Cache fix: добавлен параметр ?v=2025 для принудительного обновления кеша
 // Mobile fix: английские названия папок для совместимости с мобильными устройствами
+// Mobile UX: улучшенные touch-события, большие кнопки и адаптивный дизайн
 
 import { useState } from "react";
 import Link from "next/link";
@@ -182,33 +183,36 @@ const PortfolioPage = () => {
           </div>
 
           {/* Фильтры по категориям */}
-          <div className="flex flex-wrap gap-4 mb-8">
+          <div className="flex flex-wrap gap-2 md:gap-4 mb-8">
             <button
               onClick={() => setSelectedCategory("Все")}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              onTouchEnd={() => setSelectedCategory("Все")}
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                 selectedCategory === "Все"
                   ? "bg-red-500 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300"
               }`}
             >
               Все работы ({portfolioImages.length})
             </button>
             <button
               onClick={() => setSelectedCategory("Окна")}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              onTouchEnd={() => setSelectedCategory("Окна")}
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                 selectedCategory === "Окна"
                   ? "bg-red-500 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300"
               }`}
             >
               Окна ({portfolioImages.filter(img => img.category === "Окна").length})
             </button>
             <button
               onClick={() => setSelectedCategory("Двери")}
-              className={`px-6 py-3 rounded-full font-medium transition-all duration-300 ${
+              onTouchEnd={() => setSelectedCategory("Двери")}
+              className={`px-4 md:px-6 py-2 md:py-3 rounded-full font-medium transition-all duration-300 text-sm md:text-base ${
                 selectedCategory === "Двери"
                   ? "bg-red-500 text-white shadow-lg"
-                  : "bg-gray-100 text-gray-700 hover:bg-gray-200"
+                  : "bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300"
               }`}
             >
               Двери ({portfolioImages.filter(img => img.category === "Двери").length})
@@ -220,18 +224,20 @@ const PortfolioPage = () => {
               <p className="text-xl text-gray-600">В выбранной категории пока нет работ</p>
             </div>
           ) : (
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
               {filteredImages.map((image, index) => (
                 <div 
                   key={index} 
-                  className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer"
+                  className="rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow cursor-pointer touch-manipulation"
                   onClick={() => openLightbox(image.src, image.alt)}
+                  onTouchEnd={() => openLightbox(image.src, image.alt)}
                 >
                   <div className="relative group">
                     <img 
                       src={image.src} 
                       alt={image.alt} 
-                      className="w-full h-64 object-cover"
+                      className="w-full h-48 md:h-64 object-cover"
+                      loading="lazy"
                       onError={(e) => {
                         const target = e.target as HTMLImageElement;
                         target.style.display = 'none';
@@ -245,9 +251,9 @@ const PortfolioPage = () => {
                         <div className="text-sm">Изображение загружается...</div>
                       </div>
                     </div>
-                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-opacity flex items-center justify-center">
-                      <span className="text-white opacity-0 group-hover:opacity-100 transition-opacity font-medium">
-                        Увеличить
+                    <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 group-active:bg-opacity-30 transition-opacity flex items-center justify-center">
+                      <span className="text-white opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity font-medium text-sm md:text-base">
+                        👆 Увеличить
                       </span>
                     </div>
                   </div>

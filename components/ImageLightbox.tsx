@@ -40,23 +40,35 @@ const ImageLightbox = ({ imageUrl, alt, onClose }: ImageLightboxProps) => {
   return (
     <div 
       ref={lightboxRef}
-      className="fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 animate-fade-in"
+      className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-2 md:p-4 animate-fade-in"
     >
-      <div className="relative max-w-6xl max-h-[90vh] w-full">
+      <div className="relative max-w-6xl max-h-[95vh] w-full h-full flex items-center justify-center">
+        {/* Кнопка закрытия - больше для мобильных */}
         <button 
-          className="absolute top-4 right-4 bg-white rounded-full p-2 transition-colors hover:bg-gray-200"
+          className="absolute top-2 right-2 md:top-4 md:right-4 bg-white rounded-full p-3 md:p-2 transition-colors hover:bg-gray-200 z-10 shadow-lg"
           onClick={onClose}
           aria-label="Close"
         >
-          <X className="h-6 w-6 text-black" />
+          <X className="h-8 w-8 md:h-6 md:w-6 text-black" />
         </button>
-        <div className="bg-white p-2 rounded-lg shadow-xl overflow-hidden">
+        
+        {/* Контейнер изображения */}
+        <div className="bg-white p-1 md:p-2 rounded-lg shadow-xl overflow-hidden max-w-full max-h-full">
           <img 
             src={imageUrl} 
             alt={alt} 
-            className="max-h-[80vh] max-w-full object-contain mx-auto"
+            className="max-h-[90vh] md:max-h-[80vh] max-w-full object-contain mx-auto"
+            style={{ maxWidth: '100vw', maxHeight: '90vh' }}
           />
         </div>
+        
+        {/* Дополнительная кнопка закрытия внизу для мобильных */}
+        <button 
+          className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white rounded-full px-6 py-2 transition-colors hover:bg-gray-200 z-10 shadow-lg md:hidden"
+          onClick={onClose}
+        >
+          <span className="text-black font-medium">Закрыть</span>
+        </button>
       </div>
     </div>
   );
