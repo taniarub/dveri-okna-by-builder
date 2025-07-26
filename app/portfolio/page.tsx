@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import PortfolioPage from "@/pages/PortfolioPage"
+import PortfolioPage from "./components/PortfolioPage"
 import { pageMetadata, generateWebPageStructuredData } from '@/lib/seo'
 
 export const metadata: Metadata = {
