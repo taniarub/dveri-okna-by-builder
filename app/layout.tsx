@@ -46,12 +46,12 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Окна и двери ПВХ" />
         <meta name="application-name" content="Окна и двери ПВХ" />
         
-        {/* Иконки домика для всех устройств */}
+        {/* Favicon configuration */}
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="icon" href="/icon-16.svg" type="image/svg+xml" sizes="16x16" />
-        <link rel="icon" href="/favicon.ico" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.svg" sizes="180x180" />
-        <link rel="shortcut icon" href="/favicon.ico" />
         
         <script
           type="application/ld+json"
@@ -114,3 +114,4 @@ export default function RootLayout({
 // New house icon favicon deploy - Mon Jan 13 2025 20:30:00 +03
 // Updated favicon based on attached image - Mon Jan 13 2025 21:00:00 +03
 // Beautiful gradient house favicon - Mon Jan 13 2025 21:15:00 +03
+// Updated favicon.ico with user's custom icon - Mon Jan 13 2025 21:30:00 +03
