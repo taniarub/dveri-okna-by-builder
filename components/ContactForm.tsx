@@ -1,8 +1,54 @@
 
-import React from 'react';
+'use client'
+
+import React, { useState } from 'react';
 import Link from 'next/link';
 
 const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert('Сообщение отправлено успешно! Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', email: '', phone: '', message: '' });
+      } else {
+        alert('Ошибка при отправке сообщения. Попробуйте еще раз.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('Ошибка при отправке сообщения. Попробуйте еще раз.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
@@ -84,13 +130,15 @@ const ContactForm = () => {
           
           {/* Contact Form */}
           <div className="bg-white p-8 rounded-lg shadow-sm">
-            <form action="https://submit-form.com/esY14v503" method="POST" className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-medium">Ваше имя</label>
                 <input 
                   type="text" 
                   id="name" 
                   name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше имя"
                   required
@@ -103,6 +151,8 @@ const ContactForm = () => {
                   type="email" 
                   id="email" 
                   name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="your@email.com"
                   required
@@ -115,6 +165,8 @@ const ContactForm = () => {
                   type="tel" 
                   id="phone" 
                   name="phone"
+                  value={formData.phone}
+                  onChange={handleInputChange}
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="+375 XX XXX XX XX"
                   required
@@ -126,6 +178,8 @@ const ContactForm = () => {
                 <textarea 
                   id="message" 
                   name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   rows={4} 
                   className="w-full p-3 border rounded-md focus:ring focus:border-brand-blue" 
                   placeholder="Введите ваше сообщение"
@@ -135,9 +189,10 @@ const ContactForm = () => {
               
               <button 
                 type="submit" 
-                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full"
+                disabled={isSubmitting}
+                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Отправить заявку
+                {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
               </button>
               
               <p className="text-sm text-gray-500 mt-4">

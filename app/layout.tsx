@@ -46,12 +46,14 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Окна и двери ПВХ" />
         <meta name="application-name" content="Окна и двери ПВХ" />
         
-        {/* Favicon configuration */}
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
-        <link rel="icon" href="/icon-16.svg" type="image/svg+xml" sizes="16x16" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.svg" sizes="180x180" />
+        {/* Favicon configuration - обновленная для корректного отображения в Яндексе и Google */}
+        <link rel="icon" href="/favicon.ico?v=4" type="image/x-icon" />
+        <link rel="shortcut icon" href="/favicon.ico?v=4" type="image/x-icon" />
+        {/* Специальный тег для Яндекса */}
+        <link rel="yandex-tableau-widget" href="/favicon.ico?v=4" />
+        {/* Специальные теги для Google */}
+        <link rel="apple-touch-icon" href="/favicon.ico?v=4" />
+        <meta name="google" content="notranslate" />
         
         <script
           type="application/ld+json"

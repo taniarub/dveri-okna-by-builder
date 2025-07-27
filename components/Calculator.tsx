@@ -115,7 +115,7 @@ const Calculator = () => {
     return total;
   };
 
-  const nextStep = () => {
+  const nextStep = async () => {
     if (step === 1 && !windowType) {
       toast({
         title: "Ошибка",
@@ -148,18 +148,49 @@ const Calculator = () => {
       }
       
       // Form submission logic
-      toast({
-        title: "Заявка отправлена",
-        description: "Мы свяжемся с вами в ближайшее время",
-      });
-      
-      // Reset form
-      setStep(1);
-      setWindowType("");
-      setFrameTypes([]);
-      setDimensions({ width: "", height: "" });
-      setOptions([]);
-      setContactInfo({ name: "", phone: "", consent: false });
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: contactInfo.name,
+            phone: contactInfo.phone,
+            message: `Заявка с калькулятора: ${windowType}, размеры: ${dimensions.width}мм x ${dimensions.height}мм, опции: ${options.join(", ") || "нет"}, примерная стоимость: ${estimatedPrice} руб.`
+          }),
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+          toast({
+            title: "Заявка отправлена",
+            description: "Мы свяжемся с вами в ближайшее время",
+          });
+          
+          // Reset form
+          setStep(1);
+          setWindowType("");
+          setFrameTypes([]);
+          setDimensions({ width: "", height: "" });
+          setOptions([]);
+          setContactInfo({ name: "", phone: "", consent: false });
+        } else {
+          toast({
+            title: "Ошибка",
+            description: "Ошибка при отправке заявки. Попробуйте еще раз.",
+            variant: "destructive"
+          });
+        }
+      } catch (error) {
+        console.error('Error:', error);
+        toast({
+          title: "Ошибка",
+          description: "Ошибка при отправке заявки. Попробуйте еще раз.",
+          variant: "destructive"
+        });
+      }
       return;
     }
 

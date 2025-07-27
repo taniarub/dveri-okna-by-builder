@@ -69,7 +69,7 @@ const WindowConfigurationForm = () => {
     }).join("\n\n");
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     // Validate all windows
@@ -111,27 +111,54 @@ const WindowConfigurationForm = () => {
       return;
     }
     
-    // Submit the form (submit-form.com will handle the actual submission)
-    const form = e.target as HTMLFormElement;
-    form.submit();
-    
-    toast({
-      title: "Заявка отправлена",
-      description: "Мы свяжемся с вами в ближайшее время",
-    });
-    
-    // Reset form
-    setWindows([{
-      windowType: "",
-      frameTypes: [],
-      dimensions: { width: "", height: "" },
-      options: []
-    }]);
-    setContactInfo({ name: "", phone: "", consent: false });
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: contactInfo.name,
+          phone: contactInfo.phone,
+          windows_configuration: formatWindowsData()
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Заявка отправлена",
+          description: "Мы свяжемся с вами в ближайшее время",
+        });
+        
+        // Reset form
+        setWindows([{
+          windowType: "",
+          frameTypes: [],
+          dimensions: { width: "", height: "" },
+          options: []
+        }]);
+        setContactInfo({ name: "", phone: "", consent: false });
+      } else {
+        toast({
+          title: "Ошибка",
+          description: "Ошибка при отправке заявки. Попробуйте еще раз.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      toast({
+        title: "Ошибка",
+        description: "Ошибка при отправке заявки. Попробуйте еще раз.",
+        variant: "destructive"
+      });
+    }
   };
 
   return (
-    <form action="https://submit-form.com/esY14v503" method="POST" onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit}>
       <div className="bg-white p-8 rounded-lg shadow-sm">
         {windows.map((window, windowIndex) => (
           <WindowConfigurationItem
