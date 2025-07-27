@@ -18,134 +18,134 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
   // ОКНА
   {
     src: "/lovable-uploads/windows/c28c989c-3309-4eb0-9ef8-2cd5e9c2acec.png?v=2025",
-    alt: "Белые пластиковые окна ПВХ различных размеров",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/1bbbaca7-93c1-444c-80b5-5d32d9176822.png?v=2025",
-    alt: "Пластиковые окна ПВХ в деревянном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/70427fce-56ad-45ce-a8b6-6c38c45490fd.png?v=2025",
-    alt: "Коричневые деревянные окна в каменном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/1e8ee32d-0fd5-433d-ae08-d7dbe2c80d53.png?v=2025",
-    alt: "Черные пластиковые окна в кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/a870395e-92a4-45c4-b768-8a67a516e22b.png?v=2025",
-    alt: "Серые пластиковые окна в белом кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/bc50b004-a5da-4933-b08d-308e4e721760.png?v=2025",
-    alt: "Темные окна в белом кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/0ff6a3ce-ad45-46a5-81cb-dc3fb9b3617b.png?v=2025",
-    alt: "Три белых окна в зеленом деревянном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/a662a934-24ed-4cac-8191-15134efd4c0e.png?v=2025",
-    alt: "Темные окна с декоративными элементами в кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/bca390b2-69a1-4634-acfe-9ebf4b324d1f.png?v=2025",
-    alt: "Белые пластиковые окна в кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/4b4a93b2-840a-4843-aeff-57513faa3e3d.png?v=2025",
-    alt: "Коричневые деревянные окна в бревенчатом доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/8e2b30d3-c283-4178-946d-e7b78968f2c5.png?v=2025",
-    alt: "Белые пластиковые окна в кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/2e7b11a4-8e01-48d9-9eb0-f6b0a0311d1b.png?v=2025",
-    alt: "Белые окна с арочным дизайном в производстве",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/doors/072e5201-cf25-4290-8c68-000e30a7463f.png?v=2025",
-    alt: "Белые пластиковые окна и двери в процессе установки",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/a3fee1b6-658f-4052-a7f3-ff07a86a0101.png?v=2025",
-    alt: "Белые окна и двери на балконе",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/ade91ed9-baa1-4c74-88ce-f33e1ff0727f.png?v=2025",
-    alt: "Большие белые окна и двери на кирпичном доме",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/windows/2880df95-8940-416b-90fe-8d815f8f4fff.png?v=2025",
-    alt: "Темные окна и дверь в каменном доме",
+    alt: "",
     category: "Окна"
   },
   {
     src: "/lovable-uploads/windows/7dd23bd1-624f-4386-b886-d867e990faae.png?v=2025",
-    alt: "Белые пластиковые окна и двери в кирпичном доме",
+    alt: "",
     category: "Окна"
   },
   
   // ДВЕРИ
   {
     src: "/lovable-uploads/doors/926930bf-2f14-4680-a760-9ab3f3ad6f59.png?v=2025",
-    alt: "Белые пластиковые двери с многокамерным остеклением",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/acf01a73-d054-48e2-b15f-81d2264f566b.png?v=2025",
-    alt: "Белые пластиковые двери с тремя створками",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/f94c3198-586f-4be8-bf09-dda086360082.png?v=2025",
-    alt: "Белая пластиковая дверь с комбинированным остеклением",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/5c3bc3b9-f688-460e-9078-b5f0ecd17014.png?v=2025",
-    alt: "Темная входная дверь в строящемся доме",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/e9d0f43b-560e-4788-a121-f74e6614f06c.png?v=2025",
-    alt: "Коричневая пластиковая дверь с тремя панелями в процессе установки",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/c4a41f14-224b-4b89-80ee-eb94e6134070.png?v=2025",
-    alt: "Черная входная дверь с горизонтальными стеклянными вставками",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/5d86d7a2-3aac-4bed-9ebd-cdeeb3f2004d.png?v=2025",
-    alt: "Черная входная дверь с большими стеклянными панелями",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/7899a64a-10e8-4780-ae70-2df0a061ad79.png?v=2025",
-    alt: "Белые пластиковые двери с защитной пленкой",
+    alt: "",
     category: "Двери"
   },
   {
     src: "/lovable-uploads/doors/12ef9963-23c6-4f38-8b39-31aa4c9f7f71.png?v=2025",
-    alt: "Белая пластиковая дверь с множественными стеклянными панелями",
+    alt: "",
     category: "Двери"
   }
 ];
@@ -263,36 +263,13 @@ const PortfolioPage = () => {
                   </div>
                   <div className="p-3 md:p-4">
                     <div className="text-xs md:text-sm text-gray-500 mb-1">{image.category}</div>
-                    <div className="text-sm md:text-base text-gray-700 line-clamp-2">{image.alt}</div>
                   </div>
                 </div>
               ))}
             </div>
           )}
 
-          {/* Дополнительная информация для мобильных */}
-          <div className="mt-8 md:mt-12 text-center">
-            <div className="bg-gray-50 rounded-lg p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-2">Нужна консультация?</h3>
-              <p className="text-sm md:text-base text-gray-600 mb-4">
-                Свяжитесь с нами для расчета стоимости ваших окон и дверей
-              </p>
-              <div className="flex flex-col sm:flex-row gap-3 justify-center">
-                <a 
-                  href="tel:+375291234567" 
-                  className="bg-red-500 hover:bg-red-600 text-white font-medium px-6 py-3 rounded-full transition-colors text-sm md:text-base min-h-[44px] flex items-center justify-center"
-                >
-                  📞 Позвонить
-                </a>
-                <Link 
-                  href="/calculator" 
-                  className="bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium px-6 py-3 rounded-full transition-colors text-sm md:text-base min-h-[44px] flex items-center justify-center"
-                >
-                  🧮 Калькулятор
-                </Link>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
       <Footer />

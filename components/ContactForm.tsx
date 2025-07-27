@@ -12,6 +12,10 @@ const ContactForm = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [notification, setNotification] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -21,9 +25,28 @@ const ContactForm = () => {
     }));
   };
 
+  const showNotification = (type: 'success' | 'error', message: string) => {
+    setNotification({ type, message });
+    setTimeout(() => setNotification({ type: null, message: '' }), 5000);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setNotification({ type: null, message: '' });
+
+    // Валидация на клиенте
+    if (!formData.name.trim() || formData.name.trim().length < 2) {
+      showNotification('error', 'Имя должно содержать минимум 2 символа');
+      setIsSubmitting(false);
+      return;
+    }
+
+    if (!formData.phone.trim() || formData.phone.trim().length < 10) {
+      showNotification('error', 'Телефон должен содержать минимум 10 символов');
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const response = await fetch('/api/contact', {
@@ -37,14 +60,14 @@ const ContactForm = () => {
       const result = await response.json();
 
       if (result.success) {
-        alert('Сообщение отправлено успешно! Мы свяжемся с вами в ближайшее время.');
+        showNotification('success', 'Сообщение отправлено успешно! Мы свяжемся с вами в ближайшее время.');
         setFormData({ name: '', email: '', phone: '', message: '' });
       } else {
-        alert('Ошибка при отправке сообщения. Попробуйте еще раз.');
+        showNotification('error', result.message || 'Ошибка при отправке сообщения. Попробуйте еще раз.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('Ошибка при отправке сообщения. Попробуйте еще раз.');
+      showNotification('error', 'Ошибка сети. Проверьте подключение к интернету и попробуйте еще раз.');
     } finally {
       setIsSubmitting(false);
     }
@@ -52,14 +75,7 @@ const ContactForm = () => {
   return (
     <section id="contact" className="bg-[#FFF5EC] py-16 md:py-20">
       <div className="container">
-        <div className="text-center mb-12">
-          <div className="bg-gradient-to-r from-teal-500 via-cyan-500 to-blue-500 transform -skew-x-12 px-8 py-4 inline-block shadow-2xl rounded-xl border border-white/20">
-            <h2 className="text-3xl md:text-4xl font-bold transform skew-x-12 text-white">
-              Нужна консультация?<br />
-              Перезвоним в удобное время!
-            </h2>
-          </div>
-        </div>
+
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {/* Contact Information */}
@@ -129,7 +145,43 @@ const ContactForm = () => {
           </div>
           
           {/* Contact Form */}
-          <div className="bg-white p-8 rounded-lg shadow-sm">
+          <div className="bg-white p-8 rounded-lg shadow-sm relative">
+            {/* Notification */}
+            {notification.type && (
+              <div className={`absolute top-4 right-4 p-4 rounded-lg shadow-lg z-10 max-w-sm ${
+                notification.type === 'success' 
+                  ? 'bg-green-100 border border-green-400 text-green-700' 
+                  : 'bg-red-100 border border-red-400 text-red-700'
+              }`}>
+                <div className="flex items-center">
+                  <div className="flex-shrink-0">
+                    {notification.type === 'success' ? (
+                      <svg className="h-5 w-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                    ) : (
+                      <svg className="h-5 w-5 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                  <div className="ml-3">
+                    <p className="text-sm font-medium">{notification.message}</p>
+                  </div>
+                  <div className="ml-auto pl-3">
+                    <button
+                      onClick={() => setNotification({ type: null, message: '' })}
+                      className="inline-flex text-gray-400 hover:text-gray-600"
+                    >
+                      <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
+            
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block mb-2 font-medium">Ваше имя</label>
@@ -190,9 +242,19 @@ const ContactForm = () => {
               <button 
                 type="submit" 
                 disabled={isSubmitting}
-                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed"
+                className="bg-brand-orange text-white px-8 py-3 rounded-md hover:bg-[#e69816] transition-colors w-full disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center"
               >
-                {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+                {isSubmitting ? (
+                  <>
+                    <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Отправка...
+                  </>
+                ) : (
+                  'Отправить заявку'
+                )}
               </button>
               
               <p className="text-sm text-gray-500 mt-4">

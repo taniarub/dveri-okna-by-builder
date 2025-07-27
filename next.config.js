@@ -6,7 +6,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  output: 'export',
+  // Убираем output: 'export' чтобы API роуты работали
   trailingSlash: true,
   distDir: 'dist',
 }
