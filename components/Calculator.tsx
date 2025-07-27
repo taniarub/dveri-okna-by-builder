@@ -15,6 +15,19 @@ const Calculator = () => {
   const [contactInfo, setContactInfo] = useState({ name: "", phone: "", consent: false });
   const [estimatedPrice, setEstimatedPrice] = useState(0);
 
+  // Функция перевода опций на русский
+  const translateOptions = (options: string[]): string => {
+    const translations: { [key: string]: string } = {
+      'mosquito': 'Москитная сетка',
+      'drain': 'Отлив',
+      'sill': 'Подоконник',
+      'none': 'Ничего из перечисленного'
+    };
+    
+    if (options.length === 0) return "нет";
+    return options.map(option => translations[option] || option).join(", ");
+  };
+
   const getWindowCount = (type: string) => {
     switch (type) {
       case "one-leaf":
@@ -157,7 +170,7 @@ const Calculator = () => {
           body: JSON.stringify({
             name: contactInfo.name,
             phone: contactInfo.phone,
-            message: `Заявка с калькулятора: ${windowType}, размеры: ${dimensions.width}мм x ${dimensions.height}мм, опции: ${options.join(", ") || "нет"}, примерная стоимость: ${estimatedPrice} руб.`
+            message: `Заявка с калькулятора: ${windowType}, размеры: ${dimensions.width}мм x ${dimensions.height}мм, опции: ${translateOptions(options)}, примерная стоимость: ${estimatedPrice} руб.`
           }),
         });
 

@@ -4,6 +4,19 @@ import { NextRequest, NextResponse } from 'next/server';
 const TELEGRAM_BOT_TOKEN = '7974395055:AAEAjacUbgE6cq77I6h_PItbWLyCgbOx1cE';
 const TELEGRAM_CHAT_ID = '-1002709982809'; // ID вашей группы (обновлено)
 
+// Словарь для перевода технических названий на русский
+const translateOptions = (options: string[]): string => {
+  const translations: { [key: string]: string } = {
+    'mosquito': 'Москитная сетка',
+    'drain': 'Отлив',
+    'sill': 'Подоконник',
+    'none': 'Ничего из перечисленного',
+    'description': 'Описание'
+  };
+  
+  return options.map(option => translations[option] || option).join(", ");
+};
+
 export async function POST(request: NextRequest) {
   try {
     // Диагностика - выводим настройки
@@ -24,7 +37,16 @@ export async function POST(request: NextRequest) {
     if (message) telegramMessage += `💬 *Сообщение:* ${message}\n`;
     
     if (windows_configuration) {
-      telegramMessage += `\n🏠 *Конфигурация окон:*\n${windows_configuration}\n`;
+      // Переводим технические названия на русский
+      let translatedConfiguration = windows_configuration;
+      
+      // Заменяем технические названия опций на русские
+      translatedConfiguration = translatedConfiguration.replace(/mosquito/g, 'Москитная сетка');
+      translatedConfiguration = translatedConfiguration.replace(/drain/g, 'Отлив');
+      translatedConfiguration = translatedConfiguration.replace(/sill/g, 'Подоконник');
+      translatedConfiguration = translatedConfiguration.replace(/none/g, 'Ничего из перечисленного');
+      
+      telegramMessage += `\n🏠 *Конфигурация окон:*\n${translatedConfiguration}\n`;
     }
 
     telegramMessage += `\n⏰ *Время:* ${new Date().toLocaleString('ru-RU', { timeZone: 'Europe/Minsk' })}`;

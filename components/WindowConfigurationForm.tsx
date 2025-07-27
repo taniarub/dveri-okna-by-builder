@@ -28,6 +28,20 @@ const WindowConfigurationForm = () => {
   }]);
   const [contactInfo, setContactInfo] = useState<ContactInfo>({ name: "", phone: "", consent: false });
 
+  // Функция перевода опций на русский
+  const translateOptions = (options: string[]): string => {
+    const translations: { [key: string]: string } = {
+      'mosquito': 'Москитная сетка',
+      'drain': 'Отлив',
+      'sill': 'Подоконник',
+      'none': 'Ничего из перечисленного',
+      'description': 'Описание'
+    };
+    
+    if (options.length === 0) return "Нет";
+    return options.map(option => translations[option] || option).join(", ");
+  };
+
   const handleWindowChange = (index: number, updatedWindow: WindowConfig) => {
     const updatedWindows = [...windows];
     updatedWindows[index] = updatedWindow;
@@ -65,7 +79,7 @@ const WindowConfigurationForm = () => {
       return `Окно #${index + 1}:
 Тип: ${windowTypeNames[window.windowType as keyof typeof windowTypeNames] || window.windowType}
 Размеры: ${window.dimensions.width}мм x ${window.dimensions.height}мм
-Опции: ${window.options.length > 0 ? window.options.join(", ") : "Нет"}`;
+Опции: ${translateOptions(window.options)}`;
     }).join("\n\n");
   };
 
