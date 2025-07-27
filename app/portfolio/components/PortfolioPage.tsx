@@ -200,7 +200,7 @@ const PortfolioPage = () => {
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300"
               }`}
             >
-              Все работы ({portfolioImages.length})
+              Все работы
             </button>
             <button
               key="windows"
@@ -211,7 +211,7 @@ const PortfolioPage = () => {
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300"
               }`}
             >
-              Окна ({portfolioImages.filter(img => img.category === "Окна").length})
+              Окна
             </button>
             <button
               key="doors"
@@ -222,7 +222,7 @@ const PortfolioPage = () => {
                   : "bg-gray-100 text-gray-700 hover:bg-gray-200 active:bg-gray-300"
               }`}
             >
-              Двери ({portfolioImages.filter(img => img.category === "Двери").length})
+              Двери
             </button>
           </div>
 

@@ -87,10 +87,12 @@ export async function POST(request: NextRequest) {
     console.error('Error sending message:', error);
     console.error('==================');
     
+    const errorMessage = error instanceof Error ? error.message : 'Неизвестная ошибка';
+    
     return NextResponse.json(
       { 
         success: false, 
-        message: 'Ошибка при отправке сообщения: ' + error.message 
+        message: 'Ошибка при отправке сообщения: ' + errorMessage
       },
       { status: 500 }
     );
