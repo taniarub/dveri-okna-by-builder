@@ -1,8 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Настройки Telegram бота
+// Настройки Telegram бота (токен публичный для работы на продакшн)
 const TELEGRAM_BOT_TOKEN = '7974395055:AAEAjacUbgE6cq77I6h_PItbWLyCgbOx1cE';
 const TELEGRAM_CHAT_ID = '-1002709982809';
+
+// Временный режим отладки (установите в true для отключения Telegram)
+const DEBUG_MODE = false; // Отключаем режим отладки для продакшн
 
 // Словарь для перевода технических названий на русский
 const translateOptions = (options: string[]): string => {
@@ -36,6 +39,9 @@ export async function POST(request: NextRequest) {
   try {
     console.log('=== CONTACT FORM SUBMISSION ===');
     console.log('Time:', new Date().toISOString());
+    console.log('DEBUG_MODE:', DEBUG_MODE);
+    console.log('TELEGRAM_BOT_TOKEN:', TELEGRAM_BOT_TOKEN);
+    console.log('TELEGRAM_CHAT_ID:', TELEGRAM_CHAT_ID);
 
     // Проверяем метод запроса
     if (request.method !== 'POST') {
@@ -69,6 +75,31 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // В режиме отладки пропускаем отправку в Telegram
+    if (DEBUG_MODE) {
+      console.log('=== SUCCESS (DEBUG MODE) ===');
+      console.log('Form data validated successfully');
+      console.log('Name:', name);
+      console.log('Phone:', phone);
+      console.log('Email:', email || 'Не указан');
+      console.log('Message:', message || 'Не указано');
+      console.log('Windows config:', windows_configuration || 'Не указано');
+      
+      return NextResponse.json({ 
+        success: true, 
+        message: 'Сообщение отправлено успешно! (режим отладки - Telegram отключен)',
+        debug: {
+          receivedData: {
+            name: name.trim(),
+            phone: phone.trim(),
+            email: email?.trim() || null,
+            message: message?.trim() || null,
+            windows_configuration: windows_configuration || null
+          }
+        }
+      });
+    }
+
     // Формируем сообщение для Telegram
     let telegramMessage = `🔔 *Новая заявка с сайта*\n\n`;
     
@@ -94,15 +125,17 @@ export async function POST(request: NextRequest) {
 
     console.log('=== SENDING TO TELEGRAM ===');
     console.log('Message length:', telegramMessage.length);
+    console.log('Telegram URL:', `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`);
 
     // Отправляем сообщение в Telegram с таймаутом
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 секунд таймаут
+    const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 секунд таймаут
 
     const telegramResponse = await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
+        'User-Agent': 'Dverivokna-Contact-Form/1.0'
       },
       body: JSON.stringify({
         chat_id: TELEGRAM_CHAT_ID,

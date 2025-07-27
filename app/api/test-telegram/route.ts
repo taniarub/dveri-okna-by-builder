@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-// Настройки Telegram бота
+// Настройки Telegram бота (токен публичный для работы на продакшн)
 const TELEGRAM_BOT_TOKEN = '7974395055:AAEAjacUbgE6cq77I6h_PItbWLyCgbOx1cE';
 const TELEGRAM_CHAT_ID = '-1002709982809';
 
