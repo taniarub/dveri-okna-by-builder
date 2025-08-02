@@ -41,7 +41,7 @@ const ContactInfo = () => {
           {/* Contact Information */}
           <div 
             ref={sectionRef}
-            className="opacity-0 transition-all duration-1000 bg-white p-8 md:p-12 rounded-lg border border-gray-200"
+            className="opacity-0 transition-all duration-1000 bg-white p-8 md:p-12 rounded-lg"
           >
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Телефоны */}
@@ -119,7 +119,7 @@ const ContactInfo = () => {
             </div>
             
             {/* Социальные сети */}
-            <div className="mt-8 pt-6 border-t border-gray-200">
+            <div className="mt-8 pt-6">
               <h4 className="text-center font-semibold text-lg text-gray-900 mb-4">Мы в соцсетях</h4>
               <div className="flex space-x-4 items-center justify-center">
                 <a 
