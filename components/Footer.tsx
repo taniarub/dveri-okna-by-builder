@@ -1,4 +1,6 @@
 
+import Link from 'next/link';
+
 const Footer = () => {
   return (
     <div className="bg-brand-darkblue text-white">
@@ -43,8 +45,13 @@ const Footer = () => {
           <div className="mb-2">
             © 2023 Dverivokna. Все права защищены.
           </div>
-          <div className="text-xs text-gray-500">
+          <div className="text-xs text-gray-500 mb-4">
             ИП Рублевский В.В. | УНП 490628239
+          </div>
+          <div className="text-xs text-gray-500">
+            <Link href="/privacy" className="hover:text-white transition-colors">
+              Политика обработки персональных данных
+            </Link>
           </div>
         </div>
       </div>
