@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     } catch (parseError) {
       console.error('JSON parse error:', parseError);
       return NextResponse.json(
-        { success: false, message: 'Неверный формат данных', error: parseError.message },
+        { success: false, message: 'Неверный формат данных', error: parseError instanceof Error ? parseError.message : String(parseError) },
         { status: 400 }
       );
     }
@@ -74,15 +74,15 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('=== DEBUG ERROR ===');
-    console.error('Error type:', error.constructor.name);
-    console.error('Error message:', error.message);
-    console.error('Error stack:', error.stack);
+    console.error('Error type:', error instanceof Error ? error.constructor.name : typeof error);
+    console.error('Error message:', error instanceof Error ? error.message : String(error));
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
     
     return NextResponse.json(
       { 
         success: false, 
         message: 'Внутренняя ошибка сервера',
-        error: error.message
+        error: error instanceof Error ? error.message : String(error)
       },
       { status: 500 }
     );

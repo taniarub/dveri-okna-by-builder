@@ -86,9 +86,9 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('=== EMAIL API ERROR ===');
-    console.error('Error type:', error.constructor.name);
-    console.error('Error message:', error.message);
-    console.error('Error stack:', error.stack);
+    console.error('Error type:', error instanceof Error ? error.constructor.name : typeof error);
+    console.error('Error message:', error instanceof Error ? error.message : String(error));
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
     
     return NextResponse.json(
       { 

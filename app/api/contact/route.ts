@@ -167,20 +167,22 @@ export async function POST(request: NextRequest) {
 
   } catch (error) {
     console.error('=== ERROR ===');
-    console.error('Error type:', error.constructor.name);
-    console.error('Error message:', error.message);
-    console.error('Error stack:', error.stack);
+    console.error('Error type:', error instanceof Error ? error.constructor.name : typeof error);
+    console.error('Error message:', error instanceof Error ? error.message : String(error));
+    console.error('Error stack:', error instanceof Error ? error.stack : 'No stack trace');
     
     let errorMessage = 'Неизвестная ошибка';
     
-    if (error.name === 'AbortError') {
-      errorMessage = 'Превышено время ожидания ответа от сервера';
-    } else if (error.message.includes('Telegram API error')) {
-      errorMessage = 'Ошибка отправки в Telegram. Попробуйте позже.';
-    } else if (error.message.includes('fetch')) {
-      errorMessage = 'Ошибка сети. Проверьте подключение к интернету.';
-    } else {
-      errorMessage = error.message || 'Внутренняя ошибка сервера';
+    if (error instanceof Error) {
+      if (error.name === 'AbortError') {
+        errorMessage = 'Превышено время ожидания ответа от сервера';
+      } else if (error.message.includes('Telegram API error')) {
+        errorMessage = 'Ошибка отправки в Telegram. Попробуйте позже.';
+      } else if (error.message.includes('fetch')) {
+        errorMessage = 'Ошибка сети. Проверьте подключение к интернету.';
+      } else {
+        errorMessage = error.message || 'Внутренняя ошибка сервера';
+      }
     }
     
     return NextResponse.json(
