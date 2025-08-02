@@ -1,8 +1,8 @@
 'use client'
 
 // Portfolio organization by categories - Mon Jan 13 2025 20:45:00 +03
-// Фотографии организованы по папкам: Окна (14 шт) и Двери (12 шт)
-// Updated: 3 комбинированные фотографии перемещены в папку Двери
+// Фотографии организованы по папкам: Окна и Двери
+// Updated: комбинированные фотографии перемещены в папку Двери
 // Cache fix: добавлен параметр ?v=2025 для принудительного обновления кеша
 // Mobile fix: английские названия папок для совместимости с мобильными устройствами
 // Mobile UX: улучшенные touch-события, большие кнопки и адаптивный дизайн
@@ -27,9 +27,9 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     category: "Окна"
   },
   {
-    src: "/lovable-uploads/windows/70427fce-56ad-45ce-a8b6-6c38c45490fd.png?v=2025",
+    src: "/lovable-uploads/doors/70427fce-56ad-45ce-a8b6-6c38c45490fd.png?v=2025",
     alt: "",
-    category: "Окна"
+    category: "Двери"
   },
   {
     src: "/lovable-uploads/windows/1e8ee32d-0fd5-433d-ae08-d7dbe2c80d53.png?v=2025",
@@ -92,9 +92,9 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     category: "Двери"
   },
   {
-    src: "/lovable-uploads/windows/2880df95-8940-416b-90fe-8d815f8f4fff.png?v=2025",
+    src: "/lovable-uploads/doors/2880df95-8940-416b-90fe-8d815f8f4fff.png?v=2025",
     alt: "",
-    category: "Окна"
+    category: "Двери"
   },
   {
     src: "/lovable-uploads/windows/7dd23bd1-624f-4386-b886-d867e990faae.png?v=2025",
@@ -147,6 +147,56 @@ const portfolioImages: Array<{src: string; alt: string; category: string}> = [
     src: "/lovable-uploads/doors/12ef9963-23c6-4f38-8b39-31aa4c9f7f71.png?v=2025",
     alt: "",
     category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/первая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/вторая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/третья.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/пятая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/шестая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/седьмая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/восьмая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/девятая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/десятая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
+  },
+  {
+    src: "/lovable-uploads/Двери/одиннадцатая.jpeg?v=2025",
+    alt: "",
+    category: "Двери"
   }
 ];
 
@@ -189,7 +239,7 @@ const PortfolioPage = () => {
             </Link>
           </div>
 
-          {/* Фильтры по категориям */}
+          {/* Фильтры по категориям - без счетчиков */}
           <div className="flex flex-wrap gap-2 md:gap-4 mb-6 md:mb-8">
             <button
               key="all"
@@ -260,9 +310,6 @@ const PortfolioPage = () => {
                         👆 Увеличить
                       </span>
                     </div>
-                  </div>
-                  <div className="p-3 md:p-4">
-                    <div className="text-xs md:text-sm text-gray-500 mb-1">{image.category}</div>
                   </div>
                 </div>
               ))}
