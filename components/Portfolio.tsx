@@ -31,7 +31,7 @@ const Portfolio = () => {
   return (
     <section 
       id="projects" 
-      className="py-24 relative overflow-hidden min-h-[500px] bg-gradient-to-br from-[#FFF5EC] via-[#FFF9F3] to-[#FFEEE0]"
+      className="py-12 relative overflow-hidden min-h-[500px] bg-gradient-to-br from-[#FFF5EC] via-[#FFF9F3] to-[#FFEEE0]"
     >
       {/* Decorative background elements */}
       <div className="absolute inset-0 overflow-hidden">
